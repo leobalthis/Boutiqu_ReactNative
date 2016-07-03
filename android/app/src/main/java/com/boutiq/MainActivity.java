@@ -4,6 +4,7 @@ import com.facebook.react.ReactActivity;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.imagepicker.ImagePickerPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -40,7 +41,8 @@ public class MainActivity extends ReactActivity {
             new MainReactPackage(),
             new VectorIconsPackage(),
             new ReactMaterialKitPackage(),
-            new ImagePickerPackage()
+            new ImagePickerPackage(),
+            new FBSDKPackage()
         );
     }
 }
