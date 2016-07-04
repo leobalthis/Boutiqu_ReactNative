@@ -7,4 +7,4 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { Boutiq } from './app/components/boutiq/Boutiq';
-AppRegistry.registerComponent('Boutiq', () => Boutiq);
+AppRegistry.registerComponent('boutiq', () => Boutiq);
