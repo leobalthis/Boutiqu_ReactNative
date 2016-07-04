@@ -1,3 +1,10 @@
 <resources>
+<<<<<<< ea949b310fe95466c6e615588064f26e14411275
     <string name="app_name">boutiq</string>
+=======
+
+
+
+    <string name="app_name">Boutiq</string>
+>>>>>>> Boutiq main component, init with Navbar
 </resources>

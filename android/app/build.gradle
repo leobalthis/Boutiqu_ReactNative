@@ -126,6 +126,12 @@ android {
 }
 
 dependencies {
+<<<<<<< ea949b310fe95466c6e615588064f26e14411275
+=======
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-material-kit')
+    compile project(':react-native-image-picker')
+>>>>>>> Boutiq main component, init with Navbar
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules

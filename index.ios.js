@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+<<<<<<< ea949b310fe95466c6e615588064f26e14411275
 import {
   AppRegistry,
   StyleSheet,
@@ -51,3 +52,8 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('boutiq', () => boutiq);
+=======
+import { AppRegistry } from 'react-native';
+import { Boutiq } from './app/components/boutiq/Boutiq';
+AppRegistry.registerComponent('Boutiq', () => Boutiq);
+>>>>>>> Boutiq main component, init with Navbar
