@@ -6,12 +6,12 @@ import {
 import {
 	LoginButton,
 	AccessToken,
-	LoginManager
 } from 'react-native-fbsdk';
 
-
-
 export class Auth extends Component {
+  static propTypes = {
+    onLogin: React.PropTypes.func.isRequired,
+  }
   render() {
     return (
       <LoginButton
@@ -23,13 +23,8 @@ export class Auth extends Component {
             } else if (result.isCancelled) {
               alert("login is cancelled.");
             } else {
-              AccessToken.getCurrentAccessToken().then(
-                (data) => {
-                  alert('Yeeeeeeh, Welcome to Boutiq Travel :) ');
-
-                  // alert(data.accessToken.toString())
-                }
-              )
+              AccessToken.getCurrentAccessToken()
+              .then(this.props.onLogin);
             }
           }
         }
