@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 const NavBarSideMenu = props => (
   <TouchableHighlight
@@ -30,9 +31,14 @@ export class Home extends Component {
         <NavigationBar
           title={{title: "Boutiq"}}
           leftButton={<NavBarSideMenu {...this.props}/>} />
-        <View>
-          <Text>MAIN</Text>
-        </View>
+        <ScrollableTabView>
+          <View tabLabel="My Network">
+            <Text>My Network</Text>
+          </View>
+          <View tabLabel="Discover">
+            <Text>Discover</Text>
+          </View>
+        </ScrollableTabView>
       </View>
     );
   }
