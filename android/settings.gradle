@@ -1,9 +1,4 @@
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
 rootProject.name = 'boutiq'
-
-include ':app'
-=======
-rootProject.name = 'Boutiq'
 
 include ':app'
 include ':react-native-vector-icons'

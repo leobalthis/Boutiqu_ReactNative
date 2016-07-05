@@ -1,12 +1,9 @@
 package com.boutiq;
 
 import com.facebook.react.ReactActivity;
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
-=======
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.imagepicker.ImagePickerPackage;
->>>>>>> Boutiq main component, init with Navbar
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -21,11 +18,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
         return "boutiq";
-=======
-        return "Boutiq";
->>>>>>> Boutiq main component, init with Navbar
     }
 
     /**
@@ -44,14 +37,10 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
-            new MainReactPackage()
-=======
             new MainReactPackage(),
             new VectorIconsPackage(),
             new ReactMaterialKitPackage(),
             new ImagePickerPackage()
->>>>>>> Boutiq main component, init with Navbar
         );
     }
 }

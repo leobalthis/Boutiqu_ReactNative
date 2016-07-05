@@ -12,11 +12,7 @@ import {
   View
 } from 'react-native';
 
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
 class boutiq extends Component {
-=======
-class Boutiq extends Component {
->>>>>>> Boutiq main component, init with Navbar
   render() {
     return (
       <View style={styles.container}>
@@ -53,8 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
 AppRegistry.registerComponent('boutiq', () => boutiq);
-=======
-AppRegistry.registerComponent('Boutiq', () => Boutiq);
->>>>>>> Boutiq main component, init with Navbar

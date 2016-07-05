@@ -1,19 +1,11 @@
 {
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
   "name": "boutiq",
-=======
-  "name": "Boutiq",
->>>>>>> Boutiq main component, init with Navbar
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-<<<<<<< ea949b310fe95466c6e615588064f26e14411275
-    "react": "15.1.0",
-    "react-native": "0.28.0"
-=======
     "react": "15.2.0",
     "react-native": "0.28.0",
     "react-native-image-picker": "0.19.6",
@@ -24,6 +16,5 @@
     "react-native-smart-scroll-view": "1.3.6",
     "react-native-tab-navigator": "0.3.2",
     "react-native-vector-icons": "2.0.3"
->>>>>>> Boutiq main component, init with Navbar
   }
 }
