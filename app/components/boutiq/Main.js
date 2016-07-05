@@ -10,7 +10,7 @@ import { Home } from './Home';
 
 export class Main extends Component {
   render() {
-    const menu = <Menu />
+    const menu = <Menu {...this.props}/>
     return (
       <SideMenu
         menu={menu}
