@@ -3,7 +3,6 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import FBSDK from 'react-native-fbsdk';
 import {
 	LoginButton,
 	AccessToken,
