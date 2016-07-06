@@ -1,0 +1,44 @@
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableHighlight,
+} from 'react-native';
+import NavigationBar from 'react-native-navbar';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const NavBarSideMenu = props => (
+  <TouchableHighlight
+    onPress={props.openMenu}
+    style={{
+      justifyContent: "center",
+      padding: 10,
+    }}>
+    <Icon name="bars" size={20} color="#000" />
+  </TouchableHighlight>
+)
+
+NavBarSideMenu.propTypes = {
+  openMenu: React.PropTypes.func.isRequired,
+};
+
+export class MyLikes extends Component {
+  render() {
+    return (
+      <View style={styles.wrapper}>
+        <NavigationBar
+          title={{title: "My Likes"}}
+          leftButton={<NavBarSideMenu {...this.props}/>} />
+        <Text>My Likes</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#FFF',
+  },
+});

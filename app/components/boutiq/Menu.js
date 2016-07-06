@@ -6,10 +6,8 @@ import {
   Text,
   Image,
 } from 'react-native';
-
-import {
-	LoginManager,
-} from 'react-native-fbsdk';
+import { LoginManager } from 'react-native-fbsdk';
+import { MenuNav } from './MenuNav';
 
 export class Menu extends Component {
   static propTypes = {
@@ -23,6 +21,8 @@ export class Menu extends Component {
             height: 150,
           }}
           source={{uri: this.state.url}}></Image>*/}
+        <MenuNav routeId="home" {...this.props}/>
+        <MenuNav routeId="mylikes" label="My Likes" {...this.props}/>
         <TouchableHighlight onPress={()=>{
           LoginManager.logOut();
           this.props.onLogout();
