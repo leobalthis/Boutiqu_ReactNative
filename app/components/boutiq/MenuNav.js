@@ -4,6 +4,7 @@ import {
   TouchableHighlight,
   Text,
 } from 'react-native';
+import Styles from './Styles';
 
 export const MenuNav = ({changeView, routeId, label}) => {
   return (
@@ -26,7 +27,7 @@ export const MenuNav = ({changeView, routeId, label}) => {
 
 const styles = StyleSheet.create({
   menuItem: {
-    // fontSize: Styler.FONT_SIZE_TITLE,
+    fontSize: Styles.FONT_SIZE_TITLE,
     color: '#333',
     fontWeight: '500',
   },
