@@ -32,8 +32,7 @@ export class Boutiq extends Component {
         <View style={styles.container}>
           <ActivityIndicator
             animating={true}
-            size="large"
-          />
+            size='large'/>
         </View>
       );
     }
@@ -49,7 +48,7 @@ export class Boutiq extends Component {
     return (
       <View style={styles.container}>
         <Auth onLogin={(data)=>{
-          console.log("debug", data);
+          console.log('debug', data);
           this.setState({isAuthentified: true});
         }}/>
       </View>

@@ -7,16 +7,18 @@ import {
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
-var ScrollableTabView = require('react-native-scrollable-tab-view');
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import Styles from './Styles';
 
 const NavBarSideMenu = props => (
   <TouchableHighlight
     onPress={props.openMenu}
     style={{
-      justifyContent: "center",
+      justifyContent: 'center',
       padding: 10,
+      backgroundColor: Styles.COLOR_GREEN,
     }}>
-    <Icon name="bars" size={20} color="#000" />
+    <Icon name='bars' style={styles.icon} />
   </TouchableHighlight>
 )
 
@@ -29,13 +31,13 @@ export class Home extends Component {
     return (
       <View style={styles.wrapper}>
         <NavigationBar
-          title={{title: "Boutiq"}}
+          title={{title: 'Boutiq'}}
           leftButton={<NavBarSideMenu {...this.props}/>} />
-        <ScrollableTabView>
-          <View tabLabel="My Network">
+        <ScrollableTabView style={styles.tabs}>
+          <View tabLabel='My Network' style={styles.tabsContent}>
             <Text>My Network</Text>
           </View>
-          <View tabLabel="Discover">
+          <View tabLabel='Discover' style={styles.tabsContent}>
             <Text>Discover</Text>
           </View>
         </ScrollableTabView>
@@ -47,6 +49,18 @@ export class Home extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: Styles.COLOR_WHITE,
   },
+  icon: {
+    fontSize: 20,
+    color: Styles.COLOR_WHITE
+  },
+  tabs: {
+    backgroundColor: Styles.COLOR_GREEN,
+  },
+  tabsContent: {
+    borderBottomColor: Styles.COLOR_WHITE,
+    backgroundColor: Styles.COLOR_WHITE,
+    padding: 20,
+  }
 });
