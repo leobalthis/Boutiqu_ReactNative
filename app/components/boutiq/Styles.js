@@ -41,7 +41,7 @@ export default Styles = {
 
   //COLORS
   COLOR_GREY:         '#C7C7C7',
-  COLOR_LIGHT_GREY:   '#FFF',
+  COLOR_LIGHT_GREY:   '#DEDEDE',
   COLOR_GREEN:        '#50D2C2',
   COLOR_PINK:         '#FF3366',
   COLOR_WHITE:        '#FFF',

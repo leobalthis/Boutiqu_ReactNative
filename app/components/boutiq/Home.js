@@ -46,7 +46,7 @@ export class Home extends Component {
        style={styles.userImg} />
           <TextInput style={styles.textInput}
         onChangeText={(text) => this.setState({text})}
-        placeholder='Post a review'
+        placeholder='Post a status'
         value={this.state.text}/>
             <Icon name='pencil-square-o' style={styles.postIcon}/>
           </View>
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderBottomColor: Styles.COLOR_WHITE,
     backgroundColor: Styles.COLOR_WHITE,
     padding: 10,
   },
