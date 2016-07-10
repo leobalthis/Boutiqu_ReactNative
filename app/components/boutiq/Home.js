@@ -3,6 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
+  TextInput,
   TouchableHighlight,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
@@ -27,6 +29,11 @@ NavBarSideMenu.propTypes = {
 };
 
 export class Home extends Component {
+
+  state = {
+    text: '',
+  }
+
   render() {
     return (
       <View style={styles.wrapper}>
@@ -35,7 +42,13 @@ export class Home extends Component {
           leftButton={<NavBarSideMenu {...this.props}/>} />
         <ScrollableTabView style={styles.tabs}>
           <View tabLabel='My Network' style={styles.tabsContent}>
-            <Text>My Network</Text>
+            <Image source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}}
+       style={styles.userImg} />
+          <TextInput style={styles.textInput}
+        onChangeText={(text) => this.setState({text})}
+        placeholder='Post a review'
+        value={this.state.text}/>
+            <Icon name='pencil-square-o' style={styles.postIcon}/>
           </View>
           <View tabLabel='Discover' style={styles.tabsContent}>
             <Text>Discover</Text>
@@ -55,12 +68,34 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Styles.COLOR_WHITE
   },
+  postIcon: {
+    fontSize: 30,
+    padding: 5,
+    color: Styles.COLOR_GREY
+  },
   tabs: {
     backgroundColor: Styles.COLOR_GREEN,
   },
   tabsContent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     borderBottomColor: Styles.COLOR_WHITE,
     backgroundColor: Styles.COLOR_WHITE,
-    padding: 20,
+    padding: 10,
+  },
+  userImg: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  textInput: {
+    width: Styles.CARD_WIDTH - Styles.CARD_PADDING_X - 50,
+    height: 40,
+    padding: 8,
+    fontSize: Styles.FONT_SIZE_SMALLER,
+    color: Styles.COLOR_GREY,
+    borderColor: Styles.COLOR_GREY,
+    borderWidth: 1,
   }
 });
