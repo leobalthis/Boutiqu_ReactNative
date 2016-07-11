@@ -11,6 +11,7 @@ import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Styles from './Styles';
+import { Search } from './Search';
 
 const NavBarSideMenu = props => (
   <TouchableHighlight
@@ -36,24 +37,30 @@ export class Home extends Component {
 
   render() {
     return (
-      <View style={styles.wrapper}>
-        <NavigationBar
-          title={{title: 'Boutiq'}}
-          leftButton={<NavBarSideMenu {...this.props}/>} />
-        <ScrollableTabView style={styles.tabs}>
-          <View tabLabel='My Network' style={styles.tabsContent}>
-            <Image source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}}
-       style={styles.userImg} />
-          <TextInput style={styles.textInput}
-        onChangeText={(text) => this.setState({text})}
-        placeholder='Post a status'
-        value={this.state.text}/>
-            <Icon name='pencil-square-o' style={styles.postIcon}/>
-          </View>
-          <View tabLabel='Discover' style={styles.tabsContent}>
-            <Text>Discover</Text>
-          </View>
-        </ScrollableTabView>
+      <View>
+        <View style={styles.wrapper}>
+          <NavigationBar tintColor={Styles.COLOR_GREEN}
+            title={{title: 'Boutiq'}}
+            leftButton={<NavBarSideMenu {...this.props}/>} />
+        <View>
+        <Search/>
+        </View>
+
+          <ScrollableTabView style={styles.tabs}>
+            <View tabLabel='My Network' style={styles.tabsContent}>
+              <Image source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}}
+         style={styles.userImg} />
+            <TextInput style={styles.textInput}
+          onChangeText={(text) => this.setState({text})}
+          placeholder='Post a status'
+          value={this.state.text}/>
+              <Icon name='pencil-square-o' style={styles.postIcon}/>
+            </View>
+            <View tabLabel='Discover' style={styles.tabsContent}>
+              <Text>Discover</Text>
+            </View>
+          </ScrollableTabView>
+        </View>
       </View>
     );
   }

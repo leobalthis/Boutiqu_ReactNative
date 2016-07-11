@@ -55,7 +55,10 @@ export class Boutiq extends Component {
     );
   }
 }
-
+//googleAPIKey 
+//AIzaSyDl1cTRsrU7ErzH3_XuagykJS8E3YGzcYk
+//Web service API
+//AIzaSyB-sal3xY8QApsHitpV4zs7E2EXvV_LPPE
 const styles = StyleSheet.create({
   container: {
     flex: 1,

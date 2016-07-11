@@ -28,7 +28,7 @@ export class Menu extends Component {
             <Image style={styles.userImg} source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}} />
             <View style={styles.profileTextWrapper}>
               <Text style={styles.profileTextUser}>Tina Azimi</Text>
-              <Text style={styles.profileText}>Tina Az</Text>
+              <Text style={styles.profileText}>My Profile</Text>
             </View>
           </View>
         </TouchableHighlight>
