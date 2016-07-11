@@ -15,20 +15,20 @@ export class Auth extends Component {
   render() {
     return (
       <LoginButton
-        publishPermissions={["publish_actions"]}
+        publishPermissions={['publish_actions']}
         onLoginFinished={
           (error, result) => {
             if (error) {
-              alert("login has error: " + result.error);
+              alert('login has error: ' + result.error);
             } else if (result.isCancelled) {
-              alert("login is cancelled.");
+              alert('login is cancelled.');
             } else {
               AccessToken.getCurrentAccessToken()
               .then(this.props.onLogin);
             }
           }
         }
-        onLogoutFinished={() => alert("logout.")}/>
+        onLogoutFinished={() => alert('logout.')}/>
     );
   }
 }
