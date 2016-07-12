@@ -15,7 +15,8 @@ const base_unit = 16;
 // We're simulating EM by changing font size according to Ratio
 const unit = base_unit * ratioX;
 
-const COLOR_DARK_GREY = '#545454';
+const COLOR_NORMAL_GREY = '#C7C7C7';
+
 // We add an em() shortcut function
 function em(value) {
   return unit * value;
@@ -39,12 +40,17 @@ export default Styles = {
   CARD_PADDING_X:     em(1.875),
   CARD_PADDING_Y:     em(1.25),
 
-  //COLORS
-  COLOR_GREY:         '#C7C7C7',
-  COLOR_LIGHT_GREY:   '#DEDEDE',
+
+  COLOR_LIGHTER_5:    '#D4D4D4',
+  COLOR_DARKER_15:    '#a1a1a1',
+  COLOR_DARKER_30:    '#7b7b7b',
+  COLOR_DARKER_45:    '#545454',
+  COLOR_DARKER_60:    '#2E2E2E',
+
+  //COLORS  
   COLOR_GREEN:        '#50D2C2',
   COLOR_PINK:         '#FF3366',
-  COLOR_WHITE:        '#FFF',
+  COLOR_WHITE:        '#FFFFFF',
 
   // FONT
   FONT_SIZE:          em(1),
@@ -52,6 +58,6 @@ export default Styles = {
   FONT_SIZE_SMALL:    em(0.875),
   FONT_SIZE_TITLE:    em(1.25),
   
-  FONT_COLOR:         COLOR_DARK_GREY,
+  FONT_COLOR:         '#545454',
 
 };

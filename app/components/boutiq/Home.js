@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   postIcon: {
     fontSize: 30,
     padding: 5,
-    color: Styles.COLOR_GREY
+    color: Styles.COLOR_DARKER_15
   },
   tabs: {
     backgroundColor: Styles.COLOR_GREEN,
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     height: 40,
     padding: 8,
     fontSize: Styles.FONT_SIZE_SMALLER,
-    color: Styles.COLOR_GREY,
-    borderColor: Styles.COLOR_GREY,
+    color: Styles.COLOR_DARKER_15,
+    borderColor: Styles.COLOR_DARKER_15,
     borderWidth: 1,
   }
 });

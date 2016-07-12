@@ -29,7 +29,7 @@ export class MyLikes extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <NavigationBar
+        <NavigationBar tintColor={Styles.COLOR_GREEN}
           title={{title: 'My Likes'}}
           leftButton={<NavBarSideMenu {...this.props}/>} />
         <Text>My Likes</Text>
