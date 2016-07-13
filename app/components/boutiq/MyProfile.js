@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import NavigationBar from 'react-native-navbar';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { ProfileFollow } from './ProfileFollow';
+
 import {
 	StyleSheet,
 	View,
@@ -6,8 +10,7 @@ import {
 	Image,
 	TouchableHighlight,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 const NavBarSideMenu = props => (
 	<TouchableHighlight
@@ -31,13 +34,12 @@ export class MyProfile extends Component {
 				<NavigationBar tintColor={Styles.COLOR_GREEN}
 					title={{title: 'My Profile'}}
 					leftButton={<NavBarSideMenu {...this.props}/>} />
-
-					<View style={styles.profileWrapper}>
-					 <View style={styles.proleft}>
-							<Image style={styles.userImg} source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}} />
-							<Text style={styles.proleftText}>Spread the word about Boutiq!</Text>
-						</View>
-
+				
+				<View style={styles.profileWrapper}>
+				 	<View style={styles.proleft}>
+						<Image style={styles.userImg} source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}} />
+						<Text style={styles.proleftText}>Spread the word about Boutiq!</Text>
+					</View>
 					<View style={styles.proRight}>
 						<Text style={[styles.proRightText, styles.proRightTextName]}>Tina Azimi</Text>
 						<Text style={[styles.proRightText, styles.proRightTextLocation]}>
@@ -53,6 +55,13 @@ export class MyProfile extends Component {
 						</Text>
 					</View>
 				</View>
+
+				<View style={styles.profileFollowers}>
+					<ProfileFollow routeId='home' label='Friends' num='125' {...this.props}/>
+					<ProfileFollow routeId='home' label='Followers' num='40' {...this.props}/>
+					<ProfileFollow routeId='home' label='Following' num='36' {...this.props}/>
+					<ProfileFollow routeId='home' label='Reviews' num='28' {...this.props}/>
+				</View>
 			</View>
 		);
 	}
@@ -60,7 +69,6 @@ export class MyProfile extends Component {
 
 const styles = StyleSheet.create({
 	wrapper: {
-		flex: 1,
     	backgroundColor: Styles.COLOR_WHITE,
 	},
 	icon: {
@@ -72,6 +80,7 @@ const styles = StyleSheet.create({
 		flexDirection:'row',
 		marginTop: 10,
 		padding:10,
+		height: 180,
 	},
 	proleft: {
 		width: 100,
@@ -113,5 +122,14 @@ const styles = StyleSheet.create({
 		color: Styles.COLOR_DARKER_45,
 		fontSize: 10,
 		textAlign: 'justify',
+	},
+	profileFollowers: {
+	    flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
+		marginTop: 10,
+		padding:10,
+		height: 70,
 	}
 });
