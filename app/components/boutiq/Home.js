@@ -43,7 +43,7 @@ export class Home extends Component {
             title={{title: 'Boutiq'}}
             leftButton={<NavBarSideMenu {...this.props}/>} />
         <View>
-        <Search/>
+          <Search/>
         </View>
 
           <ScrollableTabView style={styles.tabs}>
