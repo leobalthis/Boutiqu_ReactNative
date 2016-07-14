@@ -7,6 +7,8 @@ import {
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
+import config from '../../config';
+
 const homePlace = {description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
 const workPlace = {description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
 
@@ -28,7 +30,7 @@ export class Search extends Component {
 				}}
 				query={{
 					// available options: https://developers.google.com/places/web-service/autocomplete
-					key: 'AIzaSyDl1cTRsrU7ErzH3_XuagykJS8E3YGzcYk',
+					key: config.GOOGLE_PLACES_KEY,
 					language: 'en', // language of the results
 					types: '(cities)', // default: 'geocode'
 				}}
@@ -40,7 +42,7 @@ export class Search extends Component {
 						color: '#1faadb',
 					},
 				}}
-				
+
 				currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
 				currentLocationLabel="Current location"
 				nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
@@ -52,13 +54,13 @@ export class Search extends Component {
 					rankby: 'distance',
 					types: 'food',
 				}}
-				
+
 				enablePoweredByContainer={false}
-				
+
 				filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
-				
+
 				predefinedPlaces={[homePlace, workPlace]}
-				
+
 				predefinedPlacesAlwaysVisible={true}/>
 			</View>
 		);
