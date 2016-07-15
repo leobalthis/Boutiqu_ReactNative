@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { LoginManager } from 'react-native-fbsdk';
+
+import { MenuNav } from './MenuNav';
+import { PImage } from './PImage';
+import Styles from './Styles';
+
 import {
   StyleSheet,
   TouchableHighlight,
   View,
   Text,
-  Image,
 } from 'react-native';
-import { LoginManager } from 'react-native-fbsdk';
-import { MenuNav } from './MenuNav';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Styles from './Styles';
 
 export class Menu extends Component {
   static propTypes = {
@@ -25,7 +27,7 @@ export class Menu extends Component {
           source={{uri: this.state.url}}></Image>*/}
           <TouchableHighlight>
           <View style={styles.profileWrapper}>
-            <Image style={styles.userImg} source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}} />
+            <PImage type='circle' size={60}/>
             <View style={styles.profileTextWrapper}>
               <Text style={styles.profileTextUser}>Tina Azimi</Text>
               <Text style={styles.profileText}>My Profile</Text>
@@ -85,13 +87,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
     marginLeft: 30,
     color: Styles.COLOR_GREEN
-  },
-  userImg: {
-    width: 60,
-    height: 60,
-    marginTop: 15,
-    marginLeft: 15,
-    borderRadius: 30,
   },
   profileWrapper: {
     flexDirection:'row',

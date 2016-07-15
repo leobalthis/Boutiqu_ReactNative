@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import { ProfileFollow } from './ProfileFollow';
+import { PImage } from './PImage';
 
 import {
 	StyleSheet,
 	View,
 	Text,
-	Image,
 	TouchableHighlight,
 } from 'react-native';
 
@@ -37,7 +38,7 @@ export class MyProfile extends Component {
 				
 				<View style={styles.profileWrapper}>
 				 	<View style={styles.proleft}>
-						<Image style={styles.userImg} source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}} />
+						<PImage type='circle' size={90}/>
 						<Text style={styles.proleftText}>Spread the word about Boutiq!</Text>
 					</View>
 					<View style={styles.proRight}>
@@ -91,11 +92,6 @@ const styles = StyleSheet.create({
 		color: Styles.COLOR_DARKER_45,
 		textAlign: 'center',
 		marginTop: 14,
-	},
-	userImg: {
-		width: 90,
-		height: 90,
-		borderRadius: 45,
 	},
 	proRight: {
 		flex: 1,
