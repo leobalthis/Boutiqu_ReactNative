@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'stretch',
     padding:10,
-    borderTopColor: Styles.COLOR_LIGHT_GREY,
+    borderTopColor: Styles.COLOR_LIGHTER_5,
     borderTopWidth: 1,
   },
   menuItem: {
