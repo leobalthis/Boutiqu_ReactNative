@@ -35,15 +35,20 @@ export class Search extends Component {
 					types: '(cities)', // default: 'geocode'
 				}}
 				styles={{
-					// description: {
-					// 	fontWeight: 'bold',
-					// },
-					predefinedPlacesDescription: {
-						color: '#1faadb',
+					textInputContainer: {
+						backgroundColor: Styles.COLOR_GREEN,
+						height: 40,
+						borderTopWidth: 0,
+						borderBottomWidth: 0,
+					},
+					textInput: {
+						backgroundColor: Styles.COLOR_WHITE,
+						fontSize: 15,
+						color: Styles.COLOR_DARKER_15
 					},
 				}}
 
-				currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+				currentLocation={false} // Will add a 'Current location' button at the top of the predefined places list
 				currentLocationLabel="Current location"
 				nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
 				GoogleReverseGeocodingQuery={{
@@ -59,9 +64,8 @@ export class Search extends Component {
 
 				filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
 
-				predefinedPlaces={[homePlace, workPlace]}
 
-				predefinedPlacesAlwaysVisible={true}/>
+				predefinedPlacesAlwaysVisible={false}/>
 			</View>
 		);
 	}
