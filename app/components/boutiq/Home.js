@@ -4,6 +4,7 @@ import NavigationBar from 'react-native-navbar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import { PImage } from './PImage';
+import { PlaceCard } from './PlaceCard';
 import { LastReviewsPImage } from './LastReviewsPImage';
 import { Search } from './Search';
 import Styles from './Styles';
@@ -12,6 +13,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
   TextInput,
   TouchableHighlight,
 } from 'react-native';
@@ -51,15 +53,19 @@ export class Home extends Component {
 
           <ScrollableTabView style={styles.tabs}>
             <View tabLabel='My Network' style={styles.tabsContent}>
-              <PImage type='circle' size={40}/>
-            <TextInput style={styles.textInput}
-          onChangeText={(text) => this.setState({text})}
-          placeholder='Post a status'
-          value={this.state.text}/>
-              <Icon name='pencil-square-o' style={styles.postIcon}/>
+              
+             <PlaceCard/>
+
+
             </View>
+
             <View tabLabel='Discover' style={styles.tabsContent}>
-              <Text>Discover</Text>
+              <PImage type='circle' size={40}/>
+              <TextInput style={styles.textInput}
+              onChangeText={(text) => this.setState({text})}
+              placeholder='Post a status'
+              value={this.state.text}/>
+              <Icon name='pencil-square-o' style={styles.postIcon}/>
             </View>
           </ScrollableTabView>
         </View>
