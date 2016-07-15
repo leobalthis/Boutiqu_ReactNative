@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import NavigationBar from 'react-native-navbar';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+
+import { PImage } from './PImage';
+import { LastReviewsPImage } from './LastReviewsPImage';
+import { Search } from './Search';
+import Styles from './Styles';
+
 import {
   StyleSheet,
   View,
   Text,
-  Image,
   TextInput,
   TouchableHighlight,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
-import Styles from './Styles';
-import { Search } from './Search';
 
 const NavBarSideMenu = props => (
   <TouchableHighlight
@@ -48,8 +51,7 @@ export class Home extends Component {
 
           <ScrollableTabView style={styles.tabs}>
             <View tabLabel='My Network' style={styles.tabsContent}>
-              <Image source={{uri: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'}}
-         style={styles.userImg} />
+              <PImage type='circle' size={40}/>
             <TextInput style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           placeholder='Post a status'
@@ -89,11 +91,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: Styles.COLOR_WHITE,
     padding: 10,
-  },
-  userImg: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
   },
   textInput: {
     width: Styles.CARD_WIDTH - Styles.CARD_PADDING_X - 50,
