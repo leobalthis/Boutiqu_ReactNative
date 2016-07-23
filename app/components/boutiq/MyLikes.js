@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import NavigationBar from 'react-native-navbar';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import Styles from './Styles';
+
 import {
   StyleSheet,
   View,
   Text,
   TouchableHighlight,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Styles from './Styles';
 
 const NavBarSideMenu = props => (
   <TouchableHighlight

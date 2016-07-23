@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+
+import config from '../../config';
+
 import {
 	StyleSheet,
 	View,
 	Text,
 } from 'react-native';
 
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
-import config from '../../config';
 
 const homePlace = {description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
 const workPlace = {description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};

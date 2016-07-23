@@ -27,7 +27,7 @@ export class Menu extends Component {
           source={{uri: this.state.url}}></Image>*/}
           <TouchableHighlight>
           <View style={styles.profileWrapper}>
-            <PImage type='circle' size={60}/>
+            <PImage type='circle' size={60} border={false} />
             <View style={styles.profileTextWrapper}>
               <Text style={styles.profileTextUser}>Tina Azimi</Text>
               <Text style={styles.profileText}>My Profile</Text>

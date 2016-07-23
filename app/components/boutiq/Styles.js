@@ -58,6 +58,6 @@ export default Styles = {
   FONT_SIZE_SMALL:    em(0.875),
   FONT_SIZE_TITLE:    em(1.25),
   
-  FONT_COLOR:         '#545454',
+  FONT_COLOR:         '#626262',
 
 };

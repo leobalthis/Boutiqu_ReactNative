@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+import Styles from './Styles';
+
 import {
 	StyleSheet,
 	View,
 	Image,
 } from 'react-native';
 
-export const PImage = ({type, size}) => {
+export const PImage = ({type, size, border}) => {
 	let bRadius = (type === 'circle') ? (size / 2) : 0;
+	let bBorder = (border) ? 2 : 0;
+
 	return (
 		<View style={styles.wrapper}>
 			<Image 
@@ -16,13 +20,15 @@ export const PImage = ({type, size}) => {
 				height: size,
 				width: size,
 				borderRadius: bRadius,
+			    borderColor: Styles.COLOR_DARKER_15,
+    			borderWidth: bBorder,
 			}}/>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-  },
+  // wrapper: {
+  //   flex: 1,
+  // },
 });
