@@ -38,7 +38,7 @@ export class MyProfile extends Component {
 				
 				<View style={styles.profileWrapper}>
 				 	<View style={styles.proleft}>
-						<PImage type='circle' size={90}/>
+						<PImage type='circle' size={90} border={false}/>
 						<Text style={styles.proleftText}>Spread the word about Boutiq!</Text>
 					</View>
 					<View style={styles.proRight}>

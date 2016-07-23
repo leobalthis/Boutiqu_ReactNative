@@ -11,9 +11,9 @@ import {
 export const LastReviewsPImage = () => {
 	return (
 		<View>
-		  <PImage type='circle' size={40}/>
-		  <PImage type='circle' size={40}/>
-		  <PImage type='circle' size={40}/>
+		  <PImage type='circle' size={40} border={false}/>
+		  <PImage type='circle' size={40} border={false}/>
+		  <PImage type='circle' size={40} border={false}/>
 		</View>
 	);
 }
