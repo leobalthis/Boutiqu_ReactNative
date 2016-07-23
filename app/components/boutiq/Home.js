@@ -4,6 +4,7 @@ import NavigationBar from 'react-native-navbar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import { PImage } from './PImage';
+import { PostStatus } from './PostStatus';
 import { PlaceCard } from './PlaceCard';
 import { LastReviewsPImage } from './LastReviewsPImage';
 import { Search } from './Search';
@@ -53,19 +54,11 @@ export class Home extends Component {
 
           <ScrollableTabView style={styles.tabs}>
             <View tabLabel='My Network' style={styles.tabsContent}>
-              
-             <PlaceCard/>
-
-
+	            <PostStatus/>
+	            <PlaceCard/>
             </View>
-
             <View tabLabel='Discover' style={styles.tabsContent}>
-              <PImage type='circle' size={40}/>
-              <TextInput style={styles.textInput}
-              onChangeText={(text) => this.setState({text})}
-              placeholder='Post a status'
-              value={this.state.text}/>
-              <Icon name='pencil-square-o' style={styles.postIcon}/>
+				<Text>Discover</Text>
             </View>
           </ScrollableTabView>
         </View>
@@ -83,28 +76,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Styles.COLOR_WHITE
   },
-  postIcon: {
-    fontSize: 30,
-    padding: 5,
-    color: Styles.COLOR_DARKER_15
-  },
   tabs: {
     backgroundColor: Styles.COLOR_GREEN,
   },
   tabsContent: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: Styles.COLOR_WHITE,
     padding: 10,
   },
-  textInput: {
-    width: Styles.CARD_WIDTH - Styles.CARD_PADDING_X - 50,
-    height: 40,
-    padding: 8,
-    fontSize: Styles.FONT_SIZE_SMALLER,
-    color: Styles.COLOR_DARKER_15,
-    borderColor: Styles.COLOR_DARKER_15,
-    borderWidth: 1,
-  }
 });
