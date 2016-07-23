@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import Styles from './Styles';
+
 import {
   StyleSheet,
   TouchableHighlight,
   Text,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Styles from './Styles';
 
 export const MenuNav = ({changeView, routeId, label, icon}) => {
   return (

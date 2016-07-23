@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Navigator,
-} from 'react-native';
 import SideMenu from 'react-native-side-menu';
+
 import { Menu } from './Menu';
 import { Home } from './Home';
 import { MyLikes } from './MyLikes';
 import { MyProfile } from './MyProfile';
 import { PostAReview } from './PostAReview';
 import Styles from './Styles';
+
+import {
+  StyleSheet,
+  View,
+  Text,
+  Navigator,
+} from 'react-native';
 
 export class Main extends Component {
   renderScene(route, nav) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { PImage } from './PImage';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
 	StyleSheet,
