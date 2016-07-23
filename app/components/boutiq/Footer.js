@@ -68,8 +68,11 @@ const styles = StyleSheet.create({
 		color: Styles.COLOR_DARKER_30,
 	},
 	plusIcon: {
-		fontSize: 60,
+		fontSize: 70,
 		color: Styles.COLOR_PINK,
 		backgroundColor:'transparent',
+		position: 'absolute',
+		top: -55,
+		left: 20,
 	}
 });
