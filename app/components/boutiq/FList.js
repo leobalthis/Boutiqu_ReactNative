@@ -17,8 +17,9 @@ export const FList = () => {
 
 	return (
 		<View>
-			<FListItem name='Tina Azimi' follow={true}/>
-			<FListItem name='Tina Azimi' follow={false}/>
+			<FListItem name='Tina Azimi' follow='yes'/>
+			<FListItem name='Alex Girard'/>
+			<FListItem name='Greg Villain' follow='yes'/>
 		</View>
 	);
 }

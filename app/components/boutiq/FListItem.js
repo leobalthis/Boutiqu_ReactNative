@@ -10,43 +10,15 @@ import {
 } from 'react-native';
 export class FListItem extends Component {
 
-	state = {
-		isLoading: true,
-		bg: '#f00',
-		following: 'follow'
-	}
-
-	componentWillMount() {
-	  let newstate = {}
-
-	  if(this.props.follow) {
-	    newstate.bg = '#ccc';
-	    newstate.following = 'following';
-	  }
-
-	  this.setState(newstate)
-	}
-
-	toggleWeight() {
-		let newstate = {}
-
-		if(this.state.following == 'f') {
-			newstate.bg = '#000';
-			newstate.following = 'n';
-		}
-
-	  this.setState(newstate)
-	}
-
 	render() {
 		return (
 				<View style={styles.wrapper}>
 	            	<PImage type='circle' size={40} border={false}/>
-					<Text>{this.props.name}</Text>
+					<Text style={styles.wrapperName}>{this.props.name}</Text>
 				    <TouchableHighlight>
-				      <View  style={{borderColor: this.state.bg}} style={styles.wrapperF} onPress={this.toggleWeight}>
-				        <Text style={styles.btnF} >
-				        	{this.state.following}
+				      <View style={styles.wrapperF}>
+				        <Text style={(this.props.follow === 'yes') ? styles.wrapperY : styles.wrapperN} >
+				        	{(this.props.follow === 'yes') ? 'Following' : 'Follow'}
 				        </Text>
 				      </View>
 				    </TouchableHighlight>
@@ -66,12 +38,23 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,		
         alignItems:'center',
 	},
-	wrapperF: {
-		borderColor: Styles.COLOR_LIGHTER_5,
+	wrapperName: {
+        textAlign: 'left'
+	},
+	wrapperY: {
+		backgroundColor: Styles.COLOR_PINK,
+		color: Styles.COLOR_WHITE,
+		width: 130,
+		padding: 5,
+        textAlign: 'center'
+	},	
+	wrapperN: {
+		borderColor: Styles.COLOR_PINK,
+		color: Styles.COLOR_PINK,
 		borderWidth: 1,
 		width: 130,
 		padding: 5,
-        alignItems:'center',
+        textAlign: 'center'
 	},
 	btnF: {
 		textAlign: 'left',
