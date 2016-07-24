@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { Rate } from './Rate';
 import Styles from './Styles';
 
 import {
@@ -24,6 +25,7 @@ export const PlaceCard = () => {
 		    <Text style={styles.placeP}>
 		      Double Bay, Australia
 		    </Text>
+			<Rate />
 			<Text style={styles.welcome}>
 			  My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
 			</Text> 
@@ -36,10 +38,8 @@ export const PlaceCard = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-	    width: 360,
-    	height: 150,
-		backgroundColor:'transparent',
-		opacity: 0.7,
+		flexDirection: 'row',
+		height: 150,
 	},
 	placeName: {
 		fontSize: 20,
@@ -59,9 +59,7 @@ const styles = StyleSheet.create({
 		fontSize: 15,
 		color: '#fff',
 	    width: 320,
-		top: 60,
+		top: 80,
 		left: 20,
-	    backgroundColor: 'rgba(0,0,0,0)',
-		padding: 10,
 	}
 });
