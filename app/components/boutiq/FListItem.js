@@ -9,26 +9,27 @@ import {
 	TouchableHighlight,
 } from 'react-native';
 export class FListItem extends Component {
+
 	state = {
-		follow: true,
+		follow: this.props.follow,
 	}
 
 	render() {
 		return (
-				<View style={styles.wrapper}>
-	            	<PImage type='circle' size={40} border={false}/>
-					<Text style={styles.wrapperName}>{this.props.name}</Text>
-				    <TouchableHighlight>
-				      <View style={styles.wrapperF}>
-				        <Text onPress={()=>{
-						this.setState({follow: !(this.state.follow)});
-						}} 
-						style={(this.state.follow) ? styles.wrapperY : styles.wrapperN} >
-				        	{(this.props.follow === 'yes') ? 'Following' : 'Follow'}
-				        </Text>
-				      </View>
-				    </TouchableHighlight>
-	    			</View>
+			<View style={styles.wrapper}>
+				<PImage type='circle' size={40} border={false}/>
+				<Text style={styles.wrapperName}>{this.props.name}</Text>
+				<TouchableHighlight>
+				  <View style={styles.wrapperF}>
+				    <Text onPress={()=>{
+					this.setState({follow: !(this.state.follow)});
+					}} 
+					style={(this.state.follow) ? styles.wrapperY : styles.wrapperN} >
+				    	{(this.state.follow) ? 'Following' : 'Follow'}
+				    </Text>
+				  </View>
+				</TouchableHighlight>
+			</View>
 		);
 	}
 }
