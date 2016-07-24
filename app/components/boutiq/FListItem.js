@@ -9,6 +9,9 @@ import {
 	TouchableHighlight,
 } from 'react-native';
 export class FListItem extends Component {
+	state = {
+		follow: true,
+	}
 
 	render() {
 		return (
@@ -17,7 +20,10 @@ export class FListItem extends Component {
 					<Text style={styles.wrapperName}>{this.props.name}</Text>
 				    <TouchableHighlight>
 				      <View style={styles.wrapperF}>
-				        <Text style={(this.props.follow === 'yes') ? styles.wrapperY : styles.wrapperN} >
+				        <Text onPress={()=>{
+						this.setState({follow: !(this.state.follow)});
+						}} 
+						style={(this.state.follow) ? styles.wrapperY : styles.wrapperN} >
 				        	{(this.props.follow === 'yes') ? 'Following' : 'Follow'}
 				        </Text>
 				      </View>
