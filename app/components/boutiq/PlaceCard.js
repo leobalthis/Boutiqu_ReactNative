@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Rate } from './Rate';
+import { Tags } from './Tags';
 import Styles from './Styles';
 
 import {
@@ -26,6 +27,7 @@ export const PlaceCard = () => {
 		      Double Bay, Australia
 		    </Text>
 			<Rate />
+			<Tags />
 			<Text style={styles.welcome}>
 			  My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
 			</Text> 
