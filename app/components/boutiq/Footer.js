@@ -10,32 +10,33 @@ import {
 	TextInput,
 } from 'react-native';
 
-export const Footer = () => {
-
+export class Footer extends Component {
 	state = {
 		text: '',
 	}
-
-	return (
-		<View>
-			<View style={styles.wrapperTop}>
-			</View>
-			<View style={styles.wrapper}>
-				<View style={styles.wrapperG}>
-					<Icon name='home' style={styles.icon}/>
-					<Icon name='search' style={styles.icon}/>
-				</View>				
-				<View style={styles.wrapperG}>
-					<Icon name='plus-circle' style={styles.plusIcon}/>
-				</View>				
-				<View style={styles.wrapperG}>
-					<Icon name='bolt' style={styles.icon}/>
-		        	<PImage type='circle' size={30} border={true} />
+	
+	render() {
+		return (
+			<View>
+				<View style={styles.wrapperTop}>
 				</View>
+				<View style={styles.wrapper}>
+					<View style={styles.wrapperG}>
+						<Icon name='home' style={styles.icon}/>
+						<Icon name='search' style={styles.icon}/>
+					</View>				
+					<View style={styles.wrapperG}>
+						<Icon name='plus-circle' style={styles.plusIcon}/>
+					</View>				
+					<View style={styles.wrapperG}>
+						<Icon name='bolt' style={styles.icon}/>
+			        	<PImage type='circle' size={30} border={true} />
+					</View>
 
+				</View>
 			</View>
-		</View>
-	);
+		);
+	}
 }
 
 const styles = StyleSheet.create({
@@ -68,8 +69,11 @@ const styles = StyleSheet.create({
 		color: Styles.COLOR_DARKER_30,
 	},
 	plusIcon: {
-		fontSize: 60,
+		fontSize: 70,
 		color: Styles.COLOR_PINK,
 		backgroundColor:'transparent',
+		position: 'absolute',
+		top: -55,
+		left: 20,
 	}
 });

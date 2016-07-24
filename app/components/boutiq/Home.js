@@ -8,6 +8,7 @@ import { PlaceCard } from './PlaceCard';
 import { LastReviewsPImage } from './LastReviewsPImage';
 import { Search } from './Search';
 import { Footer } from './Footer';
+import { FList } from './FList';
 import Styles from './Styles';
 
 import {
@@ -62,7 +63,7 @@ export class Home extends Component {
 					</ScrollableTabView>
 				</View>
 				<View>
-					<Footer/>
+					<FList/>
 				</View>
 			</View>
 		);
