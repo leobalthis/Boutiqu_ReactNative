@@ -22,6 +22,9 @@ function em(value) {
   return unit * value;
 }
 
+//Text Fields: 626262 and playing with opacity
+//Google font: Muli
+//Light 300, Regular 400
 
 // Then we set our styles with the help of the em() function
 export default Styles = {

@@ -55,7 +55,6 @@ export class Home extends Component {
 					<ScrollableTabView style={styles.tabs}>
 						<View tabLabel='My Network' style={styles.tabsContent}>
 							<PostStatus/>
-							<PlaceCard/>
 						</View>
 						<View tabLabel='Discover' style={styles.tabsContent}>
 							<Text>Discover</Text>
@@ -63,7 +62,7 @@ export class Home extends Component {
 					</ScrollableTabView>
 				</View>
 				<View>
-					<FList/>
+					<PlaceCard/>
 				</View>
 			</View>
 		);
