@@ -11,10 +11,6 @@ import {
 
 export const FList = () => {
 
-	state = {
-		text: '',
-	}
-
 	return (
 		<View>
 			<FListItem name='Tina Azimi' follow='yes'/>
