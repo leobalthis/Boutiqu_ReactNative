@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { PlaceCard } from './PlaceCard';
 import Styles from './Styles';
 
 import {
@@ -34,7 +35,7 @@ export class MyLikes extends Component {
         <NavigationBar tintColor={Styles.COLOR_GREEN}
           title={{title: 'My Likes'}}
           leftButton={<NavBarSideMenu {...this.props}/>} />
-        <Text>My Likes</Text>
+          <PlaceCard/>
       </View>
     );
   }
