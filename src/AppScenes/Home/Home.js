@@ -25,26 +25,17 @@ export class Home extends Component {
           <NavigationBar
             tintColor={styles.navBarTint.color}
             title={{ title: 'Boutiq' }}
-            leftButton={<NavBarSideMenu {...this.props} />}
-          />
-          <View>
-            <Search />
-          </View>
+            leftButton={<NavBarSideMenu {...this.props} />}/>
           <ScrollableTabView style={styles.tabs}>
             <View tabLabel="My Network" style={styles.tabsContent}>
-              <PostStatus />
+              <PlaceCard />
             </View>
             <View tabLabel="Discover" style={styles.tabsContent}>
-							<Text>Discover</Text>
+              <Text>Discover</Text>
             </View>
           </ScrollableTabView>
         </View>
-        <View>
-          <PlaceCard />
-        </View>       
-        <View>
-					<Footer />
-        </View>
+     		<Footer />
       </View>
     );
   }

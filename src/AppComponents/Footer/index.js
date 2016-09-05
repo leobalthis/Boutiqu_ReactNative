@@ -11,7 +11,7 @@ export class Footer extends Component {
 	
 	render() {
 		return (
-			<View>
+			<View style={styles.container}>
 				<View style={styles.wrapperTop}>
 				</View>
 				<View style={styles.wrapper}>
@@ -26,7 +26,6 @@ export class Footer extends Component {
 						<Icon name='bolt' style={styles.icon}/>
 			        	<ProfilePhoto type='circle' size={30} border={true} />
 					</View>
-
 				</View>
 			</View>
 		);
@@ -34,6 +33,8 @@ export class Footer extends Component {
 }
 
 const styles = StyleSheet.create({
+	container: {
+	},
 	wrapperTop: {
 		height: 30,
 		backgroundColor: Styles.COLOR_LIGHTER_5,

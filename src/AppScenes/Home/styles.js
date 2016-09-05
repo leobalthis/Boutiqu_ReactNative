@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: Styles.COLOR_WHITE,
-    padding: 10,
   },
   navBarTint: {
     color: Styles.COLOR_GREEN,
