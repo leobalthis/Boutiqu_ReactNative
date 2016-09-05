@@ -7,7 +7,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LoginManager } from 'react-native-fbsdk';
 
-import { PImage } from 'AppComponents';
+import { ProfilePhoto } from 'AppComponents';
 
 import { MenuNav } from './MenuNav';
 import { styles } from './styles';
@@ -16,7 +16,7 @@ export const Menu = (props) => (
   <View style={styles.wrapper}>
       <TouchableHighlight>
       <View style={styles.profileWrapper}>
-        <PImage type="circle" size={60} border={false} />
+        <ProfilePhoto type="circle" size={60} border={false} />
         <View style={styles.profileTextWrapper}>
           <Text style={styles.profileTextUser}>Tina Azimi</Text>
           <Text style={styles.profileText}>My Profile</Text>

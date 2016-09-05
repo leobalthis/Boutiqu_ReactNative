@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { PImage } from './PImage';
+import { ProfilePhoto } from './ProfilePhoto';
 
 import {
 	StyleSheet,
@@ -17,7 +17,7 @@ export class FListItem extends Component {
 	render() {
 		return (
 			<View style={styles.wrapper}>
-				<PImage type='circle' size={40} border={false}/>
+				<ProfilePhoto type='circle' size={40} border={false}/>
 				<Text style={styles.wrapperName}>{this.props.name}</Text>
 				<TouchableHighlight>
 				  <View style={styles.wrapperF}>

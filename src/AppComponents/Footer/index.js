@@ -6,14 +6,9 @@ import { ProfilePhoto } from './ProfilePhoto';
 import {
 	StyleSheet,
 	View,
-	Text,
-	TextInput,
 } from 'react-native';
 
 export class Footer extends Component {
-	state = {
-		text: '',
-	}
 	
 	render() {
 		return (

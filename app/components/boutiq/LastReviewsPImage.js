@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { PImage } from './PImage';
+import { ProfilePhoto } from './ProfilePhoto';
 
 import {
 	StyleSheet,
@@ -8,12 +8,12 @@ import {
 	Image,
 } from 'react-native';
 
-export const LastReviewsPImage = () => {
+export const LastReviewsProfilePhoto = () => {
 	return (
 		<View>
-		  <PImage type='circle' size={40} border={false}/>
-		  <PImage type='circle' size={40} border={false}/>
-		  <PImage type='circle' size={40} border={false}/>
+		  <ProfilePhoto type='circle' size={40} border={false}/>
+		  <ProfilePhoto type='circle' size={40} border={false}/>
+		  <ProfilePhoto type='circle' size={40} border={false}/>
 		</View>
 	);
 }
