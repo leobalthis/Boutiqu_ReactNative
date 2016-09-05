@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import { ProfilePhoto } from './ProfilePhoto';
-
 import {
 	StyleSheet,
 	View,
 } from 'react-native';
+import { ProfilePhoto } from 'AppComponents';
+import { Styles } from 'AppStyles';
 
 export class Footer extends Component {
 	

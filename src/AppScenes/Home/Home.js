@@ -10,6 +10,7 @@ import {
   PostStatus,
 	PlaceCard,
 	Search,
+  Footer,
 } from 'AppComponents';
 import { styles } from './styles';
 
@@ -39,7 +40,10 @@ export class Home extends Component {
           </ScrollableTabView>
         </View>
         <View>
-					<PlaceCard />
+          <PlaceCard />
+        </View>       
+        <View>
+					<Footer />
         </View>
       </View>
     );
