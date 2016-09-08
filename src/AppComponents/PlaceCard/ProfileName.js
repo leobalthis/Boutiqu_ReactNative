@@ -6,7 +6,7 @@ import {
 	TouchableHighlight,
 } from 'react-native';
 import { Styles } from 'AppStyles';
-import { PImage } from 'AppComponents';
+import { ProfilePhoto } from 'AppComponents';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -44,7 +44,7 @@ export class ProfileName extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <PImage type="circle" size={40} border={false} />
+        <ProfilePhoto type="circle" size={40} border={false} />
         <View style={styles.wrapperProfileName}>
           <Text style={styles.wrapperName}>{this.props.name}</Text>
           <Text style={styles.wrapperTime}>5 hours ago</Text>

@@ -4,7 +4,7 @@ import {
 	Text,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
-import { PImage, ProfileFollow, NavBarSideMenu } from 'AppComponents';
+import { ProfilePhoto, ProfileFollow, NavBarSideMenu } from 'AppComponents';
 import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
@@ -14,10 +14,10 @@ export const MyProfile = (props) => (
       tintColor={Styles.COLOR_GREEN}
       title={{ title: 'My Profile' }}
       leftButton={ <NavBarSideMenu {...props} />}
-    />
+      />
     <View style={styles.profileWrapper}>
       <View style={styles.proleft}>
-        <PImage type="circle" size={90} border={false} />
+        <ProfilePhoto type="circle" size={90} border={false} />
         <Text style={styles.proleftText}>Spread the word about Boutiq!</Text>
       </View>
       <View style={styles.proRight}>

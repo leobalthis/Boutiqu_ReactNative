@@ -5,7 +5,7 @@ import {
 	TextInput,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { PImage } from 'AppComponents';
+import { ProfilePhoto } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
@@ -39,7 +39,7 @@ export class PostStatus extends Component {
   render() {
     return (
       <View style={styles.wrapperPostStatus}>
-        <PImage type="circle" size={40} border={false} />
+        <ProfilePhoto type="circle" size={40} border={false} />
         <TextInput
           style={styles.textInput}
           onChangeText={text => this.setState({ text })}

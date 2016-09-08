@@ -6,9 +6,9 @@ import {
 
 import { Styles } from 'AppStyles';
 
-export const PImage = ({ type, size, border }) => {
-  const bRadius = (type === 'circle') ? (size / 2) : 0;
-  const bBorder = (border) ? 2 : 0;
+export const ProfilePhoto = ({ type, size, border }) => {
+  const borderRadius = (type === 'circle') ? (size / 2) : 0;
+  const borderBorder = (border) ? 2 : 0;
   return (
     <View>
       <Image
@@ -18,16 +18,16 @@ export const PImage = ({ type, size, border }) => {
         style={{
           height: size,
           width: size,
-          borderRadius: bRadius,
+          borderRadius: borderRadius,
           borderColor: Styles.COLOR_DARKER_15,
-          borderWidth: bBorder,
+          borderWidth: borderBorder,
         }}
       />
     </View>
   );
 };
 
-PImage.propTypes = {
+ProfilePhoto.propTypes = {
   type: PropTypes.string.isRequired,
   size: PropTypes.number.isRequired,
   border: PropTypes.bool.isRequired,

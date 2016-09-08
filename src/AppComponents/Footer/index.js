@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import { ProfilePhoto } from './ProfilePhoto';
-
 import {
 	StyleSheet,
 	View,
-	Text,
-	TextInput,
 } from 'react-native';
+import { ProfilePhoto } from 'AppComponents';
+import { Styles } from 'AppStyles';
 
 export class Footer extends Component {
-	state = {
-		text: '',
-	}
 	
 	render() {
 		return (
-			<View>
+			<View style={styles.container}>
 				<View style={styles.wrapperTop}>
 				</View>
 				<View style={styles.wrapper}>
@@ -32,7 +26,6 @@ export class Footer extends Component {
 						<Icon name='bolt' style={styles.icon}/>
 			        	<ProfilePhoto type='circle' size={30} border={true} />
 					</View>
-
 				</View>
 			</View>
 		);
@@ -40,6 +33,8 @@ export class Footer extends Component {
 }
 
 const styles = StyleSheet.create({
+	container: {
+	},
 	wrapperTop: {
 		height: 30,
 		backgroundColor: Styles.COLOR_LIGHTER_5,
