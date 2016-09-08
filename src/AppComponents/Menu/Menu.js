@@ -14,7 +14,8 @@ import { styles } from './styles';
 
 export const Menu = (props) => (
   <View style={styles.wrapper}>
-      <TouchableHighlight>
+      <TouchableHighlight
+      onPress={() => props.changeView('myprofile')}>
       <View style={styles.profileWrapper}>
         <ProfilePhoto type="circle" size={60} border={false} />
         <View style={styles.profileTextWrapper}>
@@ -23,7 +24,6 @@ export const Menu = (props) => (
         </View>
       </View>
     </TouchableHighlight>
-    <MenuNav routeId="myprofile" label="My Profile" icon="user" {...props} />
     <MenuNav routeId="home" icon="home" {...props} />
     <MenuNav routeId="discover" icon="bolt" {...props} />
     <MenuNav routeId="mylikes" icon="heart" label="My Likes" {...props} />
@@ -47,4 +47,5 @@ export const Menu = (props) => (
 
 Menu.propTypes = {
   onLogout: PropTypes.func.isRequired,
+  changeView: PropTypes.func.isRequired,
 };

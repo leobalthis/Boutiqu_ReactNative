@@ -51,6 +51,6 @@ export const MyProfile = (props) => (
 				</View>
 			</View>
 		</ScrollView>
-		<Footer />
+		<Footer {...props} />
   </View>
 );
