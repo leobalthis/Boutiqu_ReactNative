@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	View,
 	Text,
@@ -15,6 +15,9 @@ import {
 import { styles } from './styles';
 
 export class Home extends Component {
+  static propTypes = {
+    navigator: PropTypes.object.isRequired,
+  }
   state = {
     text: '',
   }
@@ -39,7 +42,7 @@ export class Home extends Component {
             </ScrollView>
           </ScrollableTabView>
         </View>
-				<Footer />
+				<Footer {...this.props} />
       </View>
     );
   }

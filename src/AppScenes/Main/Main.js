@@ -3,7 +3,12 @@ import { Navigator } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import { Styles } from 'AppStyles';
 import { Menu } from 'AppComponents';
-import { Home, MyProfile, MyLikes } from 'AppScenes';
+import {
+  Home,
+  MyProfile,
+  MyLikes,
+  ReviewCreator,
+} from 'AppScenes';
 
 export class Main extends Component {
   constructor(props) {
@@ -37,6 +42,13 @@ export class Main extends Component {
             openMenu={this.openMenu}
           />
         );
+      case 'reviewcreator':
+        return (
+          <ReviewCreator
+            navigator={nav}
+            openMenu={this.openMenu}
+          />
+        );
       // case 'postareview':
       //   return (
       //     <PostAReview
@@ -60,7 +72,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'Home';
+    const initialRouteId = 'home';
     return (
       <SideMenu
         menu={menu}

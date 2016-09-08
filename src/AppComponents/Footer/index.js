@@ -1,14 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
 	StyleSheet,
 	View,
+	TouchableOpacity,
 } from 'react-native';
 import { ProfilePhoto } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
 export class Footer extends Component {
-	
+	static propTypes = {
+		navigator: PropTypes.object.isRequired,
+	}
+	constructor(props) {
+	  super(props);
+	  this.goToReviewCreator = this.goToReviewCreator.bind(this);
+	}
+	goToReviewCreator() {
+		this.props.navigator.push({
+			id: 'reviewcreator',
+		});
+	}
 	render() {
 		return (
 			<View style={styles.container}>
@@ -19,9 +31,11 @@ export class Footer extends Component {
 						<Icon name='home' style={styles.icon}/>
 						<Icon name='search' style={styles.icon}/>
 					</View>				
-					<View style={styles.wrapperG}>
+					<TouchableOpacity
+						style={styles.wrapperG}
+						onPress={this.goToReviewCreator}>
 						<Icon name='plus-circle' style={styles.plusIcon}/>
-					</View>				
+					</TouchableOpacity>				
 					<View style={styles.wrapperG}>
 						<Icon name='bolt' style={styles.icon}/>
 			        	<ProfilePhoto type='circle' size={30} border={true} />
