@@ -3,6 +3,7 @@ import { Styles } from 'AppStyles';
 
 export const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     backgroundColor: Styles.COLOR_WHITE,
   },
   icon: {
@@ -10,7 +11,6 @@ export const styles = StyleSheet.create({
     color: Styles.COLOR_WHITE
   },
   profileWrapper: {
-    flex: 1,
     flexDirection: 'row',
     marginTop: 10,
     padding: 10,
@@ -53,7 +53,6 @@ export const styles = StyleSheet.create({
     textAlign: 'justify',
   },
   profileFollowers: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
