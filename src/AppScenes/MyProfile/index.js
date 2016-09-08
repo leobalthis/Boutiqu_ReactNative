@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
 	View,
 	Text,
 	ScrollView,
+	TouchableOpacity,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import {
@@ -44,7 +45,12 @@ export const MyProfile = (props) => (
 					</View>
 				</View>
 				<View style={styles.profileFollowers}>
+				<TouchableOpacity 
+				onPress={() => props.navigator.push({
+					id: 'reviewcreator'
+				})}>
 					<ProfileFollow routeId="home" label="Friends" num="125" {...props} />
+				</TouchableOpacity>
 					<ProfileFollow routeId="home" label="Followers" num="40" {...props} />
 					<ProfileFollow routeId="home" label="Following" num="36" {...props} />
 					<ProfileFollow routeId="home" label="Reviews" num="28" {...props} />
@@ -54,3 +60,7 @@ export const MyProfile = (props) => (
 		<Footer {...props} />
   </View>
 );
+
+MyProfile.propTypes = {
+  navigator: PropTypes.object.isRequired,
+};
