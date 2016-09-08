@@ -14,9 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: Styles.COLOR_GREEN,
   },
   tabsContent: {
-    flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
     backgroundColor: Styles.COLOR_WHITE,
   },
   navBarTint: {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
 	View,
 	Text,
+	ScrollView,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -9,7 +10,6 @@ import {
   NavBarSideMenu,
   PostStatus,
 	PlaceCard,
-	Search,
   Footer,
 } from 'AppComponents';
 import { styles } from './styles';
@@ -20,22 +20,26 @@ export class Home extends Component {
   }
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, }}>
         <View style={styles.wrapper}>
-          <NavigationBar
-            tintColor={styles.navBarTint.color}
-            title={{ title: 'Boutiq' }}
-            leftButton={<NavBarSideMenu {...this.props} />}/>
+					<NavigationBar
+						tintColor={styles.navBarTint.color}
+						title={{ title: 'Boutiq' }}
+						leftButton={<NavBarSideMenu {...this.props} />}
+					/>
           <ScrollableTabView style={styles.tabs}>
-            <View tabLabel="My Network" style={styles.tabsContent}>
+            <ScrollView tabLabel="My Network" style={styles.tabsContent}>
               <PlaceCard />
-            </View>
-            <View tabLabel="Discover" style={styles.tabsContent}>
+              <PlaceCard />
+              <PlaceCard />
+              <PlaceCard />
+						</ScrollView>
+            <ScrollView tabLabel="Discover" style={styles.tabsContent}>
               <Text>Discover</Text>
-            </View>
+            </ScrollView>
           </ScrollableTabView>
         </View>
-     		<Footer />
+				<Footer />
       </View>
     );
   }
