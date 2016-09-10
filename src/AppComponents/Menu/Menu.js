@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import {
   TouchableHighlight,
+  TouchableOpacity,
   View,
   Text,
 } from 'react-native';
@@ -14,7 +15,7 @@ import { styles } from './styles';
 
 export const Menu = (props) => (
   <View style={styles.wrapper}>
-      <TouchableHighlight
+      <TouchableOpacity
       onPress={() => props.changeView('myprofile')}>
       <View style={styles.profileWrapper}>
         <ProfilePhoto type="circle" size={60} border={false} />
@@ -23,7 +24,7 @@ export const Menu = (props) => (
           <Text style={styles.profileText}>My Profile</Text>
         </View>
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
     <MenuNav routeId="home" icon="home" {...props} />
     <MenuNav routeId="discover" icon="bolt" {...props} />
     <MenuNav routeId="mylikes" icon="heart" label="My Likes" {...props} />
