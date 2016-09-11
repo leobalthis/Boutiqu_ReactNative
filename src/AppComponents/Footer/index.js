@@ -26,7 +26,11 @@ export class Footer extends Component {
 					onPress={() => this.props.changeView('home')}>
 						<Icon name='home' style={styles.icon}/>
 					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => this.props.changeView('search')}
+					>
 						<Icon name='search' style={styles.icon}/>
+					</TouchableOpacity>
 					</View>
 					<TouchableOpacity
 						style={styles.wrapperG}

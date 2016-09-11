@@ -12,7 +12,7 @@ import {
   Home,
   MyProfile,
   MyLikes,
-  ReviewCreator,
+  Search,
 } from 'AppScenes';
 
 import { styles } from './styles';
@@ -38,7 +38,7 @@ export class Main extends Component {
       navigator: nav,
       openMenu: this.openMenu,
       changeView: this.changeView
-    }
+    };
     switch (route.id) {
       case 'myprofile':
         return (
@@ -52,19 +52,12 @@ export class Main extends Component {
             {...commonProps}
           />
         );
-      case 'reviewcreator':
+      case 'search':
         return (
-          <ReviewCreator
+          <Search
             {...commonProps}
           />
         );
-      // case 'postareview':
-      //   return (
-      //     <PostAReview
-      //       navigator={nav}
-      //       openMenu={this.openMenu}
-      //     />
-      //   );
       default:
         return (
           <Home
