@@ -28,7 +28,10 @@ export class Footer extends Component {
 				</View>
 				<View style={styles.wrapper}>
 					<View style={styles.wrapperG}>
+					<TouchableOpacity
+					onPress={() => this.props.changeView('home')}>
 						<Icon name='home' style={styles.icon}/>
+					</TouchableOpacity>
 						<Icon name='search' style={styles.icon}/>
 					</View>				
 					<TouchableOpacity
@@ -38,7 +41,10 @@ export class Footer extends Component {
 					</TouchableOpacity>				
 					<View style={styles.wrapperG}>
 						<Icon name='bolt' style={styles.icon}/>
+					<TouchableOpacity
+					onPress={() => this.props.changeView('myprofile')}>
 			        	<ProfilePhoto type='circle' size={30} border={true} />
+					</TouchableOpacity>
 					</View>
 				</View>
 			</View>

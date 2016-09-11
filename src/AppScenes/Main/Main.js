@@ -27,26 +27,28 @@ export class Main extends Component {
     this.refs.sideMenu.openMenu(false);
   }
   renderScene(route, nav) {
+    const commonProps = {
+      navigator: nav,
+      openMenu: this.openMenu,
+      changeView: this.changeView
+    }
     switch (route.id) {
       case 'myprofile':
         return (
           <MyProfile
-            navigator={nav}
-            openMenu={this.openMenu}
+            {...commonProps}
           />
         );
       case 'mylikes':
         return (
           <MyLikes
-            navigator={nav}
-            openMenu={this.openMenu}
+            {...commonProps}
           />
         );
       case 'reviewcreator':
         return (
           <ReviewCreator
-            navigator={nav}
-            openMenu={this.openMenu}
+            {...commonProps}
           />
         );
       // case 'postareview':
@@ -59,8 +61,7 @@ export class Main extends Component {
       default:
         return (
           <Home
-            navigator={nav}
-            openMenu={this.openMenu}
+            {...commonProps}
           />
         );
     }
