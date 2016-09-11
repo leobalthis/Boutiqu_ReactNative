@@ -14,12 +14,15 @@ import {
 import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
-export const ReviewCreator = (props) => (
+export const ReviewCreator = ({ onClose }) => (
   <View style={styles.wrapper}>
     <NavigationBar
       tintColor={Styles.COLOR_GREEN}
       title={{ title: 'Create A Review' }}
-      leftButton={ <NavBarClose {...props} />}
+      leftButton={{
+				title: "Close",
+				handler: onClose,
+			}}
     />
 		<View style={{
 			flex: 1,

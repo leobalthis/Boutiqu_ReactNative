@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigator } from 'react-native';
+import { Navigator, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 import { Styles } from 'AppStyles';
@@ -14,6 +14,7 @@ import {
   MyLikes,
   Search,
   Contact,
+  ReviewCreator,
 } from 'AppScenes';
 
 import { styles } from './styles';
@@ -21,6 +22,9 @@ import { styles } from './styles';
 export class Main extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      fullPageComponent: null
+    };
     this.openMenu = this.openMenu.bind(this);
     this.changeView = this.changeView.bind(this);
     this.renderScene = this.renderScene.bind(this);
@@ -29,10 +33,21 @@ export class Main extends Component {
     this.refs.sideMenu.openMenu(true);
   }
   changeView(routeId, data) {
-    this.refs.navigator.resetTo({
-      id: routeId,
-      data,
-    });
+    if (routeId === 'reviewcreator') {
+      this.setState({
+        fullPageComponent: (
+          <ReviewCreator onClose={() => {
+            this.setState({ fullPageComponent: null });
+          }}
+          />
+        ),
+      });
+    } else {
+      this.refs.navigator.resetTo({
+        id: routeId,
+        data,
+      });
+    }
     this.refs.sideMenu.openMenu(false);
   }
   renderScene(route, nav) {
@@ -75,6 +90,18 @@ export class Main extends Component {
         );
     }
   }
+  renderFullPageModal() {
+    const { fullPageComponent } = this.state;
+    if (fullPageComponent) {
+      return (
+        <View style={{flex : 1, backgroundColor: 'red'}}>
+          {fullPageComponent}
+        </View>
+      );
+    } else {
+      return;
+    }
+  }
   render() {
     const menu = (
       <Menu
@@ -84,30 +111,33 @@ export class Main extends Component {
     );
     const initialRouteId = 'home';
     return (
-      <SideMenu
-        menu={menu}
-        ref="sideMenu"
-      >
-        <NavigationBar
-          tintColor={styles.navBarTint.color}
-          title={{ title: 'Boutiq' }}
-          leftButton={<NavBarSideMenu openMenu={this.openMenu} />}
-        />
-        <Navigator
-          style={{
-            flex: 1,
-            backgroundColor: Styles.COLOR_GREEN,
-          }}
-          ref={'navigator'}
-          initialRoute={{ id: initialRouteId, }}
-          renderScene={this.renderScene}
-          configureScene={(route) => {
-            if (route.sceneConfig) { return route.sceneConfig; }
-            return Navigator.SceneConfigs.FloatFromBottom;
-          }}
-        />
-        <Footer changeView={this.changeView} />
-      </SideMenu>
+      <View style={{ flex: 1, }}>
+        <SideMenu
+          menu={menu}
+          ref="sideMenu"
+        >
+          <NavigationBar
+            tintColor={styles.navBarTint.color}
+            title={{ title: 'Boutiq' }}
+            leftButton={<NavBarSideMenu openMenu={this.openMenu} />}
+          />
+          <Navigator
+            style={{
+              flex: 1,
+              backgroundColor: Styles.COLOR_GREEN,
+            }}
+            ref={'navigator'}
+            initialRoute={{ id: initialRouteId, }}
+            renderScene={this.renderScene}
+            configureScene={(route) => {
+              if (route.sceneConfig) { return route.sceneConfig; }
+              return Navigator.SceneConfigs.FloatFromBottom;
+            }}
+          />
+          <Footer changeView={this.changeView} />
+        </SideMenu>
+        {this.renderFullPageModal()}
+      </View>
     );
   }
 }

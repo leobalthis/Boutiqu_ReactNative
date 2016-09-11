@@ -28,7 +28,7 @@ export const Menu = (props) => (
     <MenuNav routeId="home" icon="home" {...props} />
     <MenuNav routeId="discover" icon="bolt" {...props} data={{ index: 1 }} />
     <MenuNav routeId="mylikes" icon="heart" label="My Likes" {...props} />
-    <MenuNav routeId="postareview" icon="plus-circle" label="Post a review" {...props} />
+    <MenuNav routeId="reviewcreator" icon="plus-circle" label="Post a review" {...props} />
     <MenuNav routeId="contactus" icon="envelope-o" label="Contact us" {...props} />
     <TouchableHighlight
       onPress={() => {
