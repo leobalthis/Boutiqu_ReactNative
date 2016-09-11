@@ -10,7 +10,11 @@ import {
 	ProfileFollow,
 	NavBarClose,
 	Footer,
+	Tags,
+	Rate,
+	WriteReview,
 } from 'AppComponents';
+
 import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
@@ -26,11 +30,11 @@ export const ReviewCreator = ({ onClose }) => (
     />
 		<View style={{
 			flex: 1,
-			justifyContent: 'center',
-			alignItems: 'center',
-			backgroundColor: 'red',
+		    flexDirection: 'column',
 		}}>
-		<Text>REVIEW CREATOR PAGE</Text>
+		<Tags label={true} />
+		<Rate label={true} />
+		<WriteReview />
 		</View>
   </View>
 );

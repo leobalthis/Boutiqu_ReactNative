@@ -9,29 +9,36 @@ import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    backgroundColor: 'red',
     flexDirection: 'row',
-    position: 'absolute',
-    top: 20,
-    right: 20,
+    borderColor: Styles.COLOR_LIGHTER_5,
+    borderWidth: 1,
   },
   icon: {
     fontSize: 15,
-    color: Styles.COLOR_WHITE,
   },
   rateN: {
     marginLeft: 5,
-    color: Styles.COLOR_WHITE,
   },
 });
 
-export const Rate = () => (
+const labelText = ({ label }) => {
+  let text;
+  if (label) {
+    text = <Text>label</Text>;
+  } else {
+    text = null;
+  }
+  return text;
+};
+
+export const Rate = ({ label }) => (
 	<View style={styles.wrapper}>
+    {labelText({ label })}
 		<Icon name="star" style={styles.icon} />
 		<Icon name="star-o" style={styles.icon} />
 		<Icon name="star-o" style={styles.icon} />
 		<Icon name="star-o" style={styles.icon} />
 		<Icon name="star-o" style={styles.icon} />
-		<Text style={styles.rateN}>(3000)</Text>
 	</View>
 );

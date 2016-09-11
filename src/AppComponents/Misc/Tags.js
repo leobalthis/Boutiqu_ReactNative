@@ -8,11 +8,8 @@ import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    backgroundColor: 'green',
     flexDirection: 'row',
-    position: 'absolute',
-    top: 120,
-    right: 20,
   },
   tags: {
     backgroundColor: Styles.COLOR_GREEN,
@@ -31,6 +28,7 @@ const styles = StyleSheet.create({
 
 export const Tags = () => (
 	<View style={styles.wrapper}>
+        <Text>Tags</Text>
 		<Text style={styles.tags}>Eat</Text>
 		<Text style={styles.tags}>Drink</Text>
 		<Text style={styles.tags}>Sleep</Text>
