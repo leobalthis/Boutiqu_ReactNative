@@ -17,11 +17,6 @@ import { styles } from './styles';
 
 export const MyProfile = (props) => (
   <View style={styles.wrapper}>
-    <NavigationBar
-      tintColor={Styles.COLOR_GREEN}
-      title={{ title: 'My Profile' }}
-      leftButton={ <NavBarSideMenu {...props} />}
-    />
 		<ScrollView style={{ backgroundColor: '#ddd' }}>
 			<View style={{ backgroundColor: '#fff' }}>
 				<View style={styles.profileWrapper}>
@@ -45,7 +40,7 @@ export const MyProfile = (props) => (
 					</View>
 				</View>
 				<View style={styles.profileFollowers}>
-				<TouchableOpacity 
+				<TouchableOpacity
 				onPress={() => props.navigator.push({
 					id: 'reviewcreator'
 				})}>
@@ -57,7 +52,6 @@ export const MyProfile = (props) => (
 				</View>
 			</View>
 		</ScrollView>
-		<Footer {...props} />
   </View>
 );
 

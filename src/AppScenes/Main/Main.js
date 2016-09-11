@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 import SideMenu from 'react-native-side-menu';
+import NavigationBar from 'react-native-navbar';
 import { Styles } from 'AppStyles';
-import { Menu } from 'AppComponents';
+import {
+  Menu,
+  NavBarSideMenu,
+  Footer,
+} from 'AppComponents';
 import {
   Home,
   MyProfile,
   MyLikes,
   ReviewCreator,
 } from 'AppScenes';
+
+import { styles } from './styles';
 
 export class Main extends Component {
   constructor(props) {
@@ -79,6 +86,11 @@ export class Main extends Component {
         menu={menu}
         ref="sideMenu"
       >
+        <NavigationBar
+          tintColor={styles.navBarTint.color}
+          title={{ title: 'Boutiq' }}
+          leftButton={<NavBarSideMenu openMenu={this.openMenu} />}
+        />
         <Navigator
           style={{
             flex: 1,
@@ -92,6 +104,7 @@ export class Main extends Component {
             return Navigator.SceneConfigs.FloatFromBottom;
           }}
         />
+        <Footer changeView={this.changeView} />
       </SideMenu>
     );
   }

@@ -17,7 +17,4 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: Styles.COLOR_WHITE,
   },
-  navBarTint: {
-    color: Styles.COLOR_GREEN,
-  },
 });

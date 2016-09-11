@@ -9,17 +9,11 @@ import { ProfilePhoto } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
 export class Footer extends Component {
-	static propTypes = {
-		navigator: PropTypes.object.isRequired,
+  static propTypes = {
+		changeView: PropTypes.func.isRequired,
 	}
 	constructor(props) {
 	  super(props);
-	  this.goToReviewCreator = this.goToReviewCreator.bind(this);
-	}
-	goToReviewCreator() {
-		this.props.navigator.push({
-			id: 'reviewcreator',
-		});
 	}
 	render() {
 		return (
@@ -33,12 +27,12 @@ export class Footer extends Component {
 						<Icon name='home' style={styles.icon}/>
 					</TouchableOpacity>
 						<Icon name='search' style={styles.icon}/>
-					</View>				
+					</View>
 					<TouchableOpacity
 						style={styles.wrapperG}
-						onPress={this.goToReviewCreator}>
+						onPress={() => this.props.changeView('reviewcreator')}>
 						<Icon name='plus-circle' style={styles.plusIcon}/>
-					</TouchableOpacity>				
+					</TouchableOpacity>
 					<View style={styles.wrapperG}>
 						<Icon name='bolt' style={styles.icon}/>
 					<TouchableOpacity
@@ -75,7 +69,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-around',
 		borderColor: Styles.COLOR_LIGHTER_5,
 		borderWidth: 0,
-	},	
+	},
 	wrapperB: {
 		justifyContent: 'space-around',
 	},

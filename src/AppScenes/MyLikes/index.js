@@ -16,11 +16,6 @@ const styles = StyleSheet.create({
 
 export const MyLikes = (props) => (
   <View style={styles.wrapper}>
-    <NavigationBar
-      tintColor={Styles.COLOR_GREEN}
-      title={{ title: 'My Likes' }}
-      leftButton={ <NavBarSideMenu {...props} /> }
-    />
     <PlaceCard />
   </View>
 );
