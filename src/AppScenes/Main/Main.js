@@ -28,9 +28,10 @@ export class Main extends Component {
   openMenu() {
     this.refs.sideMenu.openMenu(true);
   }
-  changeView(routeId) {
+  changeView(routeId, data) {
     this.refs.navigator.resetTo({
       id: routeId,
+      data,
     });
     this.refs.sideMenu.openMenu(false);
   }
@@ -69,6 +70,7 @@ export class Main extends Component {
         return (
           <Home
             {...commonProps}
+            {...route.data}
           />
         );
     }

@@ -11,14 +11,18 @@ import { styles } from './styles';
 
 export class Home extends Component {
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+    index: PropTypes.number,
   }
+	constructor(props) {
+		super(props);
+		this.initialPageIndex = props.index ? props.index : 0;
+	}
   state = {
     text: '',
   }
   render() {
     return (
-      <ScrollableTabView style={styles.tabs}>
+      <ScrollableTabView style={styles.tabs} initialPage={this.initialPageIndex}>
         <ScrollView tabLabel="My Network" style={styles.tabsContent}>
           <PlaceCard />
           <PlaceCard />
