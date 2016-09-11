@@ -8,3 +8,4 @@ export { ReviewCreator } from './ReviewCreator';
 export { MyProfile } from './MyProfile';
 export { MyLikes } from './MyLikes';
 export { Search } from './Search';
+export { Contact } from './Contact';

@@ -13,6 +13,7 @@ import {
   MyProfile,
   MyLikes,
   Search,
+  Contact,
 } from 'AppScenes';
 
 import { styles } from './styles';
@@ -55,6 +56,12 @@ export class Main extends Component {
       case 'search':
         return (
           <Search
+            {...commonProps}
+          />
+        );
+      case 'contactus':
+        return (
+          <Contact
             {...commonProps}
           />
         );
