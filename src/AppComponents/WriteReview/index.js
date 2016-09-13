@@ -27,15 +27,14 @@ export class WriteReview extends Component {
     return (
       <View style={styles.container}>
       <Text>Write a review</Text>
-        <TextInput
-          style={styles.inputContainer}
-          onChangeText={(text) => this.setState({text})}
-          placeholder='What do you think?'/>
-          <TouchableOpacity
-            style={styles.wrapperG}
-            onPress={() => this.props.changeView('reviewcreator')}>
-            <Icon name='camera' style={styles.plusIcon}/>
-          </TouchableOpacity>
+      <TextInput
+        style={styles.inputContainer}
+        onChangeText={(text) => this.setState({text})}
+        placeholder='What do you think?'/>
+        <TouchableOpacity
+          style={styles.wrapperG}>
+          <Icon name='camera' style={styles.plusIcon}/>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -46,7 +45,7 @@ var styles = StyleSheet.create({
     padding: 10,
   },
   inputContainer: {
-    height: 100,
+    height: 200,
     borderColor: Styles.COLOR_LIGHTER_5,
     borderWidth: 1,
     padding: 5,

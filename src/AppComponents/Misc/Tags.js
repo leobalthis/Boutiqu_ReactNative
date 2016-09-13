@@ -8,8 +8,10 @@ import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    flexDirection: 'row',
     padding: 10,
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    flexDirection:'row',
   },
   tags: {
     backgroundColor: Styles.COLOR_GREEN,
