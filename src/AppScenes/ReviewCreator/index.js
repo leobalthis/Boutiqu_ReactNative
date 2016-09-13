@@ -33,7 +33,7 @@ export const ReviewCreator = ({ onClose }) => (
 		    flexDirection: 'column',
 		}}>
 		<Tags label={true} />
-		<Rate label={true} />
+		<Rate label='Your rating' />
 		<WriteReview />
 		</View>
   </View>

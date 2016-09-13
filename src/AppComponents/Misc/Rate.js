@@ -9,10 +9,8 @@ import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'red',
     flexDirection: 'row',
-    borderColor: Styles.COLOR_LIGHTER_5,
-    borderWidth: 1,
+    padding: 10,
   },
   icon: {
     fontSize: 15,
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
 const labelText = ({ label }) => {
   let text;
   if (label) {
-    text = <Text>label</Text>;
+    text = <Text>{label}</Text>;
   } else {
     text = null;
   }
