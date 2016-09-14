@@ -13,7 +13,7 @@
     "react-native": "0.32.0",
     "react-native-fbsdk": "0.3.0",
     "react-native-google-places-autocomplete": "1.2.2",
-    "react-native-image-picker": "0.22.1",
+    "react-native-image-picker": "^0.22.5",
     "react-native-navbar": "1.5.0",
     "react-native-scrollable-tab-view": "0.6.0",
     "react-native-side-menu": "0.20.0",

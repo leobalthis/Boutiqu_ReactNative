@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ImagePicker from 'react-native-image-picker';
 
 import {
   StyleSheet,
@@ -15,6 +16,8 @@ export class WriteReview extends Component {
   constructor(props) {
     super(props);
 
+    this.launchImageLibrary = this.launchImageLibrary.bind(this);
+
     this.state = { 
       text: '',
       backgroundColor: '#ededed',
@@ -22,6 +25,22 @@ export class WriteReview extends Component {
     };
   }
 
+
+  launchImageLibrary() {
+      let options = {
+        title: 'Select Avatar',
+        customButtons: [
+          {name: 'fb', title: 'Choose Photo from Facebook'},
+        ],
+        storageOptions: {
+          skipBackup: true,
+          path: 'images'
+        }
+      }
+
+    ImagePicker.launchImageLibrary(options, (response)  => {
+    });
+  }
 
   render() {
     return (
@@ -32,7 +51,8 @@ export class WriteReview extends Component {
         onChangeText={(text) => this.setState({text})}
         placeholder='What do you think?'/>
         <TouchableOpacity
-          style={styles.wrapperG}>
+          style={styles.wrapperG}
+           onPress={this.launchImageLibrary} >
           <Icon name='camera' style={styles.plusIcon}/>
         </TouchableOpacity>
       </View>
