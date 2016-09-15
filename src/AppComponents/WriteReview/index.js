@@ -76,6 +76,8 @@ var styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
+    width: 40,
+    alignSelf: 'center',
   },
   plusIcon: {
     borderColor: Styles.COLOR_LIGHTER_5,
