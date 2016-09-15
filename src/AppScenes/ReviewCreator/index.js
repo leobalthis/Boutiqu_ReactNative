@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
 	View,
 	Text,
 	ScrollView,
+	TouchableOpacity,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import {
@@ -18,23 +19,38 @@ import {
 import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
-export const ReviewCreator = ({ onClose }) => (
-  <View style={styles.wrapper}>
-    <NavigationBar
-      tintColor={Styles.COLOR_GREEN}
-      title={{ title: 'Create A Review' }}
-      leftButton={{
-				title: "Close",
-				handler: onClose,
-			}}
-    />
-		<View style={{
-			flex: 1,
-		    flexDirection: 'column',
-		}}>
-		<Tags label={true} />
-		<Rate label='Your rating' />
-		<WriteReview />
-		</View>
-  </View>
-);
+export class ReviewCreator extends Component {
+	constructor(props) {
+	  super(props);
+	  this.tagSelection = null;
+	}
+	render() {
+		const { onClose } = this.props;
+		return (
+		  <View style={styles.wrapper}>
+		    <NavigationBar
+		      tintColor={Styles.COLOR_GREEN}
+		      title={{ title: 'Create A Review' }}
+		      leftButton={{
+						title: "Close",
+						handler: onClose,
+					}}
+		    />
+				<View style={{
+					flex: 1,
+				    flexDirection: 'column',
+				}}>
+				<Tags ref={e => this.tagSelection = e} label={true} />
+				<Rate label='Your rating' />
+				<WriteReview />
+				<TouchableOpacity onPress={() => {
+					console.log('t', this.tagSelection.getSelectedTags());
+				}}>
+					<Text>POST YOUR REVIEW NOW</Text>
+				</TouchableOpacity>
+				</View>
+		  </View>
+		);
+	}
+}
+

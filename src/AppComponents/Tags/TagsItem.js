@@ -3,14 +3,32 @@ import {
 	StyleSheet,
 	View,
 	Text,
+  TouchableOpacity,
 } from 'react-native';
 import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
-  tags: {
+  tagSelected: {
     backgroundColor: Styles.COLOR_GREEN,
+    borderColor: Styles.COLOR_GREEN,
+    borderWidth: 1,
     color: Styles.COLOR_WHITE,
-    width: 55,
+    width: 60,
+    paddingTop: 1,
+    paddingBottom: 1,
+    paddingRight: 5,
+    paddingLeft: 5,
+    marginLeft: 3,
+    marginRight: 3,
+    fontSize: 13,
+    textAlign: 'center'
+  },
+  tagUnselected: {
+    backgroundColor: Styles.COLOR_WHITE,
+    borderColor: Styles.COLOR_GREEN,
+    borderWidth: 1,
+    color: Styles.COLOR_GREEN,
+    width: 60,
     paddingTop: 1,
     paddingBottom: 1,
     paddingRight: 5,
@@ -23,14 +41,26 @@ const styles = StyleSheet.create({
 });
 
 export class TagsItem extends Component {
-  state = {
-    selectedd: ''
+
+  constructor(props) {
+    super(props);
+
+    this.toggleSelection = this.toggleSelection.bind(this);
+
+    this.state = { 
+      selected: false,
+    };
+  }
+
+  toggleSelection() {
+    this.setState({ selected: !this.state.selected });
   }
   render() {
     return (
-        <View>
-            <Text style={styles.tags}>Do</Text>
-        </View>
+      <TouchableOpacity
+        onPress={this.toggleSelection} >
+        <Text style={ (this.state.selected) ? styles.tagSelected : styles.tagUnselected}>{this.props.label}</Text>
+      </TouchableOpacity>
     );
   }
 }
