@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
 	StyleSheet,
 	View,
@@ -7,12 +7,6 @@ import {
 import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
-  wrapper: {
-    padding: 10,
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    flexDirection:'row',
-  },
   tags: {
     backgroundColor: Styles.COLOR_GREEN,
     color: Styles.COLOR_WHITE,
@@ -28,12 +22,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Tags = () => (
-	<View style={styles.wrapper}>
-        <Text>Tags</Text>
-		<Text style={styles.tags}>Eat</Text>
-		<Text style={styles.tags}>Drink</Text>
-		<Text style={styles.tags}>Sleep</Text>
-		<Text style={styles.tags}>Do</Text>
-	</View>
-);
+export class TagsItem extends Component {
+  state = {
+    selectedd: ''
+  }
+  render() {
+    return (
+        <View>
+            <Text style={styles.tags}>Do</Text>
+        </View>
+    );
+  }
+}
+
