@@ -35,7 +35,8 @@ export class ReviewCreator extends Component {
 						title: "Close",
 						handler: onClose,
 					}}/>
-				<View style={{
+				<Text style={styles.reviewLabel}>YOUR REVIEW</Text>
+				<ScrollView style={{
 					flex: 1,
 				    flexDirection: 'column',
 				}}>
@@ -47,7 +48,7 @@ export class ReviewCreator extends Component {
 				}}>
 				<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
 				</TouchableOpacity>
-				</View>
+				</ScrollView>
 		  </View>
 		);
 	}

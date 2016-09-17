@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 20,
     marginLeft: 3,
+    color: Styles.COLOR_GREEN,
   },
 });
 
