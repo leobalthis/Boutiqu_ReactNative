@@ -45,9 +45,10 @@ export class ReviewCreator extends Component {
 				<TouchableOpacity onPress={() => {
 					console.log('t', this.tagSelection.getSelectedTags());
 				}}>
-				<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
 				</TouchableOpacity>
+				<Text>Share on Facebook</Text>
 				</ScrollView>
+				<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
 		  </View>
 		);
 	}

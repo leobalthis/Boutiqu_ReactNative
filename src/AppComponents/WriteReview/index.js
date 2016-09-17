@@ -54,6 +54,7 @@ export class WriteReview extends Component {
           style={styles.wrapperG}
            onPress={this.launchImageLibrary} >
           <Icon name='camera' style={styles.plusIcon}/>
+          <Icon name='facebook-square' style={styles.plusIcon}/>
         </TouchableOpacity>
       </View>
     );
@@ -69,7 +70,7 @@ var styles = StyleSheet.create({
     borderColor: Styles.COLOR_LIGHTER_5,
     borderWidth: 1,
     padding: 5,
-    margin: 5,
+    marginBottom: 10,
     color: Styles.COLOR_DARKER_45,
   },
   wrapperG: {
