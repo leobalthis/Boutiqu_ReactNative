@@ -9,8 +9,6 @@ import NavigationBar from 'react-native-navbar';
 import {
 	ProfilePhoto,
 	ProfileFollow,
-	NavBarSideMenu,
-	Footer,
 } from 'AppComponents';
 import { Styles } from 'AppStyles';
 import { styles } from './styles';

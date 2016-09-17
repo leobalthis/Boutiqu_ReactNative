@@ -10,7 +10,6 @@ import {
 	ProfilePhoto,
 	ProfileFollow,
 	NavBarClose,
-	Footer,
 	Tags,
 	Rate,
 	WriteReview,

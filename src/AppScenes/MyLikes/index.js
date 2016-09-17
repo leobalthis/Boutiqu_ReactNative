@@ -4,7 +4,7 @@ import {
   View,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
-import { PlaceCard, NavBarSideMenu } from 'AppComponents';
+import { PlaceCard } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
