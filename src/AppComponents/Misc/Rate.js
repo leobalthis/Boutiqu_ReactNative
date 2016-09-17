@@ -13,14 +13,15 @@ const styles = StyleSheet.create({
   wrapper: {
     padding: 10,
     flexWrap: 'wrap',
-    alignItems: 'flex-start',
     flexDirection:'row',
+  },
+  rateLabel: {
+    flex: 1,
+    color: Styles.COLOR_DARKER_45,
   },
   icon: {
     fontSize: 20,
-  },
-  rateN: {
-    marginLeft: 10,
+    marginLeft: 3,
   },
 });
 
@@ -51,6 +52,9 @@ export class Rate extends Component {
     const { rateValue } = this.state;
     return (
       <View style={styles.wrapper}>
+        <Text style={styles.rateLabel}>
+          {(this.props.rateLabel) ? 'Rate it' : ''}
+        </Text>
         {_.times(rateValue, (i) => (
           <TouchableOpacity onPress={() => {
             this.setRate(i+1);

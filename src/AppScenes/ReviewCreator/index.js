@@ -34,14 +34,13 @@ export class ReviewCreator extends Component {
 		      leftButton={{
 						title: "Close",
 						handler: onClose,
-					}}
-		    />
+					}}/>
 				<View style={{
 					flex: 1,
 				    flexDirection: 'column',
 				}}>
-				<Tags ref={e => this.tagSelection = e} label={true} />
-				<Rate label='Your rating' />
+				<Tags ref={e => this.tagSelection = e} tagsLabel={true}  />
+				<Rate rateLabel={true} />
 				<WriteReview />
 				<TouchableOpacity onPress={() => {
 					console.log('t', this.tagSelection.getSelectedTags());

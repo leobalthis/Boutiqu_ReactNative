@@ -12,10 +12,12 @@ const styles = StyleSheet.create({
   wrapper: {
     padding: 10,
     flexWrap: 'wrap',
-    alignItems: 'flex-start',
     flexDirection:'row',
   },
-
+  tagsLabel: {
+    flex: 1,
+    color: Styles.COLOR_DARKER_45,
+  }
 });
 
 export class Tags extends Component {
@@ -37,7 +39,9 @@ export class Tags extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <Text>Tags</Text>
+        <Text style={styles.tagsLabel}>
+          {(this.props.tagsLabel) ? 'Choose a tag' : ''}
+        </Text>
         {Tags.labels.map((label, idx) => (
           <TagsItem
             label={label}

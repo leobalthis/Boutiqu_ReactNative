@@ -43,6 +43,8 @@ export const PlaceCard = () => (
     <ProfileName name="Tina Azimi" follow={true} />
     <TouchableHighlight>
       <View>
+        <Tags tagsLabel={false} />
+        <Rate rateLabel={false} />
         <Image
           source={{ uri: 'https://c1.staticflickr.com/9/8731/16524153093_2933c1ede4_b.jpg' }}
           style={styles.container}
@@ -53,8 +55,6 @@ export const PlaceCard = () => (
           <Text style={styles.placeP}>
             Double Bay, Australia
           </Text>
-          <Rate />
-          <Tags />
           <Text style={styles.welcome}>
             My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
           </Text>
