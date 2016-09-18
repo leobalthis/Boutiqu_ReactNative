@@ -7,6 +7,7 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import { ProfileName } from './ProfileName';
+import { PlaceCardComments } from './PlaceCardComments';
 import { Styles } from 'AppStyles';
 
 
@@ -33,7 +34,7 @@ export const PlaceCard = () => (
       name="Tina Azimi"
       placeName="La Note Restaurant Provenca"
       local="Berkeley, CA"
-      follow={false} />
+      follow={false} />    
       <View>
         <Text style={styles.postReviewText}>
           My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
@@ -47,5 +48,6 @@ export const PlaceCard = () => (
         </Image>
       </View>
     </TouchableOpacity>
+    <PlaceCardComments />
   </View>
 );
