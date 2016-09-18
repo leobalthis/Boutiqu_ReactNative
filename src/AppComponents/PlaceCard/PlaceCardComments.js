@@ -19,8 +19,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 5,
-    borderColor: 'red',
-    borderWidth: 1,
   },
   iconSelected: {
     fontSize: Styles.FONT_SIZE_TITLE,
@@ -93,20 +91,11 @@ export class PlaceCardComments extends Component {
           </Text>
       </View>      
       <View style={styles.rowWrapper}>
-         <TouchableOpacity
-          onPress={this.toggleSelection} >
-            <Icon 
-            name={ renderLiked(this.state.liked) } 
-            style={styles.icon} />
-        </TouchableOpacity>
           <Text>
-            likes
+            20 likes
           </Text>
-          <Icon 
-            name={ renderComments(this.props.comments) } 
-            style={styles.icon} />
           <Text>
-            Comments
+            5 Comments
           </Text>
       </View>
       </View>
