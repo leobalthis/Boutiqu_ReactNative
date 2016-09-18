@@ -12,7 +12,8 @@ import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginBottom: 10,
+    marginBottom: 30,
+    backgroundColor: Styles.COLOR_WHITE,
   },
   container: {
     flex: 1,

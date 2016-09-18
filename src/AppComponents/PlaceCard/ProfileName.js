@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: Styles.COLOR_WHITE,
     padding: 5,
     justifyContent: 'space-between',    
   },
