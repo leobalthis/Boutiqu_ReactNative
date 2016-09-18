@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   icon: {
-    fontSize: 15,
+    fontSize: Styles.FONT_SIZE_SMALL,
     marginLeft: 2,
     color: Styles.COLOR_ORANGE,
   },

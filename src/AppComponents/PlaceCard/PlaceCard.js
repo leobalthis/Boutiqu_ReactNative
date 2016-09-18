@@ -48,6 +48,8 @@ export const PlaceCard = () => (
         </Image>
       </View>
     </TouchableOpacity>
-    <PlaceCardComments />
+    <PlaceCardComments 
+      liked={false}
+      comments={false}/>
   </View>
 );
