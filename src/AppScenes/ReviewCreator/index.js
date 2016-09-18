@@ -12,6 +12,7 @@ import {
 	NavBarClose,
 	Tags,
 	Rate,
+	SocialMediaShare,
 	WriteReview,
 } from 'AppComponents';
 
@@ -46,7 +47,7 @@ export class ReviewCreator extends Component {
 					console.log('t', this.tagSelection.getSelectedTags());
 				}}>
 				</TouchableOpacity>
-				<Text>Share on Facebook</Text>
+				<SocialMediaShare />
 				</ScrollView>
 				<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
 		  </View>

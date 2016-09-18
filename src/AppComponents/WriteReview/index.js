@@ -54,7 +54,6 @@ export class WriteReview extends Component {
           style={styles.wrapperG}
            onPress={this.launchImageLibrary} >
           <Icon name='camera' style={styles.plusIcon}/>
-          <Icon name='facebook-square' style={styles.plusIcon}/>
         </TouchableOpacity>
       </View>
     );

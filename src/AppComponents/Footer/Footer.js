@@ -83,6 +83,8 @@ const styles = StyleSheet.create({
 	icon: {
 		fontSize: 20,
 		color: Styles.COLOR_DARKER_30,
+		paddingLeft: 10,
+		paddingRight: 10,
 	},
 	plusIcon: {
 		fontSize: 70,
