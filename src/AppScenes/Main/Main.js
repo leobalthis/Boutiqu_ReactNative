@@ -23,12 +23,7 @@ export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullPageComponent: (
-        <ReviewCreator onClose={() => {
-          this.setState({ fullPageComponent: null });
-        }}
-        />
-      ),
+      fullPageComponent: null,
     };
     this.openMenu = this.openMenu.bind(this);
     this.changeView = this.changeView.bind(this);

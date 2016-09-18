@@ -13,7 +13,6 @@ import { Styles } from 'AppStyles';
 const styles = StyleSheet.create({
   tagSelected: {
     fontSize: 40,
-    color: 'red',
     color: Styles.COLOR_GREEN,
     paddingRight: 30,
     paddingLeft: 30,
