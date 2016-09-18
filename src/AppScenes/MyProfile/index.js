@@ -5,7 +5,7 @@ import {
 	ScrollView,
 	TouchableOpacity,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
+
 import {
 	ProfilePhoto,
 	ProfileFollow,

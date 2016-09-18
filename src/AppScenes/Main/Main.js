@@ -122,7 +122,7 @@ export class Main extends Component {
           ref="sideMenu"
         >
           <NavigationBar
-            tintColor={styles.navBarTint.color}
+            tintColor={Styles.COLOR_GREEN}
             title={{ title: 'Boutiq' }}
             leftButton={<NavBarSideMenu openMenu={this.openMenu} />}
           />

@@ -1,9 +1,10 @@
 import React from 'react';
+
 import {
   StyleSheet,
   View,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
+
 import { PlaceCard } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
