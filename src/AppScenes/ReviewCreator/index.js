@@ -48,13 +48,13 @@ export class ReviewCreator extends Component {
 				<Tags ref={e => this.tagSelection = e} tagsLabel={true}  />
 				<Rate rateLabel={true} />
 				<WriteReview />
-				<TouchableOpacity onPress={() => {
-					console.log('t', this.tagSelection.getSelectedTags());
-				}}>
-				</TouchableOpacity>
 				<SocialMediaShare />
 				</ScrollView>
-				<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
+				<TouchableOpacity onPress={() => {
+					console.log('tags', this.tagSelection.getSelectedTags());
+				}}>
+					<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
+				</TouchableOpacity>
 			</View>
 		);
 	}
