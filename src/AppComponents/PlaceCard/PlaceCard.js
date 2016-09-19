@@ -28,28 +28,31 @@ const styles = StyleSheet.create({
   }
 });
 
-export const PlaceCard = () => (
-  <View style={styles.wrapper} >
-    <ProfileName 
-      name="Tina Azimi"
-      placeName="La Note Restaurant Provenca"
-      local="Berkeley, CA"
-      follow={false} />    
-      <View>
-        <Text style={styles.postReviewText}>
-          My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
-        </Text>
-      </View>
-    <TouchableOpacity>
-      <View>
-        <Image
-          source={{ uri: 'https://c1.staticflickr.com/9/8731/16524153093_2933c1ede4_b.jpg' }}
-          style={styles.container}>
-        </Image>
-      </View>
-    </TouchableOpacity>
-    <PlaceCardComments 
-      liked={false}
-      comments={false}/>
-  </View>
-);
+export const PlaceCard = (props) => {
+  console.log('placecard props', props);
+  return (
+    <View style={styles.wrapper} >
+      <ProfileName 
+        name="Tina Azimi"
+        placeName="La Note Restaurant Provenca"
+        local="Berkeley, CA"
+        follow={false} />    
+        <View>
+          <Text style={styles.postReviewText}>
+            My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
+          </Text>
+        </View>
+      <TouchableOpacity>
+        <View>
+          <Image
+            source={{ uri: 'https://c1.staticflickr.com/9/8731/16524153093_2933c1ede4_b.jpg' }}
+            style={styles.container}>
+          </Image>
+        </View>
+      </TouchableOpacity>
+      <PlaceCardComments 
+        liked={false}
+        comments={false}/>
+    </View>
+  );
+};

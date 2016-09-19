@@ -2,10 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import {
 	Text,
 	ScrollView,
+  View,
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {
 	PlaceCard,
+  MyNetwork,
 } from 'AppComponents';
 import { styles } from './styles';
 
@@ -17,18 +19,12 @@ export class Home extends Component {
 		super(props);
 		this.initialPageIndex = props.index ? props.index : 0;
 	}
-  state = {
-    text: '',
-  }
   render() {
     return (
       <ScrollableTabView style={styles.tabs} initialPage={this.initialPageIndex}>
-        <ScrollView tabLabel="My Network" style={styles.tabsContent}>
-          <PlaceCard />
-          <PlaceCard />
-          <PlaceCard />
-          <PlaceCard />
-				</ScrollView>
+        <View tabLabel="My Network" style={styles.tabsContent}>
+          <MyNetwork />
+        </View>
         <ScrollView tabLabel="Discover" style={styles.tabsContent}>
           <Text>Discover</Text>
         </ScrollView>

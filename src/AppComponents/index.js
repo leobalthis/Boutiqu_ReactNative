@@ -11,3 +11,4 @@ export * from './ProfilePhoto';
 export * from './Footer';
 export * from './WriteReview';
 export * from './Tags';
+export * from './MyNetwork';
