@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+
 import {
 	StyleSheet,
 	View,
@@ -30,16 +32,16 @@ const styles = StyleSheet.create({
 
 export const PlaceCard = (props) => {
   console.log('placecard props', props);
+
+  //need to change follow part
+  //
   return (
     <View style={styles.wrapper} >
-      <ProfileName 
-        name="Tina Azimi"
-        placeName="La Note Restaurant Provenca"
-        local="Berkeley, CA"
+      <ProfileName {...props}
         follow={false} />    
         <View>
           <Text style={styles.postReviewText}>
-            My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
+          {props.text}
           </Text>
         </View>
       <TouchableOpacity>

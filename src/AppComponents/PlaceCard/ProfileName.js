@@ -50,19 +50,20 @@ const styles = StyleSheet.create({
 });
 
 export class ProfileName extends Component {
+
   state = {
     follow: this.props.follow,
     tags: ['Eat', 'Drink', 'Sleep', 'Do'],
-    rate: 4,
   }
+  
   render() {
     return (
       <View style={styles.wrapper}>
         <ProfilePhoto type="circle" size={40} border={false} />
         <View style={styles.wrapperProfileName}>
-          <Text style={styles.profileName}>{this.props.name}</Text>
-          <Text style={styles.placeName}>{this.props.placeName}</Text>
-          <Text style={styles.local}>{this.props.local}</Text>
+          <Text style={styles.profileName}>{this.props.review_user.name}</Text>
+          <Text style={styles.placeName}>{this.props.place.name}</Text>
+          <Text style={styles.local}>{this.props.place.local}</Text>
         </View>        
         <View style={styles.wrapperProfileName}>
           <View style={styles.wrapperFollow}>
@@ -71,7 +72,7 @@ export class ProfileName extends Component {
             </Text>
           </View>
           <PlaceCardTags tags={this.state.tags} />
-          <PlaceCardRate rate={this.state.rate} />
+          <PlaceCardRate rate={this.props.stars} />
         </View>
       </View>
     );
@@ -79,6 +80,5 @@ export class ProfileName extends Component {
 }
 
 ProfileName.propTypes = {
-  name: PropTypes.string.isRequired,
   follow: PropTypes.bool.isRequired,
 };

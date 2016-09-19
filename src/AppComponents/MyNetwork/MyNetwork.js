@@ -41,7 +41,11 @@ export class MyNetwork extends Component {
 	}
 
 	renderListItem(rowData) {
-		return <PlaceCard {...rowData} />;
+		if (rowData.feed_type === 'review') {
+			return <PlaceCard {...rowData} />;
+		} else {
+			return <View />
+		}
 	}
 
   render() {

@@ -33,22 +33,14 @@ const labelText = ({ label }) => {
 };
 
 export class PlaceCardRate extends Component {
-  constructor(props) {
-    super(props);
-  
-    this.state = {
-      rateValue: 4,
-    };
-  }
 
   render() {
-    const { rateValue } = this.state;
     return (
       <View style={styles.wrapper}>
-        {_.times(rateValue, (idx) => (
+        {_.times(this.props.rate, (idx) => (
             <Icon name="star" key={idx} style={styles.icon} />
         ))}
-        {_.times(5-rateValue, (idx) => (
+        {_.times(5-this.props.rate, (idx) => (
             <Icon name="star-o" key={idx}  style={styles.icon} />
         ))}
       </View>
