@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    height: 150,
+    height: 200,
   },
   postReviewText: {
     fontSize: Styles.FONT_SIZE_SMALLER,
@@ -47,14 +47,14 @@ export const PlaceCard = (props) => {
       <TouchableOpacity>
         <View>
           <Image
-            source={{ uri: 'https://c1.staticflickr.com/9/8731/16524153093_2933c1ede4_b.jpg' }}
+            source={{ uri: props.place.photo }}
             style={styles.container}>
           </Image>
         </View>
       </TouchableOpacity>
       <PlaceCardComments 
-        liked={false}
-        comments={false}/>
+        liked={props.place_liked}
+        comments={props.comments}/>
     </View>
   );
 };

@@ -8,7 +8,6 @@ import {
 import NavigationBar from 'react-native-navbar';
 import {
 	ProfilePhoto,
-	ProfileFollow,
 	NavBarClose,
 	Tags,
 	Rate,

@@ -11,43 +11,67 @@ import { Styles } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    padding: 5,
-    borderColor: 'red',
-    borderWidth: 1, 
+    flex: 1,
+    flexDirection: 'column',
   },
   rowWrapper: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: Styles.COLOR_LIGHTER_5,
+  },
+  likes: {
+    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+  comments: {
+    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
   iconSelected: {
     fontSize: Styles.FONT_SIZE_TITLE,
     color: Styles.COLOR_GREEN,
-    padding: 2,
+    fontSize: 16,
+    paddingRight: 5,
   },
   iconUnselected: {
     fontSize: Styles.FONT_SIZE_TITLE,
     color: Styles.COLOR_DARKER_15,
-    padding: 2,
+    fontSize: 16,
+    paddingRight: 5,
   },
+  rowText: {
+    color: Styles.FONT_COLOR,
+  },
+  icon: {
+    fontSize: 20,
+    color: Styles.COLOR_DARKER_30,
+    paddingLeft: 10,
+    paddingRight: 10,
+  }
 });
 
 const renderLiked = (liked) => {
   let text;  
   if (liked) {
-    text = 'plus-square';
+    text = 'thumbs-up';
   } else {
-    text = 'plus-square-o';
+    text = 'thumbs-o-up';
   }
   return text;
 };
 
 const renderComments = (comments) => {
+
   let text;  
-  if (comments) {
-    text = 'comments';
+  if (comments.length > 0) {
+    text = 'comment';
   } else {
-    text = 'comments-o';
+    text = 'comment-o';
   }
   return text;
 };
@@ -73,31 +97,47 @@ export class PlaceCardComments extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-      <View style={styles.rowWrapper}>
-         <TouchableOpacity
-          onPress={this.toggleSelection} >
-            <Icon 
-            name={ renderLiked(this.state.liked) } 
-            style={ (this.state.liked) ? styles.iconSelected : styles.iconUnselected} />
-        </TouchableOpacity>
-          <Text>
-            likes
-          </Text>
-          <Icon 
-            name={ renderComments(this.props.comments) } 
-            style={ (this.props.comments) ? styles.iconSelected : styles.iconUnselected} />
-          <Text>
-            Comments
-          </Text>
-      </View>      
-      <View style={styles.rowWrapper}>
-          <Text>
-            20 likes
-          </Text>
-          <Text>
-            5 Comments
-          </Text>
-      </View>
+        <View style={styles.rowWrapper}>
+          <View style={styles.likes}>
+             <TouchableOpacity
+              onPress={this.toggleSelection} >
+            </TouchableOpacity>
+              <Text style={styles.rowText}>
+                30 likes
+              </Text>
+          </View>
+          <View style={styles.comments}>                
+              <Text style={styles.rowText}>
+                {(this.props.comments.length > 0) ? his.props.comments.length : 2} Comments
+              </Text>
+          </View>              
+        </View>     
+        <View style={styles.rowWrapper}>
+          <View style={styles.likes}>
+             <TouchableOpacity
+              onPress={this.toggleSelection} >
+                <Icon 
+                name={ renderLiked(this.state.liked) } 
+                style={ (this.state.liked) ? styles.iconSelected : styles.iconUnselected} />
+            </TouchableOpacity>
+              <Text style={styles.rowText}>
+                like
+              </Text>
+          </View>
+          <View style={styles.comments}>
+              <Icon 
+                name={ renderComments(this.props.comments) } 
+                style={ (this.props.comments.length > 0) ? styles.iconSelected : styles.iconUnselected} />
+              <Text style={styles.rowText}>
+                Comment
+              </Text>
+          </View>        
+          <View style={styles.comments}>
+              <TouchableOpacity>
+                <Icon name='ellipsis-h' style={styles.icon}/>
+              </TouchableOpacity>
+          </View>              
+        </View>              
       </View>
     );
   }
