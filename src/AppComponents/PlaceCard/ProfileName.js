@@ -53,9 +53,8 @@ export class ProfileName extends Component {
 
   state = {
     follow: this.props.follow,
-    tags: ['Eat', 'Drink', 'Sleep', 'Do'],
   }
-  
+
   render() {
     return (
       <View style={styles.wrapper}>
@@ -69,9 +68,10 @@ export class ProfileName extends Component {
           <View style={styles.wrapperFollow}>
             <Text style={styles.following}>
               {(this.state.follow) ? 'Following' : 'Follow'}
+              {this.props.place.tags}
             </Text>
           </View>
-          <PlaceCardTags tags={this.state.tags} />
+          <PlaceCardTags tags={this.props.place.tag} />
           <PlaceCardRate rate={this.props.stars} />
         </View>
       </View>
