@@ -32,17 +32,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
-  iconSelected: {
-    fontSize: Styles.FONT_SIZE_TITLE,
+  iconS: {
     color: Styles.COLOR_GREEN,
-    fontSize: 16,
-    paddingRight: 5,
+    fontSize: Styles.FONT_SIZE_SMALL,
+    paddingRight: 20,
+  },
+  iconSelected: {
+    // color: Styles.COLOR_GREEN,
   },
   iconUnselected: {
-    fontSize: Styles.FONT_SIZE_TITLE,
-    color: Styles.COLOR_DARKER_15,
-    fontSize: 16,
-    paddingRight: 5,
+    // color: Styles.COLOR_DARKER_15,
   },
   rowText: {
     color: Styles.FONT_COLOR,
@@ -118,7 +117,7 @@ export class PlaceCardComments extends Component {
               onPress={this.toggleSelection} >
                 <Icon 
                 name={ renderLiked(this.state.liked) } 
-                style={ (this.state.liked) ? styles.iconSelected : styles.iconUnselected} />
+                style={[styles.iconS, ((this.state.liked) ? styles.iconSelected : styles.iconUnselected)]} />
             </TouchableOpacity>
               <Text style={styles.rowText}>
                 like
@@ -127,7 +126,7 @@ export class PlaceCardComments extends Component {
           <View style={styles.comments}>
               <Icon 
                 name={ renderComments(this.props.comments) } 
-                style={ (this.props.comments.length > 0) ? styles.iconSelected : styles.iconUnselected} />
+                style={[styles.iconS, ((this.props.comments.length > 0) ? styles.iconSelected : styles.iconUnselected)]} />
               <Text style={styles.rowText}>
                 Comment
               </Text>
