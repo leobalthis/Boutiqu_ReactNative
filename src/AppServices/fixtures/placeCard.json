@@ -65,6 +65,37 @@
       "like_url": "/likes/20",
       "like_method": "DELETE",
       "comments": []
+    },
+    {
+      "feed_type": "review",
+      "id": 68,
+      "text": "Hey",
+      "stars": 3,
+      "created_at": "2016-07-21T22:16:21.880Z",
+      "review_user": {
+        "id": 1,
+        "name": "Christine Lau5555",
+        "propic": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/10644606_10204135160313158_5625840248954293316_n.jpg?oh=edf666d6625c9f52d63bc1163d8e71c6&oe=58166305"
+      },
+      "follow_type": "Following", // Either a Friend or Following
+      "review_edit_url": "http://localhost:3000/reviews/68/edit",
+      "review_url": "http://localhost:3000/reviews/68",
+      "place": {
+        "id": 20,
+        "name": "La Note Restaurant Provencal",
+        "local": "Berkeley, CA",
+        "name_address": "Shattuck Avenue, Berkeley, CA, United States",
+        "tag": [
+          "Eat",
+          "Do"
+        ],
+        "photo": "https://lh4.googleusercontent.com/-D8luL6SenYw/VykodMmE4MI/AAAAAAAAABc/Fol11tTAtKIiXjnMBPnSyYOZNQE8IQTWACLIB/w400-h400-k/",
+        "google_place_id": "ChIJB_-A0oJ-hYARwmbyJJR3sUo"
+      },
+      "place_liked": true,
+      "like_url": "/likes/20",
+      "like_method": "DELETE",
+      "comments": []
     }
   ]
 }
