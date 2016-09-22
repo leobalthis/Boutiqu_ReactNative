@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
   },
   iconS: {
     color: Styles.COLOR_GREEN,
-    fontSize: Styles.FONT_SIZE_SMALL,
-    paddingRight: 20,
+    fontSize: Styles.FONT_SIZE,
+    paddingRight: 3,
   },
   iconSelected: {
-    // color: Styles.COLOR_GREEN,
+    color: Styles.COLOR_GREEN,
   },
   iconUnselected: {
-    // color: Styles.COLOR_DARKER_15,
+    color: Styles.COLOR_DARKER_15,
   },
   rowText: {
     color: Styles.FONT_COLOR,

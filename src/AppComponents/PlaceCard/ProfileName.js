@@ -3,7 +3,7 @@ import {
 	StyleSheet,
 	View,
 	Text,
-	TouchableHighlight,
+	TouchableOpacity,
 } from 'react-native';
 import { Styles } from 'AppStyles';
 import { ProfilePhoto } from 'AppComponents';
@@ -49,11 +49,36 @@ const styles = StyleSheet.create({
   },
 });
 
+
+
 export class ProfileName extends Component {
 
-  state = {
-    follow: this.props.follow,
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      follow: this.props.follow_type,
+    };
   }
+
+  setFollowStatus(f) {
+    this.setState({ follow: f, });
+    //save in database 
+    //show time
+  }
+
+  followStatus(followType) {
+    let followingStatus;
+    if (followType === 'Friends') {
+      followingStatus = <Text>{followType}</Text>;
+    } else {
+      followingStatus = <TouchableOpacity onPress={() => this.setFollowStatus('Friend')}>
+        <Text style={styles.following}>{this.state.follow}</Text>
+        </TouchableOpacity>;
+    }
+    return followingStatus;
+  };
+
 
   render() {
     return (
@@ -66,12 +91,8 @@ export class ProfileName extends Component {
         </View>        
         <View style={styles.wrapperProfileName}>
           <View style={styles.wrapperFollow}>
-            <Text style={styles.following}>
-              {(this.state.follow) ? 'Following' : 'Follow'}
-              {this.props.place.tags}
-            </Text>
+            {this.followStatus(this.state.follow)}
           </View>
-          <PlaceCardTags tags={this.props.place.tag} />
           <PlaceCardRate rate={this.props.stars} />
         </View>
       </View>

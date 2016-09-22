@@ -22,16 +22,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const labelText = ({ label }) => {
-  let text;
-  if (label) {
-    text = <Text>{label}</Text>;
-  } else {
-    text = null;
-  }
-  return text;
-};
-
 export class PlaceCardRate extends Component {
 
   render() {

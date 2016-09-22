@@ -22,9 +22,9 @@ export class Home extends Component {
   render() {
     return (
       <ScrollableTabView style={styles.tabs} initialPage={this.initialPageIndex}>
-        <View tabLabel="My Network" style={styles.tabsContent}>
+        <ScrollView tabLabel="My Network" style={styles.tabsContent}>
           <MyNetwork />
-        </View>
+        </ScrollView>
         <ScrollView tabLabel="Discover" style={styles.tabsContent}>
           <Text>Discover</Text>
         </ScrollView>

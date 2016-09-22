@@ -33,8 +33,6 @@ const styles = StyleSheet.create({
 export const PlaceCard = (props) => {
   console.log('placecard props', props);
 
-  //need to change follow part
-  //
   return (
     <View style={styles.wrapper} >
       <ProfileName {...props}
