@@ -8,6 +8,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {
 	PlaceCard,
   MyNetwork,
+  Discover,
 } from 'AppComponents';
 import { styles } from './styles';
 
@@ -26,7 +27,7 @@ export class Home extends Component {
           <MyNetwork />
         </ScrollView>
         <ScrollView tabLabel="Discover" style={styles.tabsContent}>
-          <Text>Discover</Text>
+          <Discover />
         </ScrollView>
       </ScrollableTabView>
     );
