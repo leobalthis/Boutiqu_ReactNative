@@ -47,6 +47,11 @@ const styles = StyleSheet.create({
     padding: 2,
     marginBottom: 2,
   },
+  postTime: {
+    fontSize: Styles.FONT_SIZE_SMALLER,
+    color: Styles.FONT_COLOR,
+    marginBottom: 5,
+  }
 });
 
 
@@ -63,14 +68,13 @@ export class ProfileName extends Component {
 
   setFollowStatus(f) {
     this.setState({ follow: f, });
-    //save in database 
-    //show time
+    //save in database
   }
 
   followStatus(followType) {
     let followingStatus;
-    if (followType === 'Friends') {
-      followingStatus = <Text>{followType}</Text>;
+    if (followType === 'Friend') {
+      followingStatus = <Text style={styles.postTime}>2 weeks ago</Text>;
     } else {
       followingStatus = <TouchableOpacity onPress={() => this.setFollowStatus('Friend')}>
         <Text style={styles.following}>{this.state.follow}</Text>
@@ -79,8 +83,9 @@ export class ProfileName extends Component {
     return followingStatus;
   };
 
-
   render() {
+    const { follow } = this.state;
+
     return (
       <View style={styles.wrapper}>
         <ProfilePhoto type="circle" size={40} border={false} />
@@ -91,7 +96,7 @@ export class ProfileName extends Component {
         </View>        
         <View style={styles.wrapperProfileName}>
           <View style={styles.wrapperFollow}>
-            {this.followStatus(this.state.follow)}
+            {this.followStatus(follow)}
           </View>
           <PlaceCardRate rate={this.props.stars} />
         </View>
