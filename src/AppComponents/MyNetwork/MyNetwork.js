@@ -18,7 +18,7 @@ export class MyNetwork extends Component {
 
 	constructor(props) {
 	  super(props);
-	
+
 	  this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 	  this.state = {
 			isLoading: true,
@@ -41,8 +41,9 @@ export class MyNetwork extends Component {
 	}
 
 	renderListItem(rowData) {
+    const { navigator } = this.props;
 		if (rowData.feed_type === 'review') {
-			return <PlaceCard {...rowData} />;
+			return <PlaceCard navigator={navigator} {...rowData} />;
 		} else {
 			return <View />
 		}

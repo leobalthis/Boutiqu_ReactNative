@@ -15,6 +15,7 @@ import { styles } from './styles';
 export class Home extends Component {
   static propTypes = {
     index: PropTypes.number,
+    navigator: PropTypes.object.isRequired,
   }
   constructor(props) {
     super(props);
@@ -26,10 +27,10 @@ export class Home extends Component {
         <View style={styles.wrapper}>
           <ScrollableTabView style={styles.tabs}>
             <ScrollView tabLabel="My Network" style={styles.tabsContent}>
-              <MyNetwork />
+              <MyNetwork {...this.props} />
 						</ScrollView>
             <ScrollView tabLabel="Discover" style={styles.tabsContent}>
-              <Discover />
+              <Discover {...this.props} />
             </ScrollView>
           </ScrollableTabView>
         </View>
