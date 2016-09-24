@@ -45,9 +45,9 @@ const renderNavText = ({ label, routeId }) => {
   return text;
 };
 
-export const MenuNav = ({ changeView, routeId, label, icon }) => (
+export const MenuNav = ({ changeView, routeId, label, icon, data = null }) => (
   <TouchableHighlight
-    onPress={() => changeView(routeId)}
+    onPress={() => changeView(routeId, data)}
   >
     <View style={styles.wrapper}>
       <Icon name={icon} style={styles.icon} />
@@ -61,6 +61,7 @@ export const MenuNav = ({ changeView, routeId, label, icon }) => (
 MenuNav.propTypes = {
   changeView: PropTypes.func.isRequired,
   routeId: PropTypes.string.isRequired,
+  data: PropTypes.object,
   label: PropTypes.string,
   icon: PropTypes.string.isRequired,
 };

@@ -1,46 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
-	View,
 	Text,
 	ScrollView,
+  View,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {
-  NavBarSideMenu,
-  PostStatus,
 	PlaceCard,
-  Footer,
+  MyNetwork,
+  Discover,
 } from 'AppComponents';
 import { styles } from './styles';
 
 export class Home extends Component {
-  state = {
-    text: '',
+  static propTypes = {
+    index: PropTypes.number,
   }
+	constructor(props) {
+		super(props);
+		this.initialPageIndex = props.index ? props.index : 1;
+	}
   render() {
     return (
-      <View style={{ flex: 1, }}>
-        <View style={styles.wrapper}>
-					<NavigationBar
-						tintColor={styles.navBarTint.color}
-						title={{ title: 'Boutiq' }}
-						leftButton={<NavBarSideMenu {...this.props} />}
-					/>
-          <ScrollableTabView style={styles.tabs}>
-            <ScrollView tabLabel="My Network" style={styles.tabsContent}>
-              <PlaceCard />
-              <PlaceCard />
-              <PlaceCard />
-              <PlaceCard />
-						</ScrollView>
-            <ScrollView tabLabel="Discover" style={styles.tabsContent}>
-              <Text>Discover</Text>
-            </ScrollView>
-          </ScrollableTabView>
-        </View>
-				<Footer />
-      </View>
+      <ScrollableTabView style={styles.tabs} initialPage={this.initialPageIndex}>
+        <ScrollView tabLabel="My Network" style={styles.tabsContent}>
+          <MyNetwork />
+        </ScrollView>
+        <ScrollView tabLabel="Discover" style={styles.tabsContent}>
+          <Discover />
+        </ScrollView>
+      </ScrollableTabView>
     );
   }
 }

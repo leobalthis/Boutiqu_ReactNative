@@ -1,65 +1,58 @@
 import React from 'react';
+import _ from 'lodash';
+
 import {
 	StyleSheet,
 	View,
 	Text,
 	Image,
-	TouchableHighlight,
+	TouchableOpacity,
 } from 'react-native';
-import { Rate, Tags } from 'AppComponents';
 import { ProfileName } from './ProfileName';
+import { PlaceCardComments } from './PlaceCardComments';
+import { Styles } from 'AppStyles';
+
 
 const styles = StyleSheet.create({
+  wrapper: {
+    marginBottom: 30,
+    backgroundColor: Styles.COLOR_WHITE,
+    borderColor: 'red',
+    borderWidth: 1,
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
-    height: 150,
+    height: 200,
   },
-  placeName: {
-    fontSize: 20,
-    color: '#fff',
-    position: 'absolute',
-    top: 10,
-    left: 20,
-  },
-  placeP: {
-    fontSize: 14,
-    color: '#fff',
-    position: 'absolute',
-    top: 35,
-    left: 20,
-  },
-  welcome: {
-    fontSize: 15,
-    color: '#fff',
-    width: 320,
-    top: 70,
-    left: 20,
+  postReviewText: {
+    fontSize: Styles.FONT_SIZE_SMALLER,
+    color: Styles.FONT_COLOR,
+    padding: 5,
   }
 });
 
-export const PlaceCard = () => (
-  <View>
-    <ProfileName name="Tina Azimi" follow={true} />
-    <TouchableHighlight>
-      <View>
-        <Image
-          source={{ uri: 'https://c1.staticflickr.com/9/8731/16524153093_2933c1ede4_b.jpg' }}
-          style={styles.container}
-        >
-          <Text style={styles.placeName}>
-            Mrs Slippy
+export const PlaceCard = (props) => {
+
+  return (
+    <View style={styles.wrapper} >
+      <ProfileName {...props}
+        follow={false} />    
+        <View>
+          <Text style={styles.postReviewText}>
+          {props.text}
           </Text>
-          <Text style={styles.placeP}>
-            Double Bay, Australia
-          </Text>
-          <Rate />
-          <Tags />
-          <Text style={styles.welcome}>
-            My favourite rooftop in NYC to enjoy a good cocktail with nice crowds and a killer view.
-          </Text>
-        </Image>
-      </View>
-    </TouchableHighlight>
-  </View>
-);
+        </View>
+      <TouchableOpacity>
+        <View>
+          <Image
+            source={{ uri: props.place.photo }}
+            style={styles.container}>
+          </Image>
+        </View>
+      </TouchableOpacity>
+      <PlaceCardComments
+        {...props}/>
+    </View>
+  );
+};

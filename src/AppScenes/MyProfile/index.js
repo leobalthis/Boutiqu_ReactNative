@@ -1,26 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
 	View,
 	Text,
 	ScrollView,
+	TouchableOpacity,
 } from 'react-native';
-import NavigationBar from 'react-native-navbar';
+
 import {
 	ProfilePhoto,
 	ProfileFollow,
-	NavBarSideMenu,
-	Footer,
 } from 'AppComponents';
 import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
 export const MyProfile = (props) => (
   <View style={styles.wrapper}>
-    <NavigationBar
-      tintColor={Styles.COLOR_GREEN}
-      title={{ title: 'My Profile' }}
-      leftButton={ <NavBarSideMenu {...props} />}
-    />
 		<ScrollView style={{ backgroundColor: '#ddd' }}>
 			<View style={{ backgroundColor: '#fff' }}>
 				<View style={styles.profileWrapper}>
@@ -44,13 +38,21 @@ export const MyProfile = (props) => (
 					</View>
 				</View>
 				<View style={styles.profileFollowers}>
+				<TouchableOpacity
+				onPress={() => props.navigator.push({
+					id: 'reviewcreator'
+				})}>
 					<ProfileFollow routeId="home" label="Friends" num="125" {...props} />
+				</TouchableOpacity>
 					<ProfileFollow routeId="home" label="Followers" num="40" {...props} />
 					<ProfileFollow routeId="home" label="Following" num="36" {...props} />
 					<ProfileFollow routeId="home" label="Reviews" num="28" {...props} />
 				</View>
 			</View>
 		</ScrollView>
-		<Footer />
   </View>
 );
+
+MyProfile.propTypes = {
+  navigator: PropTypes.object.isRequired,
+};
