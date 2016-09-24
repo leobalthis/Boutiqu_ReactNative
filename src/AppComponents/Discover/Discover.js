@@ -31,7 +31,7 @@ export class Discover extends Component {
 	}
 
 	componentDidMount() {
-		Boutiq.getMyNetworkFeed()
+		Boutiq.getDiscoverFeed()
 		.then(data => {
 			this.setState({
 				isLoading: false,
@@ -42,11 +42,7 @@ export class Discover extends Component {
 	}
 
 	renderListItem(rowData) {
-		if (rowData.feed_type === 'review') {
 			return <PlaceCard {...rowData} />;
-		} else {
-			return <View />
-		}
 	}
 
   render() {

@@ -82,7 +82,7 @@ export class PlaceCardComments extends Component {
     this.toggleSelection = this.toggleSelection.bind(this);
 
     this.state = { 
-      liked: false || this.props.liked,
+      liked: false || this.props.place_liked,
     };
     
   }
@@ -107,7 +107,7 @@ export class PlaceCardComments extends Component {
           </View>
           <View style={styles.comments}>                
               <Text style={styles.rowText}>
-                {(this.props.comments.length > 0) ? his.props.comments.length : 2} Comments
+                {(this.props.comments.length > 0) ? this.props.comments.length : 2} Comments
               </Text>
           </View>              
         </View>     

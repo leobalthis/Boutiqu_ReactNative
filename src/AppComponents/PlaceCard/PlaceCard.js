@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
 });
 
 export const PlaceCard = (props) => {
-  console.log('placecard props', props);
 
   return (
     <View style={styles.wrapper} >
@@ -52,9 +51,8 @@ export const PlaceCard = (props) => {
           </Image>
         </View>
       </TouchableOpacity>
-      <PlaceCardComments 
-        liked={props.place_liked}
-        comments={props.comments}/>
+      <PlaceCardComments
+        {...props}/>
     </View>
   );
 };

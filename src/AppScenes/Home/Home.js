@@ -18,7 +18,7 @@ export class Home extends Component {
   }
 	constructor(props) {
 		super(props);
-		this.initialPageIndex = props.index ? props.index : 0;
+		this.initialPageIndex = props.index ? props.index : 1;
 	}
   render() {
     return (
