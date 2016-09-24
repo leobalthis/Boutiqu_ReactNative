@@ -1,4 +1,4 @@
 /**
  * @providesModule AppStyles
  **/
-export { Styles } from './Styles';
+export { Styles, x, y } from './Styles';

@@ -9,13 +9,22 @@ import { ProfilePhoto } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
 export class Footer extends Component {
-  static propTypes = {
+	static propTypes = {
 		changeView: PropTypes.func.isRequired,
-	}
-	constructor(props) {
-	  super(props);
-	}
+		search: PropTypes.bool,
+		plus: PropTypes.bool,
+		bolt: PropTypes.bool,
+	};
+	static defaultProps = {
+		search: true,
+		plus: true,
+		bolt: true
+	};
+	constructor() {
+    super();
+  }
 	render() {
+		const { search, plus, bolt } = this.props;
 		return (
 			<View style={styles.container}>
 				<View style={styles.wrapperTop}>
@@ -29,7 +38,6 @@ export class Footer extends Component {
 					<TouchableOpacity
 						onPress={() => this.props.changeView('search')}
 					>
-						<Icon name='search' style={styles.icon}/>
 					</TouchableOpacity>
 					</View>
 					<TouchableOpacity
