@@ -6,8 +6,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import { AccessToken } from 'react-native-fbsdk';
-import { Main, Auth } from 'AppScenes';
+import { Main, Signin } from 'AppScenes';
+import { Auth } from 'AppServices';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,16 +24,13 @@ export class Boutiq extends Component {
     isAuthentified: false,
   }
   componentWillMount() {
-    AccessToken.getCurrentAccessToken()
-    .then(data => {
-      const newstate = {};
-      if (data !== null) {
-        newstate.isAuthentified = true;
-        newstate.user = data;
-      }
-      this.setState(Object.assign({
+    Auth.signin()
+    .then(({ payload }) => {
+      this.setState({
         isLoading: false,
-      }, newstate));
+        isAuthentified: true,
+        user: payload
+      });
     });
   }
   render() {
@@ -59,7 +56,7 @@ export class Boutiq extends Component {
     }
     return (
       <View style={styles.container}>
-        <Auth onLogin={data => {
+        <Signin onLogin={data => {
           console.log('debug', data);
           this.setState({ isAuthentified: true });
         }}
