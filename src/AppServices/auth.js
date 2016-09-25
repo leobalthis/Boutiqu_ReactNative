@@ -22,9 +22,19 @@ export const Auth = {
     .then(result => result.json())
     .then(data => {
       const keyValuePairs = helpers.objectToKeyValuesPairs(data, val => val.toString());
-      AsyncStorage.multiSet(keyValuePairs);
-      const user = { id: data.user_id };
-      return { success: true, payload: user };
+      return AsyncStorage.multiSet(keyValuePairs)
+      .then(() => {
+        const user = { id: data.user_id };
+        return { success: true, payload: user };
+      });
     });
-  }
+  },
+  signout() {
+    const keyValuePairs = helpers.objectToKeyValuesPairs({
+      user_id: '',
+      token: '',
+      uid: '',
+    }, val => val.toString());
+    return AsyncStorage.multiSet(keyValuePairs);
+  },
 };

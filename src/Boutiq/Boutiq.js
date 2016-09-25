@@ -28,19 +28,14 @@ export class Boutiq extends Component {
     // const m = new PostModel({ id: 10, comments: [{ id: 2 }] });
     // m.removeComment({ text: 'BLOCK!', commentId: 2 });
     // m.addComment({ text: 'LOOL' });
-    this.setState({
-      isLoading: false,
-      isAuthentified: true,
-      user: null
+    Auth.isSignedIn()
+    .then(isSignedIn => {
+      console.log("debug isSignedIn", isSignedIn);
+      this.setState({
+        isLoading: false,
+        isAuthentified: isSignedIn,
+      });
     });
-    // Auth.signin()
-    // .then(({ payload }) => {
-    //   this.setState({
-    //     isLoading: false,
-    //     isAuthentified: true,
-    //     user: payload
-    //   });
-    // });
   }
   render() {
     if (this.state.isLoading) {
@@ -58,6 +53,7 @@ export class Boutiq extends Component {
         <Main
           user={this.state.user}
           onLogout={() => {
+            Auth.signout();
             this.setState({ isAuthentified: false });
           }}
         />
@@ -66,7 +62,6 @@ export class Boutiq extends Component {
     return (
       <View style={styles.container}>
         <Signin onLogin={data => {
-          console.log('debug', data);
           this.setState({ isAuthentified: true });
         }}
         />

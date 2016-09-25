@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-
 import {
 	LoginButton,
 	AccessToken,
 } from 'react-native-fbsdk';
+import { Auth } from 'AppServices';
 
 /*
 {
@@ -24,28 +24,12 @@ export const Signin = ({ onLogin }) => (
     onLoginFinished={
       (error, result) => {
         if (error) {
-          console.log('login has error: ' + result.error);
+          console.warn('login has error: ' + result.error);
         } else if (result.isCancelled) {
-          console.log('login is cancelled.');
+          console.warn('login is cancelled.');
         } else {
-          AccessToken.getCurrentAccessToken()
-					.then(({ accessToken, userID }) => {
-						console.log("debug", accessToken, userID);
-						const url = 'http://localhost:3000/api/v1/auth';
-						return fetch(url, {
-							method: 'GET',
-							headers: {
-								facebook_auth: {
-									token: accessToken,
-									uid: userID
-								}
-							}
-						});
-					})
-					.then(d => {
-						debugger
-					})
-          // .then(onLogin);
+          Auth.signin()
+          .then(onLogin);
         }
       }
     }
