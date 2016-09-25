@@ -60,12 +60,7 @@ export class Boutiq extends Component {
       );
     }
     return (
-      <View style={styles.container}>
-        <Signin onLogin={data => {
-          this.setState({ isAuthentified: true });
-        }}
-        />
-      </View>
+      <Signin onLogin={() => this.setState({ isAuthentified: true })} />
     );
   }
 }
