@@ -8,6 +8,7 @@ import {
 
 import { Main, Signin } from 'AppScenes';
 import { Auth } from 'AppServices';
+// import { PostModel } from 'AppModels';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,6 +25,9 @@ export class Boutiq extends Component {
     isAuthentified: false,
   }
   componentWillMount() {
+    // const m = new PostModel({ id: 10, comments: [{ id: 2 }] });
+    // m.removeComment({ text: 'BLOCK!', commentId: 2 });
+    // m.addComment({ text: 'LOOL' });
     this.setState({
       isLoading: false,
       isAuthentified: true,

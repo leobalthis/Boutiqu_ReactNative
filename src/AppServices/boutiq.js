@@ -3,14 +3,20 @@ import CONFIG from '../../config';
 import { helpers } from './helpers';
 
 export const Boutiq = {
-  getMyNetworkFeed(options = { page: 1 }) {
+  getFeed(options = { page: 1 }, feedName) {
     const { page } = options;
+    if (!feedName) {
+      throw new Error('Missing feed name');
+    }
     return AsyncStorage.getItem('user_id')
-    .then(userId => helpers.request(`${CONFIG.BOUTIQ_API}/users/${userId}/feed?page=${page}`));
+    .then(userId => helpers
+      .request(`${CONFIG.BOUTIQ_API}/users/${userId}/${feedName}?page=${page}`)
+    );
   },
-  getDiscoverFeed() {
-    return new Promise(res => {
-      res(require('./fixtures/discover-data.json'));
-    });
-  }
+  getMyNetworkFeed(options) {
+    return this.getFeed(options, 'feed');
+  },
+  getDiscoverFeed(options) {
+    return this.getFeed(options, 'discover');
+  },
 };

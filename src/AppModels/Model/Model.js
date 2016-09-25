@@ -34,6 +34,13 @@ export class Model {
     return !!this.props.id;
   }
 
+  checkInstanceExists() {
+    if (!this.isPersisted()) {
+      const { modelName } = this.constructor;
+      throw new Error(`${modelName} must be created first`);
+    }
+  }
+
   create() {
     const { baseUrl, modelName } = this.constructor;
     return helpers.requestJSON(baseUrl, {
