@@ -24,14 +24,19 @@ export class Boutiq extends Component {
     isAuthentified: false,
   }
   componentWillMount() {
-    Auth.signin()
-    .then(({ payload }) => {
-      this.setState({
-        isLoading: false,
-        isAuthentified: true,
-        user: payload
-      });
+    this.setState({
+      isLoading: false,
+      isAuthentified: true,
+      user: null
     });
+    // Auth.signin()
+    // .then(({ payload }) => {
+    //   this.setState({
+    //     isLoading: false,
+    //     isAuthentified: true,
+    //     user: payload
+    //   });
+    // });
   }
   render() {
     if (this.state.isLoading) {
