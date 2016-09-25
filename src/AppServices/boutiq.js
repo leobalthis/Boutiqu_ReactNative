@@ -29,7 +29,26 @@ export const Boutiq = {
     return this.getPlaces(params, 'discover');
   },
   getLikes(params = { page: 1, q: null }) {
-    // q: To filter by "Eat", "Drink", "Sleep", "Do"
+    // q: To filter by tag "Eat", "Drink", "Sleep", "Do"
     return this.getPlaces(params, 'likes');
   },
+  getPlaceReviews(params) {
+    const { placeId, page, extra } = params;
+    if (!placeId) {
+      throw new Error('Missing place id');
+    }
+    return helpers.request(`${CONFIG.BOUTIQ_API}/places/${placeId}${extra}?page=${page}`);
+  },
+  getPlaceReviewsByMyNetwork(params = { page: 1, placeId: null }) {
+    return this.getPlaceReviews(Object.assign({
+      extra: '',
+      page: 1,
+    }, params));
+  },
+  getPlaceReviewsByOthers(params = { page: 1, placeId: null }) {
+    return this.getPlaceReviews(Object.assign({
+      extra: '/other_reviews',
+      page: 1,
+    }, params));
+  }
 };
