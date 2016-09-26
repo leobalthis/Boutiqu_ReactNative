@@ -15,6 +15,7 @@ import {
   Search,
   Contact,
   ReviewCreator,
+  PlaceDetails,
 } from 'AppScenes';
 
 import { styles } from './styles';
@@ -81,6 +82,14 @@ export class Main extends Component {
             {...commonProps}
           />
         );
+      case 'placedetails':
+        return (
+          <PlaceDetails
+            navigator={nav}
+            openMenu={this.openMenu}
+            route={route}
+          />
+        );
       default:
         return (
           <Home
@@ -94,7 +103,7 @@ export class Main extends Component {
     const { fullPageComponent } = this.state;
     if (fullPageComponent) {
       return (
-        <View style={{flex : 1, backgroundColor: 'red'}}>
+        <View style={{ flex : 1, backgroundColor: 'red' }}>
           {fullPageComponent}
         </View>
       );

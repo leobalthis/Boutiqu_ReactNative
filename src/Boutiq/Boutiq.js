@@ -6,8 +6,9 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import { AccessToken } from 'react-native-fbsdk';
-import { Main, Auth } from 'AppScenes';
+import { Main, Signin } from 'AppScenes';
+import { Auth } from 'AppServices';
+// import { PostModel } from 'AppModels';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,16 +25,16 @@ export class Boutiq extends Component {
     isAuthentified: false,
   }
   componentWillMount() {
-    AccessToken.getCurrentAccessToken()
-    .then(data => {
-      const newstate = {};
-      if (data !== null) {
-        newstate.isAuthentified = true;
-        newstate.user = data;
-      }
-      this.setState(Object.assign({
+    // const m = new PostModel({ id: 10, comments: [{ id: 2 }] });
+    // m.removeComment({ text: 'BLOCK!', commentId: 2 });
+    // m.addComment({ text: 'LOOL' });
+    Auth.isSignedIn()
+    .then(isSignedIn => {
+      console.log("debug isSignedIn", isSignedIn);
+      this.setState({
         isLoading: false,
-      }, newstate));
+        isAuthentified: isSignedIn,
+      });
     });
   }
   render() {
@@ -52,19 +53,14 @@ export class Boutiq extends Component {
         <Main
           user={this.state.user}
           onLogout={() => {
+            Auth.signout();
             this.setState({ isAuthentified: false });
           }}
         />
       );
     }
     return (
-      <View style={styles.container}>
-        <Auth onLogin={data => {
-          console.log('debug', data);
-          this.setState({ isAuthentified: true });
-        }}
-        />
-      </View>
+      <Signin onLogin={() => this.setState({ isAuthentified: true })} />
     );
   }
 }

@@ -1,6 +1,4 @@
-import React from 'react';
-import _ from 'lodash';
-
+import React, { PropTypes } from 'react';
 import {
 	StyleSheet,
 	View,
@@ -8,6 +6,8 @@ import {
 	Image,
 	TouchableOpacity,
 } from 'react-native';
+import { Rate, Tags } from 'AppComponents';
+import { api } from 'AppServices';
 import { ProfileName } from './ProfileName';
 import { PlaceCardComments } from './PlaceCardComments';
 import { Styles } from 'AppStyles';
@@ -32,27 +32,48 @@ const styles = StyleSheet.create({
   }
 });
 
-export const PlaceCard = (props) => {
+const handlePress = (navigator, placeId) => {
+	// this.setState({
+	// 	isloading: true
+	// });
+	api.getPlaceDetails(25)
+	.then(res => {
+		// if (res.error) {
+		// 	this.setState({
+		// 		error: 'place not found',
+		// 		isLoading: false
+		// 	})
+		// }
+		// else {
+			navigator.push({
+				id: 'placedetails',
+				passprops: { placeDetails: res }
+			});
+		// }
+	});
+};
 
-  return (
-    <View style={styles.wrapper} >
-      <ProfileName {...props}
-        follow={false} />    
-        <View>
-          <Text style={styles.postReviewText}>
-          {props.text}
-          </Text>
-        </View>
-      <TouchableOpacity>
-        <View>
-          <Image
-            source={{ uri: props.place.photo }}
-            style={styles.container}>
-          </Image>
-        </View>
-      </TouchableOpacity>
-      <PlaceCardComments
-        {...props}/>
-    </View>
-  );
+export const PlaceCard = (props) => (
+	<View style={styles.wrapper} >
+		<ProfileName {...props} follow={false} />
+			<View>
+				<Text style={styles.postReviewText}>
+				{props.text}
+				</Text>
+			</View>
+		<TouchableOpacity onPress={() => handlePress(props.navigator)}>
+			<View>
+				<Image
+					source={{ uri: props.place.photo }}
+					style={styles.container}
+				>
+				</Image>
+			</View>
+		</TouchableOpacity>
+		<PlaceCardComments {...props} />
+	</View>
+);
+
+PlaceCard.propTypes = {
+  navigator: PropTypes.object.isRequired
 };
