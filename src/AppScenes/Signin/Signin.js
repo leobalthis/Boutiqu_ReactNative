@@ -4,14 +4,13 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { LoginButton } from 'react-native-fbsdk';
 import Swiper from 'react-native-swiper';
-import { Auth } from 'AppServices';
 import { Styles } from 'AppStyles';
 import {
   DiscoverSlide,
   TrustSlide,
   RememberSlide,
+  SigninButton,
   Logo,
 } from 'AppComponents';
 
@@ -22,13 +21,12 @@ const styles = StyleSheet.create({
   },
   logo: {
     position: 'absolute',
-    top: 80,
+    top: Styles.DEVICE_HEIGHT / 10,
     left: Styles.DEVICE_WIDTH / 2 - 88,
   },
   signinWrapper: {
     position: 'absolute',
     bottom: 70,
-    left: Styles.DEVICE_WIDTH / 2 - 90,
   },
 });
 
@@ -68,24 +66,7 @@ export const Signin = ({ onLogin }) => (
       <RememberSlide />
     </Swiper>
     <Logo style={styles.logo} />
-    <View style={styles.signinWrapper}>
-      <LoginButton
-        publishPermissions={['publish_actions']}
-        onLoginFinished={
-          (error, result) => {
-            if (error) {
-              console.warn('login has error: ' + result.error);
-            } else if (result.isCancelled) {
-              console.warn('login is cancelled.');
-            } else {
-              Auth.signin()
-              .then(onLogin);
-            }
-          }
-        }
-        onLogoutFinished={() => console.log('logout.')}
-      />
-    </View>
+    <SigninButton style={styles.signinWrapper} onLogin={onLogin} />
   </View>
 );
 

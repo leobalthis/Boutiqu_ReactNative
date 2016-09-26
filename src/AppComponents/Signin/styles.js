@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     width: Styles.DEVICE_WIDTH - 80,
     marginBottom: 5,
-    marginTop: Styles.DEVICE_HEIGHT / 2 - 40,
+    marginTop: Styles.DEVICE_HEIGHT / 2 - Styles.DEVICE_HEIGHT / 7,
   },
   slidesLegend: {
     color: '#fff',
