@@ -3,6 +3,8 @@ import {
   View,
   ScrollView,
   Text,
+  RefreshControl,
+  ListView,
   MapView,
   Image,
   StyleSheet,
@@ -11,8 +13,8 @@ import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import { APP_PLACE, TagsView, Rate, Footer } from 'AppComponents';
-import { Styles, x, y } from 'AppStyles';
+import { APP_PLACE, TagsView, ButtonView, Rate, Footer, ReviewCard } from 'AppComponents';
+import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,6 +33,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  buttonFavouriteContainer: {
+    position: 'absolute',
+    bottom: 25,
+    left: x - 75,
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: Styles.COLOR_NORMAL_GREY,
+    shadowColor: Styles.COLOR_NORMAL_GREY,
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: 0
+    },
+    backgroundColor: 'white'
+  },
   tagText: {
     color: Styles.COLOR_WHITE,
     fontSize: 12,
@@ -40,28 +58,63 @@ const styles = StyleSheet.create({
   }
 });
 
+const reviewText = APP_PLACE.network_entries.map(entry => {
+  // console.log('entryyyy', entry.text);
+  return entry.text;
+})
+
 export class PlaceDetails extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
   }
+
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.state = {
+      dataSource: ds.cloneWithRows(reviewText),
+      isFavourite: false
+    };
+    this.handleFavouritePress = this.handleFavouritePress.bind(this);
+    this.onRefresh = this.onRefresh.bind(this);
+  }
+
+  handleFavouritePress() {
+    const { isFavourite } = this.state;
+    this.setState({
+      isFavourite: !isFavourite
+    });
+  }
+
+  setRefresh() {
+    this.setState({
+      isResfreshing: true
+    });
+  }
+
+  stopRefresh() {
+    console.log(this.state);
+    this.setState({
+      isResfreshing: false
+    });
+  }
+
+  onRefresh() {
+    this.setRefresh();
+    console.log('refreshhhh');
+    this.stopRefresh();
+  }
+
   render() {
     const leftButtonConfig = {
       title: 'Back',
       handler: () => this.props.navigator.pop(),
     };
-    const tagsflag = APP_PLACE.tag.map((tag, index) => {
-      return (
-        <View
-          key={index}
-          style={styles.tagWrapper}
-        >
-          <Text style={styles.tagText}>{tag}</Text>
-        </View>
-      );
-    });
     // const { placeDetails } = this.props['route']['passprops']
     // console.log(placeDetails);
     const { name, locality, administrative_area_level_1, country } = APP_PLACE;
+    const { isFavourite } = this.state;
+    console.log(APP_PLACE.network_entries);
     return (
       <View style={styles.container}>
         <NavigationBar
@@ -75,7 +128,7 @@ export class PlaceDetails extends Component {
             style={{ width: x, height: x / 1.91 }}
             source={{ uri: APP_PLACE.photo }}
           />
-        <View style={{flex: 1, padding: 20, alignItems: 'stretch'}}>
+        <View style={{ flex: 1, padding: 20, marginTop: 10, alignItems: 'stretch' }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5 }}>
             <Text style={{ color: Styles.COLOR_DARKER_45, fontWeight: '700' }}>
               Bucket List
@@ -83,6 +136,13 @@ export class PlaceDetails extends Component {
             <View style={{ flexDirection: 'row' }}>
               <TagsView tags={APP_PLACE.tag} />
             </View>
+            <ButtonView
+              styleContainer={styles.buttonFavouriteContainer}
+              iconInfo={{
+                name: isFavourite ? 'heart' : 'heart-o',
+                color: isFavourite ? Styles.COLOR_GREEN : Styles.FONT_COLOR
+              }}
+              callback={this.handleFavouritePress} />
           </View>
           <Text style={{ fontSize: 12, marginBottom: 20, color: Styles.COLOR_DARKER_45 }}>
             {name}, {locality}, {administrative_area_level_1}, {country}
@@ -117,25 +177,19 @@ export class PlaceDetails extends Component {
             style={{ padding: 5 }}>
             <ScrollView tabLabel="My network reviews">
               <View style={{ padding: 20 }}>
-                <Text style={{ color: Styles.COLOR_DARKER_30 }}>
-                  None of your friends and network have been to this place yet...
-                  But you can check what Other users think about it!
-                </Text>
-                <Text style={{ color: Styles.COLOR_DARKER_30 }}>
-                  Have you been there? post a rewiew and spread the word abput this place!
-                </Text>
+                <ListView
+                  style={styles.container}
+                  dataSource={this.state.dataSource}
+                  renderRow={(data) => <View><Text>{data}</Text></View>}
+                />
               </View>
             </ScrollView>
             <ScrollView tabLabel="Other users reviews" style={styles.tabsContent}>
-              <View style={{ padding: 20 }}>
-                <Text style={{ color: Styles.COLOR_DARKER_30 }}>
-                  None of your friends and network have been to this place yet...
-                  But you can check what Other users think about it!
-                </Text>
-                <Text style={{ color: Styles.COLOR_DARKER_30 }}>
-                  Have you been there? post a rewiew and spread the word abput this place!
-                </Text>
-              </View>
+              <ReviewCard
+                onRefresh={this.onRefresh}
+                setRefresh={this.setRefresh}
+                stopRefresh={this.stopRefresh}
+              />
             </ScrollView>
           </ScrollableTabView>
         </View>

@@ -85,8 +85,7 @@ export class Main extends Component {
       case 'placedetails':
         return (
           <PlaceDetails
-            navigator={nav}
-            openMenu={this.openMenu}
+            {...commonProps}
             route={route}
           />
         );
