@@ -11,6 +11,8 @@ import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
   container: {
+    borderTopWidth: 1,
+    borderColor: Styles.COLOR_DARKER_30,
     width: x,
     height: 50,
     backgroundColor: 'white',
@@ -68,7 +70,6 @@ export class Footer extends Component {
         </TouchableOpacity>
         <View style={styles.viewShadow}>
         <TouchableOpacity
-
           onPress={() => this.props.changeView('reviewcreator')}
         >
           <Image

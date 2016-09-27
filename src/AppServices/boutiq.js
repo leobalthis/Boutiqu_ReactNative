@@ -23,7 +23,8 @@ export const Boutiq = {
     );
   },
   getMyNetworkFeed(params = { page: 1 }) {
-    return this.getPlaces(params, 'feed');
+    // return this.getPlaces(params, 'feed');
+    return new Promise(res => res(require('./fixtures/placeCard.json')));
   },
   getDiscoverFeed(params = { page: 1 }) {
     return this.getPlaces(params, 'discover');

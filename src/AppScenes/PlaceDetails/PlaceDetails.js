@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
 });
 
 const reviewText = APP_PLACE.network_entries.map(entry => {
-  // console.log('entryyyy', entry.text);
   return entry.text;
 })
 
@@ -174,7 +173,7 @@ export class PlaceDetails extends Component {
             tabBarActiveTextColor={Styles.COLOR_GREEN}
             tabBarInactiveTextColor={Styles.COLOR_DARKER_15}
             tabBarUnderlineStyle={{ backgroundColor: Styles.COLOR_GREEN }}
-            style={{ padding: 5 }}>
+          >
             <ScrollView tabLabel="My network reviews">
               <View style={{ padding: 20 }}>
                 <ListView
