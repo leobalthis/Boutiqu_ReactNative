@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>FacebookAppID</key>
 	<string>705458106266561</string>
 	<key>FacebookDisplayName</key>
@@ -42,7 +42,7 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-  <key>NSAppTransportSecurity</key>
+	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
