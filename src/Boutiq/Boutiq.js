@@ -30,7 +30,6 @@ export class Boutiq extends Component {
     // m.addComment({ text: 'LOOL' });
     Auth.isSignedIn()
     .then(isSignedIn => {
-      console.log("debug isSignedIn", isSignedIn);
       this.setState({
         isLoading: false,
         isAuthentified: isSignedIn,

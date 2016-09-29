@@ -1,4 +1,5 @@
 const BOUTIQ_API_ROOT = 'http://localhost:3000';
+// const BOUTIQ_API_ROOT = 'https://boutiq-travel.herokuapp.com';
 const BOUTIQ_API_SUFFIX = '/api/v1';
 const BOUTIQ_API = `${BOUTIQ_API_ROOT}${BOUTIQ_API_SUFFIX}`;
 
