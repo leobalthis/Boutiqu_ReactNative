@@ -97,7 +97,7 @@ export class PlaceDetails extends Component {
     return (
       <View style={styles.container}>
         <NavigationBar
-          tintColor={styles.navBarTint.color}
+          tintColor='#fff'
           title={{ title: 'Place Details' }}
           leftButton={leftButtonConfig}
         />
