@@ -29,7 +29,8 @@ export class Home extends Component {
             tabBarActiveTextColor="#fff"
             tabBarInactiveTextColor="#fff"
             tabBarUnderlineStyle={{ height: 5, backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-            style={styles.tabs}>
+            style={styles.tabs}
+          >
             <ScrollView tabLabel="My network" style={styles.tabsContent}>
               <MyNetwork {...this.props} />
 						</ScrollView>

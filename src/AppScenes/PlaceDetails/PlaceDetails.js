@@ -3,7 +3,6 @@ import {
   View,
   ScrollView,
   Text,
-  RefreshControl,
   ListView,
   MapView,
   Image,
@@ -13,25 +12,13 @@ import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import { APP_PLACE, TagsView, ButtonView, Rate, Footer, ReviewCard } from 'AppComponents';
+import { APP_PLACE, TagsView, ButtonView, ReviewCard } from 'AppComponents';
 import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff'
-  },
-  navBarTint: {
-    color: Styles.COLOR_GREEN,
-  },
-  tagWrapper: {
-    backgroundColor: Styles.COLOR_GREEN,
-    width: 55,
-    height: 15,
-    marginLeft: 5,
-    padding: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   buttonFavouriteContainer: {
     position: 'absolute',
@@ -49,10 +36,6 @@ const styles = StyleSheet.create({
     },
     backgroundColor: 'white'
   },
-  tagText: {
-    color: Styles.COLOR_WHITE,
-    fontSize: 12,
-  },
   icon: {
     color: 'rgb(246, 231, 28)',
   }
@@ -60,7 +43,7 @@ const styles = StyleSheet.create({
 
 const reviewText = APP_PLACE.network_entries.map(entry => {
   return entry.text;
-})
+});
 
 export class PlaceDetails extends Component {
   static propTypes = {
@@ -78,11 +61,9 @@ export class PlaceDetails extends Component {
     this.onRefresh = this.onRefresh.bind(this);
   }
 
-  handleFavouritePress() {
-    const { isFavourite } = this.state;
-    this.setState({
-      isFavourite: !isFavourite
-    });
+  onRefresh() {
+    this.setRefresh();
+    this.stopRefresh();
   }
 
   setRefresh() {
@@ -91,17 +72,17 @@ export class PlaceDetails extends Component {
     });
   }
 
-  stopRefresh() {
-    console.log(this.state);
+  handleFavouritePress() {
+    const { isFavourite } = this.state;
     this.setState({
-      isResfreshing: false
+      isFavourite: !isFavourite
     });
   }
 
-  onRefresh() {
-    this.setRefresh();
-    console.log('refreshhhh');
-    this.stopRefresh();
+  stopRefresh() {
+    this.setState({
+      isResfreshing: false
+    });
   }
 
   render() {
@@ -113,7 +94,6 @@ export class PlaceDetails extends Component {
     // console.log(placeDetails);
     const { name, locality, administrative_area_level_1, country } = APP_PLACE;
     const { isFavourite } = this.state;
-    console.log(APP_PLACE.network_entries);
     return (
       <View style={styles.container}>
         <NavigationBar
@@ -141,7 +121,8 @@ export class PlaceDetails extends Component {
                 name: isFavourite ? 'heart' : 'heart-o',
                 color: isFavourite ? Styles.COLOR_GREEN : Styles.FONT_COLOR
               }}
-              callback={this.handleFavouritePress} />
+              callback={this.handleFavouritePress}
+            />
           </View>
           <Text style={{ fontSize: 12, marginBottom: 20, color: Styles.COLOR_DARKER_45 }}>
             {name}, {locality}, {administrative_area_level_1}, {country}
