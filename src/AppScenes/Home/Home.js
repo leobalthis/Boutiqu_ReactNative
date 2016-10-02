@@ -25,8 +25,13 @@ export class Home extends Component {
     return (
       <View style={{ flex: 1, }}>
         <View style={styles.wrapper}>
-          <ScrollableTabView style={styles.tabs}>
-            <ScrollView tabLabel="My Network" style={styles.tabsContent}>
+          <ScrollableTabView
+            tabBarActiveTextColor="#fff"
+            tabBarInactiveTextColor="#fff"
+            tabBarUnderlineStyle={{ height: 5, backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+            style={styles.tabs}
+          >
+            <ScrollView tabLabel="My network" style={styles.tabsContent}>
               <MyNetwork {...this.props} />
 						</ScrollView>
             <ScrollView tabLabel="Discover" style={styles.tabsContent}>
