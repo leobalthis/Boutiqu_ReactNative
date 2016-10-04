@@ -15,6 +15,7 @@ import {
   Search,
   Contact,
   ReviewCreator,
+  MemberProfileScene,
   PlaceDetails,
 } from 'AppScenes';
 
@@ -62,6 +63,14 @@ export class Main extends Component {
         return (
           <MyProfile
             {...commonProps}
+            {...route.data}
+          />
+        );
+      case 'memberprofile':
+        return (
+          <MemberProfileScene
+            {...commonProps}
+            {...route.data}
           />
         );
       case 'mylikes':
@@ -86,7 +95,7 @@ export class Main extends Component {
         return (
           <PlaceDetails
             {...commonProps}
-            route={route}
+            {...route.data}
           />
         );
       default:
@@ -146,7 +155,9 @@ export class Main extends Component {
               return Navigator.SceneConfigs.FloatFromBottom;
             }}
           />
-          <Footer changeView={this.changeView} />
+          <Footer
+            user={this.props.user}
+            changeView={this.changeView} />
         </SideMenu>
         {this.renderFullPageModal()}
       </View>

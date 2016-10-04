@@ -12,36 +12,62 @@ export const styles = StyleSheet.create({
   },
   profileWrapper: {
     flexDirection: 'row',
-    marginTop: 10,
     padding: 10,
-    height: 180,
+    height: 200,
   },
   proleft: {
     width: 100,
     alignItems: 'center',
+    justifyContent: 'center'
   },
   proleftText: {
     fontSize: 12,
-    color: Styles.COLOR_DARKER_45,
+    color: Styles.COLOR_BLUE,
     textAlign: 'center',
     marginTop: 14,
   },
   proRight: {
     flex: 1,
     padding: 10,
+    justifyContent: 'center'
   },
-  proRightText: {
-    color: Styles.COLOR_DARKER_60,
-    fontSize: 14,
+  ViewFollowButton: {
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  },
+  followButton: {
+    width: 130,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: Styles.COLOR_PINK
+  },
+  textFollowButton: {
+    color: Styles.COLOR_PINK
+  },
+  wrapperProStatus: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  switch: {
+    marginTop: 10,
+    width: 55,
+    height: 35,
   },
   proRightTextName: {
-    fontSize: 22,
+    color: Styles.COLOR_DARKER_60,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   proRightTextLocation: {
     color: Styles.COLOR_DARKER_30,
+    fontSize: 14,
   },
   proRightTextProfileType: {
+    fontSize: 14,
     fontWeight: 'bold',
     marginTop: 20,
     marginBottom: 10,
@@ -52,12 +78,16 @@ export const styles = StyleSheet.create({
     fontSize: 10,
     textAlign: 'justify',
   },
+  hLine: {
+    height: 23,
+    alignSelf: 'center',
+    width: 1,
+    backgroundColor: Styles.COLOR_DARKER_15
+  },
   profileFollowers: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     marginTop: 10,
-    padding: 10,
-    height: 70,
+    marginBottom: 10,
   },
 });

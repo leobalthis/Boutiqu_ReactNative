@@ -42,6 +42,7 @@ export const Styles = {
   COLOR_DARKER_60: '#2E2E2E',
   // COLORS
   COLOR_NORMAL_GREY: '#C7C7C7',
+  COLOR_BLUE: 'rgb(94, 142, 202)',
   COLOR_GREEN: '#50D2C2',
   COLOR_PINK: '#FF3366',
   COLOR_WHITE: '#FFFFFF',

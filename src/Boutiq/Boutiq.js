@@ -7,7 +7,9 @@ import {
 } from 'react-native';
 
 import { Main, Signin } from 'AppScenes';
-import { Auth } from 'AppServices';
+import { Auth, api } from 'AppServices';
+import { AppProfile } from 'AppComponents';
+import { userProfile } from '../AppServices/fixtures/userProfile';
 // import { PostModel } from 'AppModels';
 
 const styles = StyleSheet.create({
@@ -20,10 +22,14 @@ const styles = StyleSheet.create({
 });
 
 export class Boutiq extends Component {
-  state = {
-    isLoading: true,
-    isAuthentified: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      isAuthentified: false,
+    };
   }
+
   componentWillMount() {
     // const m = new PostModel({ id: 10, comments: [{ id: 2 }] });
     // m.removeComment({ text: 'BLOCK!', commentId: 2 });
@@ -36,6 +42,7 @@ export class Boutiq extends Component {
       });
     });
   }
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -50,7 +57,8 @@ export class Boutiq extends Component {
     if (this.state.isAuthentified) {
       return (
         <Main
-          user={this.state.user}
+          // user={this.state.user}
+          user={ AppProfile }
           onLogout={() => {
             Auth.signout();
             this.setState({ isAuthentified: false });

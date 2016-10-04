@@ -94,6 +94,7 @@ export class PlaceDetails extends Component {
     // console.log(placeDetails);
     const { name, locality, administrative_area_level_1, country } = APP_PLACE;
     const { isFavourite } = this.state;
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <NavigationBar

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const handlePress = (navigator, placeId) => {
+const handlePress = (navigator, props, placeId) => {
 	// this.setState({
 	// 	isloading: true
 	// });
@@ -45,6 +45,8 @@ const handlePress = (navigator, placeId) => {
 		// 	})
 		// }
 		// else {
+    console.log('res', res);
+    console.log('props', props);
 			navigator.push({
 				id: 'placedetails',
 				passprops: { placeDetails: res }
@@ -53,15 +55,24 @@ const handlePress = (navigator, placeId) => {
 	});
 };
 
-export const PlaceCard = (props) => (
+const goToReviewUserProfile = (navigator, props) => {
+  navigator.push({
+    id: 'memberprofile',
+    data: { data: props }
+  });
+};
+
+export const PlaceCard = ({ navigator, ...props }) => (
 	<View style={styles.wrapper} >
-		<ProfileName {...props} follow={false} />
+    <TouchableOpacity onPress={() => goToReviewUserProfile(navigator, props)}>
+  		<ProfileName {...props} follow={false} />
+    </TouchableOpacity>
 			<View>
 				<Text style={styles.postReviewText}>
 				{props.text}
 				</Text>
 			</View>
-		<TouchableOpacity onPress={() => handlePress(props.navigator)}>
+		<TouchableOpacity onPress={() => handlePress(navigator, props)}>
 			<View>
 				<Image
 					source={{ uri: props.place.photo }}

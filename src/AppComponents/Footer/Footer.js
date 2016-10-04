@@ -48,8 +48,10 @@ const styles = StyleSheet.create({
 export class Footer extends Component {
   static propTypes = {
     changeView: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
   };
   render() {
+    console.log('props footer', this.props);
     return (
 			<View style={styles.container}>
         <TouchableOpacity
@@ -84,7 +86,7 @@ export class Footer extends Component {
 					<Icon name="heart-o" size={30} color={Styles.COLOR_DARKER_30} />
 				</TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.props.changeView('myprofile')}
+          onPress={() => this.props.changeView('myprofile', { user: this.props.user })}
         >
           <ProfilePhoto type="circle" size={30} border={true} />
         </TouchableOpacity>

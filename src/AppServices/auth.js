@@ -18,6 +18,8 @@ export const Auth = {
       return fetch(`${CONFIG.BOUTIQ_API}/auth`, {
         headers: { FACEBOOK_AUTH }
       });
+    }, (error) => {
+      console.log("ERROR!!!", error);
     })
     .then(result => result.json())
     .then(data => {
@@ -27,6 +29,9 @@ export const Auth = {
         const user = { id: data.user_id };
         return { success: true, payload: user };
       });
+    })
+    .catch(e => {
+      console.error("debug", e);
     });
   },
   signout() {

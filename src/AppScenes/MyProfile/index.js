@@ -1,58 +1,48 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	View,
-	Text,
-	ScrollView,
-	TouchableOpacity,
 } from 'react-native';
 
 import {
-	ProfilePhoto,
-	ProfileFollow,
+  Profile,
 } from 'AppComponents';
-import { Styles } from 'AppStyles';
-import { styles } from './styles';
+import NavigationBar from 'react-native-navbar';
 
-export const MyProfile = (props) => (
-  <View style={styles.wrapper}>
-		<ScrollView style={{ backgroundColor: '#ddd' }}>
-			<View style={{ backgroundColor: '#fff' }}>
-				<View style={styles.profileWrapper}>
-					<View style={styles.proleft}>
-						<ProfilePhoto type="circle" size={90} border={false} />
-						<Text style={styles.proleftText}>Spread the word about Boutiq!</Text>
-					</View>
-					<View style={styles.proRight}>
-						<Text style={[styles.proRightText, styles.proRightTextName]}>Tina Azimi</Text>
-						<Text style={[styles.proRightText, styles.proRightTextLocation]}>
-						San Francisco, CA, United States
-						</Text>
-					<View>
-						<Text style={[styles.proRightText, styles.proRightTextProfileType]}>Public Profile</Text>
-					</View>
-					<Text style={[styles.proRightText, styles.proRightTextProfileTypeInfo]}>
-						when your profile is public, your reviews are displayed in the discover feed and otehr users can follow you.
-					Be an influencer and spread the world about places you like and want to remeber!
-					Your status posts will only be visible by your friends.
-					</Text>
-					</View>
-				</View>
-				<View style={styles.profileFollowers}>
-				<TouchableOpacity
-				onPress={() => props.navigator.push({
-					id: 'reviewcreator'
-				})}>
-					<ProfileFollow routeId="home" label="Friends" num="125" {...props} />
-				</TouchableOpacity>
-					<ProfileFollow routeId="home" label="Followers" num="40" {...props} />
-					<ProfileFollow routeId="home" label="Following" num="36" {...props} />
-					<ProfileFollow routeId="home" label="Reviews" num="28" {...props} />
-				</View>
-			</View>
-		</ScrollView>
-  </View>
-);
+export class MyProfile extends Component {
+  static propTypes = {
+    navigator: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired,
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPublic: true
+    };
+    this.handleStatus = this.handleStatus.bind(this);
+  }
 
-MyProfile.propTypes = {
-  navigator: PropTypes.object.isRequired,
-};
+  handleStatus() {
+    this.setState({
+      isPublic: this.state.isPublic ? false : true
+    });
+  }
+
+  render() {
+    const leftButtonConfig = {
+      title: 'Back',
+      handler: () => this.props.navigator.pop(),
+    };
+    console.log('my Pro', this.state);
+    return (
+      <View style={{ flex: 1 }}>
+        <Profile
+          profileType="my profile"
+          user={this.props.user}
+          navigator={this.props.navigator}
+          handleStatus={this.handleStatus}
+          isPublic={this.state.isPublic}
+        />
+      </View>
+    );
+  }
+}
