@@ -14,7 +14,7 @@ const baseUnit = 16;
 // We're simulating EM by changing font size according to Ratio
 const unit = baseUnit * ratioX;
 
-const COLOR_NORMAL_GREY = '#C7C7C7';
+// const COLOR_NORMAL_GREY = '#C7C7C7';
 
 // We add an em() shortcut function
 function em(value) {
@@ -41,6 +41,7 @@ export const Styles = {
   COLOR_DARKER_45: '#545454',
   COLOR_DARKER_60: '#2E2E2E',
   // COLORS
+  COLOR_NORMAL_GREY: '#C7C7C7',
   COLOR_GREEN: '#50D2C2',
   COLOR_PINK: '#FF3366',
   COLOR_WHITE: '#FFFFFF',

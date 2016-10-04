@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Navigator, View } from 'react-native';
+import { Navigator, View, Image } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
-import { Styles } from 'AppStyles';
+import { Styles, x } from 'AppStyles';
 import {
   Menu,
   NavBarSideMenu,
@@ -85,8 +85,7 @@ export class Main extends Component {
       case 'placedetails':
         return (
           <PlaceDetails
-            navigator={nav}
-            openMenu={this.openMenu}
+            {...commonProps}
             route={route}
           />
         );
@@ -127,7 +126,11 @@ export class Main extends Component {
         >
           <NavigationBar
             tintColor={Styles.COLOR_GREEN}
-            title={{ title: 'Boutiq' }}
+            title={
+              <Image
+                source={require('../../../assets/boutiq_logo@0.5x.png')}
+                style={{ width: 180, height: 28, marginRight: x / 5 }}
+              />}
             leftButton={<NavBarSideMenu openMenu={this.openMenu} />}
           />
           <Navigator

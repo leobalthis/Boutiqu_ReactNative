@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	StyleSheet,
 	View,
@@ -13,11 +13,13 @@ const styles = StyleSheet.create({
   wrapper: {
     padding: 10,
     flexWrap: 'wrap',
-    flexDirection:'row',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   rateLabel: {
-    flex: 1,
     color: Styles.COLOR_DARKER_45,
+    marginTop: 5,
+    marginRight: 10
   },
   icon: {
     fontSize: 20,
@@ -26,20 +28,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const labelText = ({ label }) => {
-  let text;
-  if (label) {
-    text = <Text>{label}</Text>;
-  } else {
-    text = null;
-  }
-  return text;
-};
-
 export class Rate extends Component {
+  static propTypes = {
+    rateLabel: PropTypes.string,
+  }
+  static defaultProps = {
+    rateLabel: 'Rate it:'
+  }
+
   constructor(props) {
     super(props);
-  
+
     this.state = {
       rateValue: 3,
     };
@@ -54,24 +53,25 @@ export class Rate extends Component {
     return (
       <View style={styles.wrapper}>
         <Text style={styles.rateLabel}>
-          {(this.props.rateLabel) ? 'Rate it' : ''}
+          {this.props.rateLabel}
         </Text>
         {_.times(rateValue, (i) => (
-          <TouchableOpacity onPress={() => {
-            this.setRate(i+1);
-          }} key={i+1}>
-    		    <Icon name="star" style={styles.icon} />
+          <TouchableOpacity
+            onPress={() => {this.setRate(i + 1);}}
+            key={i}
+          >
+            <Icon name="star" style={styles.icon} />
           </TouchableOpacity>
         ))}
-        {_.times(5-rateValue, (i) => (
-          <TouchableOpacity onPress={() => {
-            this.setRate(i+rateValue+1);
-          }} key={i+rateValue+1}>
+        {_.times(5 - rateValue, (i) => (
+          <TouchableOpacity
+            onPress={() => {this.setRate(i + rateValue + 1);}}
+            key={i}
+          >
             <Icon name="star-o" style={styles.icon} />
           </TouchableOpacity>
         ))}
-    	</View>
+      </View>
     );
   }
-}  
-
+}
