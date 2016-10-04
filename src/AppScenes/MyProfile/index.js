@@ -6,7 +6,6 @@ import {
 import {
   Profile,
 } from 'AppComponents';
-import NavigationBar from 'react-native-navbar';
 
 export class MyProfile extends Component {
   static propTypes = {
@@ -23,16 +22,11 @@ export class MyProfile extends Component {
 
   handleStatus() {
     this.setState({
-      isPublic: this.state.isPublic ? false : true
+      isPublic: !this.state.isPublic
     });
   }
 
   render() {
-    const leftButtonConfig = {
-      title: 'Back',
-      handler: () => this.props.navigator.pop(),
-    };
-    console.log('my Pro', this.state);
     return (
       <View style={{ flex: 1 }}>
         <Profile

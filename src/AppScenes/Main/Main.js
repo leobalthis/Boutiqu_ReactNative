@@ -19,8 +19,6 @@ import {
   PlaceDetails,
 } from 'AppScenes';
 
-import { styles } from './styles';
-
 export class Main extends Component {
   constructor(props) {
     super(props);
@@ -111,13 +109,12 @@ export class Main extends Component {
     const { fullPageComponent } = this.state;
     if (fullPageComponent) {
       return (
-        <View style={{ flex : 1, backgroundColor: 'red' }}>
+        <View style={{ flex: 1, backgroundColor: 'red' }}>
           {fullPageComponent}
         </View>
       );
-    } else {
-      return;
     }
+    return null;
   }
   render() {
     const menu = (
@@ -157,7 +154,8 @@ export class Main extends Component {
           />
           <Footer
             user={this.props.user}
-            changeView={this.changeView} />
+            changeView={this.changeView}
+          />
         </SideMenu>
         {this.renderFullPageModal()}
       </View>

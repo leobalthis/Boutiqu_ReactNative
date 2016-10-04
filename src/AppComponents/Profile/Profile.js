@@ -43,7 +43,8 @@ export class Profile extends Component {
               />
             </View>
             <Text style={styles.proRightTextProfileTypeInfo}>
-              When your profile is public, your reviews are displayed in the discover feed and otehr users can follow you.
+              When your profile is public, your reviews are displayed in the
+              discover feed and otehr users can follow you.
               Be an influencer and spread the world about places you like and want to remember.
             </Text>
           </View>
@@ -53,30 +54,31 @@ export class Profile extends Component {
           <View style={styles.ViewFollowButton}>
             <TouchableOpacity
               onPress={() => {this.props.handleFollowing();}}
-              style={[styles.followButton, following && { backgroundColor: Styles.COLOR_PINK }]}>
+              style={[styles.followButton, following && { backgroundColor: Styles.COLOR_PINK }]}
+            >
               <Text style={[styles.textFollowButton, following && { color: '#fff' }]}>
-                Follow
+                {following ? 'Following' : 'Follow'}
               </Text>
             </TouchableOpacity>
           </View>
         );
-        break;
       default:
-
+        return null;
     }
-  };
+  }
 
   render() {
     const { name, location, propic, followers_count,
       followings_count, user_friends, feed_entries } = this.props.user;
-    const { isPublic, profileType } = this.props;
-    console.log(this.props);
+    const { profileType } = this.props;
     return (
       <View style={styles.wrapper}>
         <ScrollView style={{ backgroundColor: '#ddd' }}>
           <View style={{ backgroundColor: '#fff' }}>
             <View style={styles.profileWrapper}>
-              <View style={[styles.proleft, profileType === 'member' && {justifyContent: 'flex-start', marginTop: 30}]}>
+              <View style={[styles.proleft,
+                  profileType === 'member' && { justifyContent: 'flex-start', marginTop: 10 }]}
+              >
                 <ProfilePhoto type="circle" size={90} border={false} source={propic} />
                 {
                   profileType === 'my profile' &&
@@ -90,7 +92,7 @@ export class Profile extends Component {
                   {name}
                 </Text>
                 <Text style={styles.proRightTextLocation}>
-                  {location}
+                  {profileType === 'my profile' ? location : 'San Francisco, CA, United States'}
                 </Text>
                 {this.renderProfileType()}
               </View>
@@ -102,34 +104,30 @@ export class Profile extends Component {
                 }
               >
                 <ProfileFollow
-                  routeId="home"
                   label="Friends"
-                  num={user_friends.length}
+                  num={profileType === 'my profile' ? user_friends.length : 13}
                   {...this.props}
                 />
               </TouchableOpacity>
               <View style={styles.hLine} />
               <ProfileFollow
-                routeId="home"
                 label="Followers"
-                num={followers_count}
+                num={profileType === 'my profile' ? followers_count : 13}
                 {...this.props}
               />
               <View style={styles.hLine} />
               <ProfileFollow
-                routeId="home"
                 label="Following"
-                num={followings_count}
+                num={profileType === 'my profile' ? followings_count : 13}
                 {...this.props}
               />
               <View style={styles.hLine} />
               <ProfileFollow
-                routeId="home"
                 label="Reviews"
-                num={feed_entries.length}
+                num={profileType === 'my profile' ? feed_entries.length : 13}
                 {...this.props}
               />
-            </View>
+          </View>
           </View>
         </ScrollView>
       </View>

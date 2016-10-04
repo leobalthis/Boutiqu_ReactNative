@@ -34,14 +34,15 @@ export const styles = StyleSheet.create({
   ViewFollowButton: {
     height: 100,
     justifyContent: 'center',
-    alignItems: 'flex-end'
+    alignItems: 'center'
   },
   followButton: {
-    width: 130,
-    height: 25,
+    width: 150,
+    height: 28,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
+    // borderBottomWidth: 1,
     borderColor: Styles.COLOR_PINK
   },
   textFollowButton: {
