@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
   wrapper: {
     marginBottom: 30,
     backgroundColor: Styles.COLOR_WHITE,
-    borderColor: 'red',
-    borderWidth: 1,
   },
   container: {
     flex: 1,

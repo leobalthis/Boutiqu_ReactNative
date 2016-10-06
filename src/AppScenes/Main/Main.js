@@ -15,6 +15,7 @@ import {
   Search,
   Contact,
   ReviewCreator,
+  ContactsListScene,
   MemberProfileScene,
   PlaceDetails,
 } from 'AppScenes';
@@ -89,6 +90,13 @@ export class Main extends Component {
             {...commonProps}
           />
         );
+      case 'contactslist':
+        return (
+          <ContactsListScene
+            {...commonProps}
+            {...route.data}
+          />
+        );
       case 'placedetails':
         return (
           <PlaceDetails
@@ -123,7 +131,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'home';
+    const initialRouteId = 'contactslist';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu
