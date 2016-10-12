@@ -22,6 +22,7 @@ export class FollowButton extends Component {
     textButton: PropTypes.string,
     backgroundColor: PropTypes.object,
     textColor: PropTypes.string,
+    contactType: PropTypes.string,
   }
 
   static defaultProps = {
@@ -46,8 +47,10 @@ export class FollowButton extends Component {
 
   render() {
     const { textValue } = this.state;
+    const { contactType } = this.props;
     return (
       <TouchableOpacity
+        disabled={contactType === 'followings'}
         style={[styles.container,
           { backgroundColor: textValue === 'Following' ? Styles.COLOR_PINK : '#fff' }]}
         onPress={() => {this.toggleText();}}
