@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import {
-  SearchInput,
   Search
 } from 'AppComponents';
 import { Styles } from 'AppStyles';
@@ -54,11 +53,10 @@ export class SearchScene extends Component {
     this.setState({
       dataPlace: data,
       detailsPlace: details
-    })
+    });
   }
 
   render() {
-    console.log("state", this.state);
     return (
       <View style={styles.wrapper}>
         <NavigationBar
