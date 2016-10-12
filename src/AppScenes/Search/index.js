@@ -8,6 +8,7 @@ import {
 import NavigationBar from 'react-native-navbar';
 import {
   SearchInput,
+  Search
 } from 'AppComponents';
 import { Styles } from 'AppStyles';
 
@@ -23,7 +24,6 @@ const styles = StyleSheet.create({
     width: 130,
     alignItems: 'flex-end',
     justifyContent: 'center',
-    marginTop: 40,
     borderBottomWidth: 1,
     borderBottomColor: Styles.COLOR_LIGHTER_5
   },
@@ -40,22 +40,25 @@ const leftButtonConfig = {
   handler: () => this.props.navigator.pop(),
 };
 
-export class Search extends Component {
+export class SearchScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: ''
+      dataPlace: null,
+      detailsPlace: null
     };
-    this.handleTextInput = this.handleTextInput.bind(this);
+    this.getPlace = this.getPlace.bind(this);
   }
 
-  handleTextInput(text) {
+  getPlace(data, details) {
     this.setState({
-      searchText: text
-    });
+      dataPlace: data,
+      detailsPlace: details
+    })
   }
 
   render() {
+    console.log("state", this.state);
     return (
       <View style={styles.wrapper}>
         <NavigationBar
@@ -63,11 +66,10 @@ export class Search extends Component {
           tintColor={Styles.COLOR_GREEN}
           leftButton={leftButtonConfig}
         />
-        <SearchInput
-          styleContainer={{ marginTop: 20, backgroundColor: '#fff', marginBottom: 30 }}
-          handleTextInput={this.handleTextInput}
-          placeholder="Where are you searching?"
-        />
+      <Search
+        placeholder="Where are you searching ?"
+        getPlace={this.getPlace}
+      />
         <View style={{ flex: 1, backgroundColor: '#fff' }}>
           <TouchableOpacity style={styles.buttonAround}>
             <Text style={styles.textAround}>

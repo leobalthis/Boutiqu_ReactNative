@@ -12,7 +12,7 @@ import {
   Home,
   MyProfile,
   MyLikes,
-  Search,
+  SearchScene,
   Contact,
   ReviewCreator,
   ContactsListScene,
@@ -80,7 +80,7 @@ export class Main extends Component {
         );
       case 'search':
         return (
-          <Search
+          <SearchScene
             {...commonProps}
           />
         );
