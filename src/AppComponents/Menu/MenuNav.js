@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableHighlight,
   Text,
+  Image,
   View,
 } from 'react-native';
 
@@ -16,11 +17,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'stretch',
     padding: 10,
-    borderTopColor: Styles.COLOR_LIGHTER_5,
-    borderTopWidth: 1,
+    marginBottom: 10
+  },
+  image: {
+    height: 20,
+    width: 20,
+    marginRight: 8,
   },
   menuItem: {
-    fontSize: Styles.FONT_SIZE_SMALL,
+    fontSize: Styles.FONT_SIZE,
     color: Styles.FONT_COLOR,
     fontWeight: '300',
   },
@@ -45,23 +50,29 @@ const renderNavText = ({ label, routeId }) => {
   return text;
 };
 
-export const MenuNav = ({ changeView, routeId, label, icon, data = null }) => (
-  <TouchableHighlight
-    onPress={() => changeView(routeId, data)}
-  >
-    <View style={styles.wrapper}>
-      <Icon name={icon} style={styles.icon} />
-      <Text style={styles.menuItem}>
-        {renderNavText({ label, routeId })}
-      </Text>
-    </View>
-  </TouchableHighlight>
-);
+export const MenuNav = ({ changeView, routeId, label, source, data = null }) => {
+  return (
+    <TouchableHighlight
+      onPress={() => changeView(routeId, data)}
+    >
+      <View style={styles.wrapper}>
+        <Image
+          style={styles.image}
+          source={require('../../../assets/home_icon_green@1x.png')}
+          // source={require(`${source}`)}
+        />
+        <Text style={styles.menuItem}>
+          {renderNavText({ label, routeId })}
+        </Text>
+      </View>
+    </TouchableHighlight>
+  );
+}
 
 MenuNav.propTypes = {
   changeView: PropTypes.func.isRequired,
   routeId: PropTypes.string.isRequired,
   data: PropTypes.object,
   label: PropTypes.string,
-  icon: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
 };
