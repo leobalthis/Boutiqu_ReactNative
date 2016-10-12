@@ -7,6 +7,8 @@ export * from './PlaceCard';
 export * from './Misc';
 export * from './Search';
 export * from './Profile';
+export * from './SearchInput';
+export * from './Contact';
 export * from './ProfilePhoto';
 export * from './Footer';
 export * from './WriteReview';

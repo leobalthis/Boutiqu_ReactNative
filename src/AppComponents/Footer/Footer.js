@@ -51,7 +51,6 @@ export class Footer extends Component {
     user: PropTypes.object.isRequired,
   };
   render() {
-    console.log('props footer', this.props);
     return (
 			<View style={styles.container}>
         <TouchableOpacity

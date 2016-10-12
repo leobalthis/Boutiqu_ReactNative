@@ -15,6 +15,7 @@ import {
   Search,
   Contact,
   ReviewCreator,
+  ContactsListScene,
   MemberProfileScene,
   PlaceDetails,
 } from 'AppScenes';
@@ -87,6 +88,13 @@ export class Main extends Component {
         return (
           <Contact
             {...commonProps}
+          />
+        );
+      case 'contactslist':
+        return (
+          <ContactsListScene
+            {...commonProps}
+            {...route.data}
           />
         );
       case 'placedetails':

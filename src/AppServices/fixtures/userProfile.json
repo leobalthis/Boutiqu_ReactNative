@@ -23,16 +23,29 @@
       "propic": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/10644606_10204135160313158_5625840248954293316_n.jpg?oh=acdf735f39c1e75ed68f59448e200ec0&oe=583DF005"
     }
   ],
-  "user_followers": [], //user's followers array ---in who are following this user
+  "user_followers": [
+    {
+      "id": 4,
+      "name": "Discover Boutiq",
+      "location": "San Francisco, CA, United States",
+      "propic": "http://graph.facebook.com/109373342776560/picture?type=large"
+    },
+    {
+      "id": 3,
+      "name": "Jeep Wrangler",
+      "location": "San Francisco, CA, United States",
+      "propic": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/946446_160074151051801_6230809292333481579_n.jpg?oh=7690b166f6b4b54b6bac6d773df45f32&oe=583F4013"
+    }
+    ], //user's followers array ---in who are following this user
   "user_followings": [ //users following array ---in who they follow
     {
-      "id": 14,
-      "name": "Github Cat",
+      "id": 4,
+      "name": "Discover Boutiq",
       "location": "San Francisco, CA, United States",
-      "propic": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/13692608_107387726366022_7198275052794265971_n.jpg?oh=1190ee09ed5dfc47b9abc19ae25f9b6d&oe=585186E8"
+      "propic": "http://graph.facebook.com/109373342776560/picture?type=large"
     }
   ],
-  "followers_count": 0, //count of how many followers
+  "followers_count": 2, //count of how many followers
   "followings_count": 1, //count of how many users that he/she is following
   "following_url": "",  // if it is their own profile there will be no following_url, following_text, etc..
   "following_text": "",

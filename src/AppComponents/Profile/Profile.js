@@ -100,7 +100,11 @@ export class Profile extends Component {
             <View style={styles.profileFollowers}>
               <TouchableOpacity
                 onPress={() => this.props.navigator.push({
-                  id: 'reviewcreator' })
+                  id: 'contactslist',
+                  data: {
+                    contactType: 'friends'
+                  }
+                })
                 }
               >
                 <ProfileFollow
@@ -110,17 +114,37 @@ export class Profile extends Component {
                 />
               </TouchableOpacity>
               <View style={styles.hLine} />
-              <ProfileFollow
-                label="Followers"
-                num={profileType === 'my profile' ? followers_count : 13}
-                {...this.props}
-              />
+              <TouchableOpacity
+                onPress={() => this.props.navigator.push({
+                  id: 'contactslist',
+                  data: {
+                    contactType: 'followers'
+                  }
+                })
+                }
+              >
+                <ProfileFollow
+                  label="Followers"
+                  num={profileType === 'my profile' ? followers_count : 13}
+                  {...this.props}
+                />
+              </TouchableOpacity>
               <View style={styles.hLine} />
-              <ProfileFollow
-                label="Following"
-                num={profileType === 'my profile' ? followings_count : 13}
-                {...this.props}
-              />
+              <TouchableOpacity
+                onPress={() => this.props.navigator.push({
+                  id: 'contactslist',
+                  data: {
+                    contactType: 'followings'
+                  }
+                })
+                }
+              >
+                <ProfileFollow
+                  label="Following"
+                  num={profileType === 'my profile' ? followings_count : 13}
+                  {...this.props}
+                />
+              </TouchableOpacity>
               <View style={styles.hLine} />
               <ProfileFollow
                 label="Reviews"

@@ -35,6 +35,7 @@ export const Styles = {
   CARD_HEIGHT: (x - em(1.25) * 2) * (3 / 5),
   CARD_PADDING_X: em(1.875),
   CARD_PADDING_Y: em(1.25),
+  COLOR_LIGHTER_0: 'rgb(240, 240, 240)',
   COLOR_LIGHTER_5: '#D4D4D4',
   COLOR_DARKER_15: '#a1a1a1',
   COLOR_DARKER_30: '#7b7b7b',
