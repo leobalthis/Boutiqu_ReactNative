@@ -51,6 +51,7 @@ const renderNavText = ({ label, routeId }) => {
 };
 
 export const MenuNav = ({ changeView, routeId, label, source, data = null }) => {
+  const src = require(source);
   return (
     <TouchableHighlight
       onPress={() => changeView(routeId, data)}
@@ -58,8 +59,9 @@ export const MenuNav = ({ changeView, routeId, label, source, data = null }) => 
       <View style={styles.wrapper}>
         <Image
           style={styles.image}
-          source={require('../../../assets/home_icon_green@1x.png')}
-          // source={require(`${source}`)}
+          // source={t}
+          // source={require('../../../assets/home_icon_green@1x.png')}
+          source={src}
         />
         <Text style={styles.menuItem}>
           {renderNavText({ label, routeId })}
