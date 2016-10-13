@@ -13,6 +13,7 @@ import {
   MyProfile,
   MyLikes,
   SearchScene,
+  SearchResultScene,
   Contact,
   ReviewCreator,
   ContactsListScene,
@@ -81,6 +82,12 @@ export class Main extends Component {
       case 'search':
         return (
           <SearchScene
+            {...commonProps}
+          />
+        );
+      case 'searchresult':
+        return (
+          <SearchResultScene
             {...commonProps}
           />
         );

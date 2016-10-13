@@ -10,6 +10,7 @@ export * from './Profile';
 export * from './SearchInput';
 export * from './Contact';
 export * from './ProfilePhoto';
+export * from './PlaceTypeFilter';
 export * from './Footer';
 export * from './WriteReview';
 export * from './Tags';
