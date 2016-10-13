@@ -10,5 +10,5 @@ export { PlaceDetails } from './PlaceDetails';
 export { MemberProfileScene } from './MemberProfile';
 export { MyProfile } from './MyProfile';
 export { MyLikes } from './MyLikes';
-export { Search } from './Search';
+export { SearchScene } from './Search';
 export { Contact } from './Contact';

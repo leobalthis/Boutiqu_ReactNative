@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
 	StyleSheet,
 	View,
 } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { Styles } from 'AppStyles';
+import { Styles, x } from 'AppStyles';
 import settings from '../../../settings.json';
 
 // const homePlace = {description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
@@ -16,17 +16,20 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Search = () => (
+export const Search = ({ placeholder, getPlace }) => (
   <View style={styles.wrapper}>
     <GooglePlacesAutocomplete
-      placeholder="Search"
+      placeholder={placeholder}
       minLength={2}
       autoFocus={false}
       fetchDetails={true}
       onPress={(data, details = null) => {
-        console.log(data);
-        console.log(details);
+        getPlace(data, details)
       }}
+      // onPress={(data, details = null) => {
+      //   console.log('data', data);
+      //   console.log('details', details);
+      // }}
       getDefaultValue={() => ''}
       query={{
         // available options: https://developers.google.com/places/web-service/autocomplete
@@ -36,15 +39,21 @@ export const Search = () => (
       }}
       styles={{
         textInputContainer: {
+          marginBottom: 30,
+          width: x,
           backgroundColor: Styles.COLOR_GREEN,
-          height: 40,
+          height: 60,
+          alignItems: 'center',
           borderTopWidth: 0,
           borderBottomWidth: 0,
         },
         textInput: {
+          alignSelf: 'center',
           backgroundColor: Styles.COLOR_WHITE,
-          fontSize: 15,
-          color: Styles.COLOR_DARKER_15,
+          fontSize: 20,
+          height: 40,
+          width: x - 45,
+          color: Styles.COLOR_DARKER_45,
         },
       }}
       currentLocation={false}
@@ -63,3 +72,8 @@ export const Search = () => (
     />
   </View>
 );
+
+Search.propTypes = {
+  placeholder: PropTypes.string,
+  getPlace: PropTypes.func
+};

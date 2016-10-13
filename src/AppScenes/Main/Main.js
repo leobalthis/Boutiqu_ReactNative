@@ -12,7 +12,7 @@ import {
   Home,
   MyProfile,
   MyLikes,
-  Search,
+  SearchScene,
   Contact,
   ReviewCreator,
   ContactsListScene,
@@ -80,7 +80,7 @@ export class Main extends Component {
         );
       case 'search':
         return (
-          <Search
+          <SearchScene
             {...commonProps}
           />
         );
@@ -131,7 +131,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'home';
+    const initialRouteId = 'search';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu
