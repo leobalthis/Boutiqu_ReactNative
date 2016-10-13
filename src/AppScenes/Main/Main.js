@@ -131,7 +131,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'search';
+    const initialRouteId = 'home';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu
