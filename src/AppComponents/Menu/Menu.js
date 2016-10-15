@@ -27,28 +27,44 @@ export const Menu = (props) => (
         </View>
       </View>
     </TouchableOpacity>
-    <MenuNav routeId="home" source="../../../assets/home_icon_green@1x.png" label="Home" {...props} data={{ index: 1 }} />
-    <MenuNav routeId="discover" source="img/discover_icon_green@1x.png" label="Discover" {...props} data={{ index: 1 }} />
-    <MenuNav routeId="mylikes" source="../../../assets/heart_icon_green@1x.png" label="My Likes" {...props} />
-    <MenuNav routeId="search" source="../../../assets/search_icon_green@1x.png" label="Search" {...props} />
-    <MenuNav routeId="reviewcreator" source="../../../assets/post_icon_green@1x.png" label="Post a review" {...props} />
-    <MenuNav routeId="contactus" source="../../../assets/mail_icon_green@1x.png" label="Contact us" {...props} />
-    <TouchableHighlight
+    <MenuNav
+      onPress={() => props.changeView('home', { index: 0 })}
+      label="Home"
+      source={require('../../../assets/home_icon_green.png')}
+    />
+    <MenuNav
+      onPress={() => props.changeView('discover', { index: 1 })}
+      label="Discover"
+      source={require('../../../assets/discover_icon_green.png')}
+    />
+    <MenuNav
+      onPress={() => props.changeView('mylikes')}
+      label="My Likes"
+      source={require('../../../assets/heart_icon_green.png')}
+    />
+    <MenuNav
+      onPress={() => props.changeView('search')}
+      label="Search"
+      source={require('../../../assets/search_icon_green.png')}
+    />
+    <MenuNav
+      onPress={() => props.changeView('reviewcreator')}
+      label="Post a review"
+      source={require('../../../assets/post_icon_green.png')}
+    />
+    <MenuNav
+      onPress={() => props.changeView('contactus')}
+      label="Contact us"
+      source={require('../../../assets/mail_icon_green.png')}
+    />
+    <MenuNav
       onPress={() => {
         LoginManager.logOut();
         props.onLogout();
       }}
-    >
-      <View style={styles.logoutWrapper}>
-        <Image
-          style={styles.image}
-          source={require('../../../assets/home_icon_green@1x.png')}
-        />
-        <Text style={styles.logOut}>
-          Log out
-        </Text>
-      </View>
-    </TouchableHighlight>
+      label="Log out"
+      source={require('../../../assets/logout_icon_green.png')}
+    />
   </View>
   );
 
