@@ -26,7 +26,7 @@ export class Home extends Component {
       <View style={{ flex: 1, }}>
         <View style={styles.wrapper}>
           <ScrollableTabView
-            initialPage={1}
+            initialPage={0}
             tabBarActiveTextColor="#fff"
             tabBarInactiveTextColor="#fff"
             tabBarUnderlineStyle={{ height: 5, backgroundColor: 'rgba(255, 255, 255, 0.8)' }}

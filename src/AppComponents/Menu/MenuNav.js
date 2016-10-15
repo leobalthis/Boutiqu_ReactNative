@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 import { Styles } from 'AppStyles';
 
 import {
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   Text,
+  Image,
   View,
 } from 'react-native';
 
@@ -16,52 +15,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'stretch',
     padding: 10,
-    borderTopColor: Styles.COLOR_LIGHTER_5,
-    borderTopWidth: 1,
+    marginBottom: 10
+  },
+  image: {
+    height: 20,
+    width: 20,
+    marginRight: 8,
   },
   menuItem: {
-    fontSize: Styles.FONT_SIZE_SMALL,
+    fontSize: Styles.FONT_SIZE,
     color: Styles.FONT_COLOR,
     fontWeight: '300',
-  },
-  icon: {
-    alignItems: 'center',
-    fontSize: 20,
-    width: 20,
-    marginTop: -3,
-    marginRight: 8,
-    marginLeft: 5,
-    color: Styles.COLOR_GREEN
   }
 });
 
-const renderNavText = ({ label, routeId }) => {
-  let text;
-  if (label) {
-    text = label;
-  } else {
-    text = routeId.toUpperCase();
-  }
-  return text;
-};
-
-export const MenuNav = ({ changeView, routeId, label, icon, data = null }) => (
-  <TouchableHighlight
-    onPress={() => changeView(routeId, data)}
+export const MenuNav = ({ onPress, label, source }) => (
+  <TouchableOpacity
+    onPress={onPress}
   >
     <View style={styles.wrapper}>
-      <Icon name={icon} style={styles.icon} />
+      <Image
+        style={styles.image}
+        resizeMode="contain"
+        source={source}
+      />
       <Text style={styles.menuItem}>
-        {renderNavText({ label, routeId })}
+        {label}
       </Text>
     </View>
-  </TouchableHighlight>
+  </TouchableOpacity>
 );
 
 MenuNav.propTypes = {
-  changeView: PropTypes.func.isRequired,
-  routeId: PropTypes.string.isRequired,
-  data: PropTypes.object,
+  onPress: PropTypes.func.isRequired,
   label: PropTypes.string,
-  icon: PropTypes.string.isRequired,
+  source: PropTypes.any.isRequired
 };

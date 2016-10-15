@@ -5,7 +5,8 @@ export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: Styles.COLOR_WHITE,
-    paddingTop: 20,
+    padding: 20,
+    paddingTop: 30,
     borderRightWidth: 1,
     borderColor: Styles.COLOR_LIGHTER_5,
   },
@@ -14,13 +15,14 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'stretch',
     padding: 10,
-    borderBottomColor: Styles.COLOR_LIGHTER_5,
-    borderBottomWidth: 1,
-    borderTopColor: Styles.COLOR_LIGHTER_5,
-    borderTopWidth: 1,
+  },
+  image: {
+    width: 20,
+    height: 20,
+    marginRight: 8
   },
   logOut: {
-    fontSize: Styles.FONT_SIZE_SMALL,
+    fontSize: Styles.FONT_SIZE,
     color: Styles.FONT_COLOR,
     fontWeight: '300',
   },
@@ -43,7 +45,7 @@ export const styles = StyleSheet.create({
   profileTextUser: {
     fontSize: Styles.FONT_SIZE,
     color: Styles.FONT_COLOR,
-    fontWeight: '500',
+    fontWeight: '600',
     marginLeft: 10,
   },
   profileText: {
