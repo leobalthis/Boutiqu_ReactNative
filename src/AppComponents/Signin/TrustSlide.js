@@ -8,7 +8,7 @@ import { styles } from './styles';
 export const TrustSlide = () => (
   <Image
     style={styles.wrappingImage}
-    source={require('../../../assets/bg_signup2.jpg')}
+    source={require('../../../assets/bg_signup2.png')}
   >
     <Text style={styles.slidesTitle}>
       Trust

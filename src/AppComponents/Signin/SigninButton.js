@@ -45,7 +45,6 @@ export class SigninButton extends Component {
     this.setState({ isLoading: true });
     return LoginManager.logInWithPublishPermissions(['publish_actions'])
     .then(({ isCancelled, grantedPermissions, declinedPermissions }) => {
-      console.log("debug", arguments);
       if (isCancelled) {
         // todo: show alert we need login
         this.setState({ isLoading: false });
