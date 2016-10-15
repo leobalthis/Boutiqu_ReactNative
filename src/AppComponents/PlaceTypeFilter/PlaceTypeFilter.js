@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Animated,
-  Picker,
   MapView,
   LayoutAnimation,
   StyleSheet,
@@ -21,6 +20,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20
   },
+  wrapperTagsView: {
+    marginTop: 15,
+    marginBottom: 10,
+    height: 80,
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
   tagsView: {
     flexDirection: 'row',
     width: x - 40,
@@ -30,14 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Styles.COLOR_DARKER_30,
   },
-  picker: {
-    height: 20,
-    width: 90,
-    borderWidth: 1
-  }
 });
-
-// const Item = Picker.Item;
 
 export class PlaceTypeFilter extends Component {
   static propTypes = {
@@ -48,7 +47,8 @@ export class PlaceTypeFilter extends Component {
     super(props);
     this.state = {
       viewStyle: {
-        height: 200
+        height: 175,
+        justifyContent: 'center'
       },
       picker: {
         selected1: 'Top rated',
@@ -77,7 +77,7 @@ export class PlaceTypeFilter extends Component {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({
       viewStyle: {
-        height: viewStyle.height > 200 ? 200 : 400
+        height: viewStyle.height > 175 ? 175 : 400
       },
       mapView: !this.state.mapView
     });
@@ -92,44 +92,32 @@ export class PlaceTypeFilter extends Component {
           handleMapView={this.handleMapView}
           mapView={this.state.mapView}
         />
-        <Text style={styles.CommonTextStyle}>
-          {this.props.data.entries.length} places recommended by public users
-        </Text>
-        <View style={styles.tagsView}>
+      <View style={styles.wrapperTagsView}>
           <Text style={styles.CommonTextStyle}>
-            Tags:
+            {this.props.data.entries.length} places recommended by public users
           </Text>
-          <TagsItem
-            label="Eat"
-            onPress={this.handleFilterTag}
-          />
-          <TagsItem
-            label="Drink"
-            onPress={this.handleFilterTag}
-          />
-          <TagsItem
-            label="Sleep"
-            onPress={this.handleFilterTag}
-          />
-          <TagsItem
-            label="Do"
-            onPress={this.handleFilterTag}
-          />
+          <View style={styles.tagsView}>
+            <Text style={styles.CommonTextStyle}>
+              Tags:
+            </Text>
+            <TagsItem
+              label="Eat"
+              onPress={this.handleFilterTag}
+            />
+            <TagsItem
+              label="Drink"
+              onPress={this.handleFilterTag}
+            />
+            <TagsItem
+              label="Sleep"
+              onPress={this.handleFilterTag}
+            />
+            <TagsItem
+              label="Do"
+              onPress={this.handleFilterTag}
+            />
+          </View>
         </View>
-        {!mapView &&
-        <View style={{ flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end' }}>
-          <Text style={styles.CommonTextStyle}>
-            Sort by
-          </Text>
-          {/* <Picker
-            style={styles.picker}
-            selectedValue={this.state.picker.selected1}
-            onValueChange={this.onValueChange.bind(this, 'selected1')}
-          >
-            <Item label="Top rated" value="key0" />
-            <Item label="Date" value="key1" />
-          </Picker> */}
-        </View>}
         {mapView && <MapView
           style={{ height: 250, width: x }}
           region={this.state.region}
