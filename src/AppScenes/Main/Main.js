@@ -13,6 +13,7 @@ import {
   MyProfile,
   MyLikes,
   SearchScene,
+  SearchResultScene,
   Contact,
   ReviewCreator,
   ContactsListScene,
@@ -84,6 +85,12 @@ export class Main extends Component {
             {...commonProps}
           />
         );
+      case 'searchresult':
+        return (
+          <SearchResultScene
+            {...commonProps}
+          />
+        );
       case 'contactus':
         return (
           <Contact
@@ -131,7 +138,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'search';
+    const initialRouteId = 'home';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu

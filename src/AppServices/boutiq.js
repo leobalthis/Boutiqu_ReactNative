@@ -31,6 +31,7 @@ export const Boutiq = {
   },
   getDiscoverFeed(params = { page: 1 }) {
     return this.getPlaces(params, 'discover');
+    // return new Promise(res => res(require('./fixtures/discover-data.json')));
   },
   getLikes(params = { page: 1, q: null }) {
     // q: To filter by tag "Eat", "Drink", "Sleep", "Do"

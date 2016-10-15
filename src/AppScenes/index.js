@@ -11,4 +11,5 @@ export { MemberProfileScene } from './MemberProfile';
 export { MyProfile } from './MyProfile';
 export { MyLikes } from './MyLikes';
 export { SearchScene } from './Search';
+export { SearchResultScene } from './SearchResult';
 export { Contact } from './Contact';

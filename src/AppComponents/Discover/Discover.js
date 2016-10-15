@@ -1,20 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-
 import {
   ActivityIndicator,
   ListView,
+  Text,
+  View,
 } from 'react-native';
-
 import { Boutiq } from 'AppServices';
-
-
 import {
 	PlaceCard,
+  PlaceTypeFilter,
 } from 'AppComponents';
 
 export class Discover extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -45,14 +45,19 @@ export class Discover extends Component {
   }
 
   render() {
+    // console.log("debug", this.state);
+    const { type } = this.props;
     if (this.state.isLoading) {
       return <ActivityIndicator size="large" />;
     }
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderListItem}
-      />
+      <View>
+        {type === 'search' && <PlaceTypeFilter data={this.state.data} />}
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderListItem}
+        />
+      </View>
     );
   }
 }

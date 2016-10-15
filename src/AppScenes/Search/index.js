@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   View,
@@ -40,6 +40,10 @@ const leftButtonConfig = {
 };
 
 export class SearchScene extends Component {
+  static propTypes = {
+    changeView: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -54,6 +58,13 @@ export class SearchScene extends Component {
       dataPlace: data,
       detailsPlace: details
     });
+    this.props.changeView('searchresult');
+    // probably have to pass a part of dataplace/details place
+  }
+
+  goToSearchResult() {
+    this.props.changeView('searchresult');
+    console.log("debug");
   }
 
   render() {
@@ -69,7 +80,12 @@ export class SearchScene extends Component {
         getPlace={this.getPlace}
       />
         <View style={{ flex: 1, backgroundColor: '#fff' }}>
-          <TouchableOpacity style={styles.buttonAround}>
+          <TouchableOpacity
+            style={styles.buttonAround}
+            onPress={() => {
+              this.goToSearchResult();
+            }}
+          >
             <Text style={styles.textAround}>
               Around me
             </Text>
