@@ -16,13 +16,13 @@ import { Styles, x } from 'AppStyles';
 const styles = StyleSheet.create({
   container: {
     width: x,
+    backgroundColor: '#fff',
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: 20
   },
   wrapperTagsView: {
     marginTop: 15,
-    marginBottom: 10,
     height: 80,
     justifyContent: 'space-around',
     alignItems: 'center'
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     width: x - 40,
     justifyContent: 'space-between'
   },
-  CommonTextStyle: {
+  commonTextStyle: {
     fontSize: 16,
     color: Styles.COLOR_DARKER_30,
   },
@@ -42,19 +42,21 @@ export class PlaceTypeFilter extends Component {
   static propTypes = {
     navigator: PropTypes.object,
     data: PropTypes.object.isRequired,
+    handleMapView: PropTypes.func.isRequired,
+    mapView: PropTypes.bool.isRequired,
   }
   constructor(props) {
     super(props);
     this.state = {
       viewStyle: {
-        height: 175,
+        height: 150,
         justifyContent: 'center'
       },
       picker: {
         selected1: 'Top rated',
         selected2: 'Date'
       },
-      mapView: false,
+      mapView: this.props.mapView,
       region: {
         latitude: 37.78825,
         longitude: -122.4324,
@@ -77,27 +79,30 @@ export class PlaceTypeFilter extends Component {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({
       viewStyle: {
-        height: viewStyle.height > 175 ? 175 : 400
+        height: viewStyle.height > 150 ? 150 : 400
       },
-      mapView: !this.state.mapView
     });
+    this.props.handleMapView();
   }
 
   render() {
-    const { mapView } = this.state;
+    const { mapView } = this.props;
     let viewStyle = [styles.container, this.state.viewStyle];
     return (
       <Animated.View style={viewStyle}>
         <MapViewButton
           handleMapView={this.handleMapView}
-          mapView={this.state.mapView}
+          mapView={this.props.mapView}
         />
-      <View style={styles.wrapperTagsView}>
-          <Text style={styles.CommonTextStyle}>
+      <View style={[styles.wrapperTagsView, mapView &&
+          { justifyContent: 'flex-start', height: 50 }]}
+      >
+          {!mapView &&
+          <Text style={styles.commonTextStyle}>
             {this.props.data.entries.length} places recommended by public users
-          </Text>
+          </Text>}
           <View style={styles.tagsView}>
-            <Text style={styles.CommonTextStyle}>
+            <Text style={styles.commonTextStyle}>
               Tags:
             </Text>
             <TagsItem

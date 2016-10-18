@@ -33,7 +33,7 @@ export class Home extends Component {
             style={styles.tabs}
           >
             <ScrollView tabLabel="My network" style={styles.tabsContent}>
-              <MyNetwork {...this.props} />
+              <MyNetwork type="home" {...this.props} />
 						</ScrollView>
             <ScrollView tabLabel="Discover" style={styles.tabsContent}>
               <Discover type="home" {...this.props} />

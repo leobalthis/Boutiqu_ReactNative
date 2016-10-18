@@ -91,7 +91,6 @@ export class PlaceDetails extends Component {
       handler: () => this.props.navigator.pop(),
     };
     // const { placeDetails } = this.props['route']['passprops']
-    // console.log(placeDetails);
     const { name, locality, administrative_area_level_1, country } = APP_PLACE;
     const { isFavourite } = this.state;
     return (

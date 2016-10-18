@@ -6,7 +6,7 @@ import {
 
 import { Styles } from 'AppStyles';
 
-export const ProfilePhoto = ({ type, size, border, source }) => {
+export const ProfilePhoto = ({ type, size, border, source, borderColor }) => {
   const borderRadius = (type === 'circle') ? (size / 2) : 0;
   const borderBorder = (border) ? 2 : 0;
   return (
@@ -18,8 +18,8 @@ export const ProfilePhoto = ({ type, size, border, source }) => {
         style={{
           height: size,
           width: size,
-          borderRadius: borderRadius,
-          borderColor: Styles.COLOR_DARKER_15,
+          borderRadius,
+          borderColor,
           borderWidth: borderBorder,
         }}
       />
@@ -28,7 +28,8 @@ export const ProfilePhoto = ({ type, size, border, source }) => {
 };
 
 ProfilePhoto.defaultProps = {
-  source: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070'
+  source: 'https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/12631288_10201227918496779_8726692479317881707_n.jpg?oh=51984222db7b99543e0b811d2178df53&oe=5834F070',
+  borderColor: Styles.COLOR_DARKER_15
 };
 
 ProfilePhoto.propTypes = {
@@ -36,4 +37,5 @@ ProfilePhoto.propTypes = {
   source: PropTypes.string,
   size: PropTypes.number.isRequired,
   border: PropTypes.bool.isRequired,
+  borderColor: PropTypes.string
 };

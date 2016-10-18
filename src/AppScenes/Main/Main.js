@@ -80,6 +80,7 @@ export class Main extends Component {
         return (
           <MyLikes
             {...commonProps}
+            {...route.data}
           />
         );
       case 'search':

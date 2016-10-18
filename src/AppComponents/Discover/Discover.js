@@ -8,8 +8,10 @@ import {
 import { Boutiq } from 'AppServices';
 import {
 	PlaceCard,
+  PlaceReview,
   PlaceTypeFilter,
 } from 'AppComponents';
+import { Styles } from 'AppStyles';
 
 export class Discover extends Component {
   static propTypes = {
@@ -21,11 +23,13 @@ export class Discover extends Component {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
+      mapView: false,
       isLoading: true,
       data: [],
       dataSource: this.ds.cloneWithRows([])
     };
     this.renderListItem = this.renderListItem.bind(this);
+    this.handleMapView = this.handleMapView.bind(this);
   }
 
   componentDidMount() {
@@ -39,21 +43,36 @@ export class Discover extends Component {
     });
   }
 
+  handleMapView() {
+    const { mapView } = this.state;
+    this.setState({
+      mapView: !mapView
+    });
+  }
+
   renderListItem(rowData) {
-    const { navigator } = this.props;
-    return <PlaceCard navigator={navigator} {...rowData} />;
+    const { navigator, type } = this.props;
+    const { mapView } = this.state;
+    return type === 'search'
+    ? <PlaceCard mapView={this.state.mapView} navigator={navigator} {...rowData} />
+    : <PlaceReview navigator={navigator} {...rowData} />;
   }
 
   render() {
-    // console.log("debug", this.state);
     const { type } = this.props;
     if (this.state.isLoading) {
       return <ActivityIndicator size="large" />;
     }
     return (
       <View>
-        {type === 'search' && <PlaceTypeFilter data={this.state.data} />}
+        {type === 'search' &&
+          <PlaceTypeFilter
+            data={this.state.data}
+            mapView={this.state.mapView}
+            handleMapView={this.handleMapView}
+          />}
         <ListView
+          style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}
           dataSource={this.state.dataSource}
           renderRow={this.renderListItem}
         />

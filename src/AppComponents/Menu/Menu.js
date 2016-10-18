@@ -17,7 +17,7 @@ import { styles } from './styles';
 export const Menu = (props) => (
   <View style={styles.wrapper}>
     <TouchableOpacity
-      onPress={() => props.changeView('myprofile')}
+      onPress={() => props.changeView('myprofile', { user: props.user })}
     >
       <View style={styles.profileWrapper}>
         <ProfilePhoto source={props.user.propic} type="circle" size={60} border={false} />
@@ -38,7 +38,7 @@ export const Menu = (props) => (
       source={require('../../../assets/discover_icon_green.png')}
     />
     <MenuNav
-      onPress={() => props.changeView('mylikes')}
+      onPress={() => props.changeView('mylikes', { ...this.props })}
       label="My Likes"
       source={require('../../../assets/heart_icon_green.png')}
     />

@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 });
 
 const renderLiked = (liked) => {
-  let text;  
+  let text;
   if (liked) {
     text = 'thumbs-up';
   } else {
@@ -66,7 +66,7 @@ const renderLiked = (liked) => {
 
 const renderComments = (comments) => {
 
-  let text;  
+  let text;
   if (comments.length > 0) {
     text = 'comment';
   } else {
@@ -75,20 +75,20 @@ const renderComments = (comments) => {
   return text;
 };
 
-export class PlaceCardComments extends Component {
+export class PlaceReviewComments extends Component {
   constructor(props) {
     super(props);
-  
+
     this.toggleSelection = this.toggleSelection.bind(this);
 
-    this.state = { 
+    this.state = {
       liked: false || this.props.place_liked,
     };
-    
+
   }
 
   toggleSelection() {
-    this.setState({ 
+    this.setState({
       liked: !this.state.liked,
     });
   }
@@ -105,18 +105,18 @@ export class PlaceCardComments extends Component {
                 30 likes
               </Text>
           </View>
-          <View style={styles.comments}>                
+          <View style={styles.comments}>
               <Text style={styles.rowText}>
                 {(this.props.comments.length > 0) ? this.props.comments.length : 2} Comments
               </Text>
-          </View>              
-        </View>     
+          </View>
+        </View>
         <View style={styles.rowWrapper}>
           <View style={styles.likes}>
              <TouchableOpacity
               onPress={this.toggleSelection} >
-                <Icon 
-                name={ renderLiked(this.state.liked) } 
+                <Icon
+                name={ renderLiked(this.state.liked) }
                 style={[styles.iconS, ((this.state.liked) ? styles.iconSelected : styles.iconUnselected)]} />
             </TouchableOpacity>
               <Text style={styles.rowText}>
@@ -124,21 +124,20 @@ export class PlaceCardComments extends Component {
               </Text>
           </View>
           <View style={styles.comments}>
-              <Icon 
-                name={ renderComments(this.props.comments) } 
+              <Icon
+                name={ renderComments(this.props.comments) }
                 style={[styles.iconS, ((this.props.comments.length > 0) ? styles.iconSelected : styles.iconUnselected)]} />
               <Text style={styles.rowText}>
                 Comment
               </Text>
-          </View>        
+          </View>
           <View style={styles.comments}>
               <TouchableOpacity>
-                <Icon name='ellipsis-h' style={styles.icon}/>
+                <Icon name="ellipsis-h" style={styles.icon}/>
               </TouchableOpacity>
-          </View>              
-        </View>              
+          </View>
+        </View>
       </View>
     );
   }
 }
-

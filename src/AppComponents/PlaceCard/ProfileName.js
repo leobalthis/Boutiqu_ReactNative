@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 5,
-    justifyContent: 'space-between',    
+    justifyContent: 'space-between',
   },
   wrapperProfileName: {
   },
@@ -54,20 +54,17 @@ const styles = StyleSheet.create({
   }
 });
 
-
-
 export class ProfileName extends Component {
-
   constructor(props) {
     super(props);
-    
+
     this.state = {
       follow: this.props.follow_type,
     };
   }
 
   setFollowStatus(f) {
-    this.setState({ follow: f, });
+    this.setState({ follow: f });
     //save in database
   }
 
@@ -93,7 +90,7 @@ export class ProfileName extends Component {
           <Text style={styles.profileName}>{this.props.review_user.name}</Text>
           <Text style={styles.placeName}>{this.props.place.name}</Text>
           <Text style={styles.local}>{this.props.place.local}</Text>
-        </View>        
+        </View>
         <View style={styles.wrapperProfileName}>
           <View style={styles.wrapperFollow}>
             {this.followStatus(follow)}
@@ -107,4 +104,7 @@ export class ProfileName extends Component {
 
 ProfileName.propTypes = {
   follow: PropTypes.bool.isRequired,
+  review_user: PropTypes.object.isRequired,
+  place: PropTypes.object.isRequired,
+  stars: PropTypes.number.isRequired,
 };

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   tabsContent: {
     flexDirection: 'column',
-    backgroundColor: Styles.COLOR_WHITE,
+    backgroundColor: Styles.COLOR_LIGHTER_3,
   },
 });
 
@@ -39,7 +39,6 @@ export class SearchResultScene extends Component {
       tintColor: Styles.COLOR_DARKER_30,
       handler: () => this.props.navigator.resetTo('search'),
     };
-    console.log(this.props)
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollableTabView
@@ -50,7 +49,7 @@ export class SearchResultScene extends Component {
           style={styles.tabs}
         >
           <ScrollView tabLabel="My network" style={styles.tabsContent}>
-            <MyNetwork {...this.props} />
+            <MyNetwork type="search" {...this.props} />
           </ScrollView>
           <ScrollView tabLabel="Discover" style={styles.tabsContent}>
             <Discover type="search" {...this.props} />

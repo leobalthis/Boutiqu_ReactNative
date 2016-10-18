@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
   View,
-  Text,
   ActivityIndicator,
   ListView,
 } from 'react-native';
@@ -12,52 +10,73 @@ import { Boutiq } from 'AppServices';
 
 import {
 	PlaceCard,
+  PlaceTypeFilter,
+  PlaceReview
 } from 'AppComponents';
 
 export class MyNetwork extends Component {
 
-	constructor(props) {
-	  super(props);
+  constructor(props) {
+    super(props);
 
-	  this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-	  this.state = {
-			isLoading: true,
-			data: [],
-			dataSource: this.ds.cloneWithRows([])
-		};
+    this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.state = {
+      mapView: false,
+      isLoading: true,
+      data: [],
+      dataSource: this.ds.cloneWithRows([])
+    };
+    this.handleMapView = this.handleMapView.bind(this);
+    this.renderListItem = this.renderListItem.bind(this);
+  }
 
-		this.renderListItem = this.renderListItem.bind(this);
-	}
+  componentDidMount() {
+    Boutiq.getMyNetworkFeed()
+    .then(data => {
+      this.setState({
+        isLoading: false,
+        data,
+        dataSource: this.ds.cloneWithRows(data.entries)
+      });
+    });
+  }
 
-	componentDidMount() {
-		Boutiq.getMyNetworkFeed()
-		.then(data => {
-			this.setState({
-				isLoading: false,
-				data,
-				dataSource: this.ds.cloneWithRows(data.entries)
-			});
-		});
-	}
+  renderListItem(rowData) {
+    const { navigator, type } = this.props;
+    if (rowData.feed_type === 'review') {
+      return type === 'search'
+      ? <PlaceCard mapView={this.state.mapView} navigator={navigator} {...rowData} />
+      : <PlaceReview navigator={navigator} {...rowData} />;
+    } else {
+      return <View />
+    }
+  }
 
-	renderListItem(rowData) {
-    const { navigator } = this.props;
-		if (rowData.feed_type === 'review') {
-			return <PlaceCard navigator={navigator} {...rowData} />;
-		} else {
-			return <View />
-		}
-	}
+  handleMapView() {
+    const { mapView } = this.state;
+    this.setState({
+      mapView: !mapView
+    });
+  }
 
   render() {
-  	if (this.state.isLoading) {
-  		return <ActivityIndicator size="large" />;
-  	}
+    const { type } = this.props;
+    if (this.state.isLoading) {
+      return <ActivityIndicator size="large" />;
+    }
     return (
-      <ListView
-      	dataSource={this.state.dataSource}
-        renderRow={this.renderListItem}
-      />
+      <View>
+        {type === 'search' &&
+          <PlaceTypeFilter
+            data={this.state.data}
+            mapView={this.state.mapView}
+            handleMapView={this.handleMapView}
+          />}
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderListItem}
+        />
+      </View>
     );
   }
 }

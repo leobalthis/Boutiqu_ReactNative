@@ -1,6 +1,7 @@
 package com.boutiq;
 
 import com.facebook.react.ReactActivity;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.imagepicker.ImagePickerPackage;
