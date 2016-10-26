@@ -33,7 +33,7 @@ export class Discover extends Component {
   }
 
   componentDidMount() {
-    Boutiq.getDiscoverFeed()
+    Boutiq.getMyNetworkFeed()
     .then(data => {
       this.setState({
         isLoading: false,
@@ -53,9 +53,13 @@ export class Discover extends Component {
   renderListItem(rowData) {
     const { navigator, type } = this.props;
     const { mapView } = this.state;
-    return type === 'search'
-    ? <PlaceCard mapView={this.state.mapView} navigator={navigator} {...rowData} />
-    : <PlaceReview navigator={navigator} {...rowData} />;
+    if (rowData.feed_type === 'review') {
+      return type === 'search'
+      ? <PlaceCard mapView={this.state.mapView} navigator={navigator} {...rowData} />
+      : <PlaceReview navigator={navigator} {...rowData} />;
+    } else {
+      return <View />
+    }
   }
 
   render() {

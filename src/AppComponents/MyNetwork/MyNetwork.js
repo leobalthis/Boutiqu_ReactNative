@@ -5,20 +5,17 @@ import {
   ActivityIndicator,
   ListView,
 } from 'react-native';
-
 import { Boutiq } from 'AppServices';
-
 import {
 	PlaceCard,
   PlaceTypeFilter,
   PlaceReview
 } from 'AppComponents';
+import { Styles } from 'AppStyles';
 
 export class MyNetwork extends Component {
-
   constructor(props) {
     super(props);
-
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       mapView: false,
@@ -73,6 +70,7 @@ export class MyNetwork extends Component {
             handleMapView={this.handleMapView}
           />}
         <ListView
+          style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}
           dataSource={this.state.dataSource}
           renderRow={this.renderListItem}
         />

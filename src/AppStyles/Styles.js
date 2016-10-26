@@ -49,6 +49,7 @@ export const Styles = {
   COLOR_PINK: '#FF3366',
   COLOR_WHITE: '#FFFFFF',
   COLOR_ORANGE: '#FF8C00',
+  COLOR_YELLOW: 'rgb(248, 231, 27)',
   // FONT
   FONT_SIZE: em(1),
   FONT_SIZE_SMALLER_NEW: em(0.625),
