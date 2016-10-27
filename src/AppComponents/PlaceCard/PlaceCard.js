@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 export class PlaceCard extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
-    mapView: PropTypes.bool.isRequired,
+    // mapView: PropTypes.bool.isRequired,
     place: PropTypes.object.isRequired,
     place_liked: PropTypes.bool.isRequired,
   };
@@ -115,9 +115,11 @@ export class PlaceCard extends Component {
   render() {
     const { mapView } = this.state
     const { isLiked } = this.state;
+    console.log("stateMapView", mapView);
+    console.log("propsMapView", this.props.mapView);
     return (
       <View style={styles.wrapper} >
-        { !mapView &&
+        {
           <View style={{ flexDirection: 'row', height: 40 }}>
           <View style={{ position: 'absolute', top: 5, left: 60 }}>
             <ProfilePhoto

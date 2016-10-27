@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 
 export class Rate extends Component {
   static propTypes = {
-    rateLabel: PropTypes.string,
+    rateLabel: PropTypes.bool,
   }
   static defaultProps = {
     rateLabel: 'Rate it:'

@@ -18,12 +18,12 @@ export class MyNetwork extends Component {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      mapView: false,
+      // mapView: false,
       isLoading: true,
       data: [],
       dataSource: this.ds.cloneWithRows([])
     };
-    this.handleMapView = this.handleMapView.bind(this);
+    // this.handleMapView = this.handleMapView.bind(this);
     this.renderListItem = this.renderListItem.bind(this);
   }
 
@@ -42,32 +42,33 @@ export class MyNetwork extends Component {
     const { navigator, type } = this.props;
     if (rowData.feed_type === 'review') {
       return type === 'search'
-      ? <PlaceCard mapView={this.state.mapView} navigator={navigator} {...rowData} />
+      ? <PlaceCard navigator={navigator} {...rowData} />
       : <PlaceReview navigator={navigator} {...rowData} />;
     } else {
       return <View />
     }
   }
 
-  handleMapView() {
-    const { mapView } = this.state;
-    this.setState({
-      mapView: !mapView
-    });
-  }
+  // handleMapView() {
+  //   const { mapView } = this.state;
+  //   this.setState({
+  //     mapView: !mapView
+  //   });
+  // }
 
   render() {
     const { type } = this.props;
     if (this.state.isLoading) {
       return <ActivityIndicator size="large" />;
     }
+    console.log("mapviewParents", this.props);
     return (
       <View>
         {type === 'search' &&
           <PlaceTypeFilter
             data={this.state.data}
-            mapView={this.state.mapView}
-            handleMapView={this.handleMapView}
+            mapView={this.props.mapView}
+            handleStateMapView={this.props.handleStateMapView}
           />}
         <ListView
           style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}

@@ -30,9 +30,18 @@ export class SearchResultScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      mapView: false
     };
+    this.handleStateMapView = this.handleStateMapView.bind(this);
   }
+
+  handleStateMapView() {
+    const { mapView } = this.state;
+    this.setState({
+      mapView: !mapView
+    });
+  }
+
   render() {
     const leftButtonConfig = {
       title: '< Back',
@@ -49,10 +58,18 @@ export class SearchResultScene extends Component {
           style={styles.tabs}
         >
           <ScrollView tabLabel="My network" style={styles.tabsContent}>
-            <MyNetwork type="search" {...this.props} />
+            <MyNetwork
+              handleStateMapView={this.handleStateMapView}
+              mapView={this.state.mapView}
+              type="search" {...this.props}
+            />
           </ScrollView>
           <ScrollView tabLabel="Discover" style={styles.tabsContent}>
-            <Discover type="search" {...this.props} />
+            <Discover
+              handleStateMapView={this.handleStateMapView}
+              mapView={this.state.mapView}
+              type="search" {...this.props}
+            />
           </ScrollView>
         </ScrollableTabView>
       </View>

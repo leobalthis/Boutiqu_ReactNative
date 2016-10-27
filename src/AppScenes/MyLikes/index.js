@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {
   StyleSheet,
-  Text,
+  ScrollView,
   ActivityIndicator,
   ListView,
   View,
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
 export class MyLikes extends Component {
   constructor(props) {
     super(props);
-
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       isLoading: true,
@@ -57,12 +56,12 @@ export class MyLikes extends Component {
       return <ActivityIndicator size="large" />;
     }
     return (
-      <View style={{ backgroundColor: '#fff' }}>
+      <ScrollView style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderListItem}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

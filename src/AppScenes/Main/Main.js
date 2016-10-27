@@ -41,7 +41,9 @@ export class Main extends Component {
     if (routeId === 'reviewcreator') {
       this.setState({
         fullPageComponent: (
-          <ReviewCreator onClose={() => {
+          <ReviewCreator
+            back={() => this.refs.navigator.pop()}
+            onClose={() => {
             this.setState({ fullPageComponent: null });
           }}
           />
@@ -142,7 +144,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'home';
+    const initialRouteId = 'searchresult';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu

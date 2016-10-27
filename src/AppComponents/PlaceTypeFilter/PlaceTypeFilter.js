@@ -42,7 +42,7 @@ export class PlaceTypeFilter extends Component {
   static propTypes = {
     navigator: PropTypes.object,
     data: PropTypes.object.isRequired,
-    handleMapView: PropTypes.func.isRequired,
+    handleStateMapView: PropTypes.func.isRequired,
     mapView: PropTypes.bool.isRequired,
   }
   constructor(props) {
@@ -82,7 +82,7 @@ export class PlaceTypeFilter extends Component {
         height: viewStyle.height > 150 ? 150 : 400
       },
     });
-    this.props.handleMapView();
+    this.props.handleStateMapView();
   }
 
   render() {
@@ -94,9 +94,9 @@ export class PlaceTypeFilter extends Component {
           handleMapView={this.handleMapView}
           mapView={this.props.mapView}
         />
-      <View style={[styles.wrapperTagsView, mapView &&
-          { justifyContent: 'flex-start', height: 50 }]}
-      >
+        <View style={[styles.wrapperTagsView, mapView &&
+            { justifyContent: 'flex-start', height: 50 }]}
+        >
           {!mapView &&
           <Text style={styles.commonTextStyle}>
             {this.props.data.entries.length} places recommended by public users

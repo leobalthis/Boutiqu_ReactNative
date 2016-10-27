@@ -29,14 +29,16 @@ export class ReviewCreator extends Component {
 	}
 
 	render() {
-		const { onClose } = this.props;
+		const { onClose, back } = this.props;
+    console.log("props", this.props);
 		return (
 			<View style={styles.wrapper}>
 				<NavigationBar
 					tintColor={Styles.COLOR_GREEN}
 					title={{ title: 'Create A Review' }}
 					leftButton={{
-						title: "Close",
+            title: '< Back',
+            tintColor: Styles.COLOR_DARKER_60,
 						handler: onClose,
 				}}/>
 				<Text style={styles.reviewLabel}>YOUR REVIEW</Text>
