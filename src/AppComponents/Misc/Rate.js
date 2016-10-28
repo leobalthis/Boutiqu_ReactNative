@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   icon: {
-    fontSize: 20,
     marginLeft: 3,
     color: Styles.COLOR_GREEN,
   },
@@ -40,7 +39,7 @@ export class Rate extends Component {
     super(props);
 
     this.state = {
-      rateValue: 3,
+      rateValue: 0,
     };
   }
 
@@ -57,18 +56,20 @@ export class Rate extends Component {
         </Text>
         {_.times(rateValue, (i) => (
           <TouchableOpacity
+            activeOpacity={0.8}
             onPress={() => {this.setRate(i + 1);}}
             key={i}
           >
-            <Icon name="star" style={styles.icon} />
+            <Icon size={25} name="star" style={styles.icon} />
           </TouchableOpacity>
         ))}
         {_.times(5 - rateValue, (i) => (
           <TouchableOpacity
+            activeOpacity={0.8}
             onPress={() => {this.setRate(i + rateValue + 1);}}
             key={i}
           >
-            <Icon name="star-o" style={styles.icon} />
+            <Icon size={25} name="star-o" style={styles.icon} />
           </TouchableOpacity>
         ))}
       </View>

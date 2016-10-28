@@ -5,7 +5,7 @@ import {
 	Text,
   TouchableOpacity,
 } from 'react-native';
-import { Styles } from 'AppStyles';
+import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
   tagSelected: {
@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
   },
   tag: {
     backgroundColor: Styles.COLOR_WHITE,
-    width: 70,
+    // width: 70,
+    width: x / 6,
     height: 24,
     justifyContent: 'center',
     alignItems: 'center',
@@ -46,7 +47,7 @@ export class TagsItem extends Component {
   render() {
     const { selected } = this.state;
     return (
-      <View style={{ borderWidth: 1, borderColor: Styles.COLOR_GREEN }}>
+      <View style={{ borderWidth: 1, borderColor: Styles.COLOR_GREEN, marginHorizontal: 1 }}>
         <TouchableOpacity
           activeOpacity={0.9}
           onPress={this.toggleSelection}

@@ -2,61 +2,152 @@ import React, { Component } from 'react';
 import {
 	View,
 	Text,
+  MapView,
+  TextInput,
+  Image,
 	ScrollView,
 	TouchableOpacity,
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import {
-	ProfilePhoto,
 	NavBarClose,
 	Tags,
+  PhotoFrame,
+  NavBarSideMenu,
+  CameraButton,
 	Rate,
-	SocialMediaShare,
-	WriteReview,
 } from 'AppComponents';
+import { imagePicker } from 'AppServices';
 
 import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
 export class ReviewCreator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      placeName: '',
+      tags: [],
+      rating: null,
+      review: '',
+      imagePlace: null,
+    };
+    this.tagSelection = null;
+    this.selectImage = this.selectImage.bind(this);
+    this.setSource = this.setSource.bind(this);
+    this.buildReview = this.buildReview.bind(this);
+    this.onCloseFrame = this.onCloseFrame.bind(this);
+  }
 
-	constructor(props) {
+  buildReview() {
+    console.log('tags', this.tagSelection.getSelectedTags());
+    console.log('rate', this.rateSelection.state)
+  }
 
-	  super(props);
+  setSource(imagePlace) {
+    this.setState({ imagePlace });
+  }
 
-	  this.tagSelection = null;
+  onCloseFrame() {
+    console.log("this.state", this.state);
+    this.setState({
+      imagePlace: null
+    });
+  }
 
-	}
+  selectImage() {
+    imagePicker.show()
+      .then(({ type, source }) => {
+        if (!type) {
+          this.setSource(source);
+        }
+      })
+      .catch(() => {console.log("pb with camera picker");});
+  }
 
-	render() {
-		const { onClose, back } = this.props;
-    console.log("props", this.props);
-		return (
+  render() {
+    const { onClose, back } = this.props;
+    const { imagePlace } = this.state;
+    console.log("props", this.state.imagePlace);
+    return (
 			<View style={styles.wrapper}>
-				<NavigationBar
-					tintColor={Styles.COLOR_GREEN}
-					title={{ title: 'Create A Review' }}
-					leftButton={{
+        <NavigationBar
+          tintColor={Styles.COLOR_GREEN}
+          title={{ title: 'Post a Review' }}
+          leftButton={{
             title: '< Back',
             tintColor: Styles.COLOR_DARKER_60,
-						handler: onClose,
-				}}/>
-				<Text style={styles.reviewLabel}>YOUR REVIEW</Text>
-				<ScrollView style={{
-					flex: 1,
-				    flexDirection: 'column',
-				}}>
-				<Tags ref={e => this.tagSelection = e} tagsLabel={true}  />
-				<Rate rateLabel={true} />
-				<WriteReview />
-				<SocialMediaShare />
+            handler: onClose,
+          }}
+        />
+        <ScrollView
+          style={{ flex: 1, padding: 10 }}
+        >
+          <View style={styles.wrapperContent}>
+            <View style={styles.wrapperMap}>
+              <MapView
+                style={styles.map}
+                region={{
+                  latitude: -33.865143,
+                  longitude: 151.209900,
+                  latitudeDelta: 0.01,
+                  longitudeDelta: 0.01,
+                }}
+              />
+            </View>
+            <TextInput
+              placeholder="Type in the place's Name"
+              onChangeText={placeName => {this.setState({ placeName });}}
+              style={styles.placeTextInput}
+            />
+            <Tags
+              ref={e => this.tagSelection = e}
+              tagsLabel="Tags"
+            />
+            <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+              <Text style={{ color: Styles.FONT_COLOR }}>Your rating</Text>
+              <Rate
+                ref={e => this.rateSelection = e}
+                rateLabel={true}
+              />
+            </View>
+            <TextInput
+              multiline={true}
+              style={styles.reviewTextInput}
+              placeholder="Write a review"
+              onChangeText={review => {this.setState({ review });}}
+            />
+            <CameraButton
+              containerStyle={{ alignSelf: 'center', marginTop: - 30 }}
+              openCameraPicker={this.selectImage}
+            />
+            {imagePlace &&
+            <PhotoFrame
+              open={imagePlace}
+              closeFrame={this.onCloseFrame}
+            >
+              <Image
+                style={{ flex: 1 }}
+                resizeMode="cover"
+                source={{ uri: imagePlace.uri }}
+              />
+            </PhotoFrame>}
+            <View style={styles.wrapperSocialMedia}>
+              <Text style={{ color: Styles.FONT_COLOR }}>Share on:</Text>
+              <Image
+                style={styles.imageSocial}
+                source={require('../../../assets/fb_checkbox@1x.png')}
+              />
+            </View>
+          </View>
 				</ScrollView>
-				<TouchableOpacity onPress={() => {
-					console.log('tags', this.tagSelection.getSelectedTags());
-				}}>
+        <TouchableOpacity onPress={() => {
+          this.buildReview();
+        }}
+        >
 					<Text style={styles.postBtn}>POST YOUR REVIEW NOW</Text>
 				</TouchableOpacity>
 			</View>
 		);
-	}
+  }
 }

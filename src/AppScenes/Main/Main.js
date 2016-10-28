@@ -78,6 +78,13 @@ export class Main extends Component {
             {...route.data}
           />
         );
+      case 'reviewcreator':
+        return (
+          <ReviewCreator
+            {...commonProps}
+            {...route.data}
+          />
+        );
       case 'mylikes':
         return (
           <MyLikes
@@ -144,7 +151,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'searchresult';
+    const initialRouteId = 'reviewcreator';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu
@@ -173,10 +180,10 @@ export class Main extends Component {
               return Navigator.SceneConfigs.FloatFromBottom;
             }}
           />
-          <Footer
+          {/* <Footer
             user={this.props.user}
             changeView={this.changeView}
-          />
+          /> */}
         </SideMenu>
         {this.renderFullPageModal()}
       </View>
