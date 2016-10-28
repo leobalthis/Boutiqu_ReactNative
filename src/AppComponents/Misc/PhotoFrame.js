@@ -1,8 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import {
   View,
-  Text,
-  Animated,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
@@ -32,32 +30,19 @@ const styles = StyleSheet.create({
   }
 });
 
-export class PhotoFrame extends Component {
-  static propTypes = {
-    closeFrame: PropTypes.func.isRequired,
-    children: PropTypes.object.isRequired,
-  }
+export const PhotoFrame = ({ closeFrame, children }) => (
+  <View style={styles.container}>
+    {children}
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => {closeFrame();}}
+    >
+      <Icon style={styles.icon} name="close" size={20} color="#fff" />
+    </TouchableOpacity>
+  </View>
+);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      viewContainer: {
-        height: x / 1.91,
-      }
-    };
-  }
-  
-  render() {
-    return (
-      <View style={styles.container}>
-        {this.props.children}
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {this.props.closeFrame();}}
-        >
-          <Icon style={styles.icon} name="close" size={20} color="#fff" />
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+PhotoFrame.propTypes = {
+  closeFrame: PropTypes.func.isRequired,
+  children: PropTypes.object.isRequired,
+};

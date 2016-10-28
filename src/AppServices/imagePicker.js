@@ -42,7 +42,6 @@ export const imagePicker = {
             message: response.error,
           });
         } else if (response.customButton) {
-          console.log("bad");
         } else {
           result.source = {
             uri: `data:image/jpeg;base64,${response.data}`,

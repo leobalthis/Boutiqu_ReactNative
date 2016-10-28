@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	View,
 	Text,
@@ -10,10 +10,8 @@ import {
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import {
-	NavBarClose,
 	Tags,
   PhotoFrame,
-  NavBarSideMenu,
   CameraButton,
 	Rate,
 } from 'AppComponents';
@@ -23,6 +21,9 @@ import { Styles } from 'AppStyles';
 import { styles } from './styles';
 
 export class ReviewCreator extends Component {
+  static propTypes = {
+    onClose: PropTypes.func.isRequired
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -39,20 +40,22 @@ export class ReviewCreator extends Component {
     this.onCloseFrame = this.onCloseFrame.bind(this);
   }
 
-  buildReview() {
-    console.log('tags', this.tagSelection.getSelectedTags());
-    console.log('rate', this.rateSelection.state)
+  onCloseFrame() {
+    this.setState({
+      imagePlace: null
+    });
   }
 
   setSource(imagePlace) {
     this.setState({ imagePlace });
   }
 
-  onCloseFrame() {
-    console.log("this.state", this.state);
-    this.setState({
-      imagePlace: null
-    });
+  buildReview() {
+    console.log('placeName', this.state.placeName);
+    console.log('tags', this.tagSelection.getSelectedTags());
+    console.log('rate', this.rateSelection.state);
+    console.log('review', this.state.review);
+    console.log('imagePlace', this.state.imagePlace);
   }
 
   selectImage() {
@@ -62,13 +65,12 @@ export class ReviewCreator extends Component {
           this.setSource(source);
         }
       })
-      .catch(() => {console.log("pb with camera picker");});
+      .catch(() => {console.log('pb with camera picker');});
   }
 
   render() {
     const { onClose, back } = this.props;
     const { imagePlace } = this.state;
-    console.log("props", this.state.imagePlace);
     return (
 			<View style={styles.wrapper}>
         <NavigationBar

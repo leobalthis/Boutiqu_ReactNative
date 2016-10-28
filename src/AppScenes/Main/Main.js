@@ -151,7 +151,7 @@ export class Main extends Component {
         {...this.props}
       />
     );
-    const initialRouteId = 'reviewcreator';
+    const initialRouteId = 'home';
     return (
       <View style={{ flex: 1, }}>
         <SideMenu
@@ -180,10 +180,10 @@ export class Main extends Component {
               return Navigator.SceneConfigs.FloatFromBottom;
             }}
           />
-          {/* <Footer
+          <Footer
             user={this.props.user}
             changeView={this.changeView}
-          /> */}
+          />
         </SideMenu>
         {this.renderFullPageModal()}
       </View>

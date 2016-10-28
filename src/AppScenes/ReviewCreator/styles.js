@@ -47,12 +47,11 @@ export const styles = StyleSheet.create({
     borderColor: Styles.COLOR_NORMAL_GREY,
   },
   wrapperSocialMedia: {
-    // backgroundColor: 'blue',
     width: x - 20,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 30,
+    marginVertical: 50,
     alignSelf: 'flex-start'
   },
   imageSocial: {
@@ -61,7 +60,6 @@ export const styles = StyleSheet.create({
     left: (x - 50) / 2.25,
     width: 60,
     height: 60,
-    // marginLeft: x / 4.5
   },
 	postBtn: {
 		padding: 15,

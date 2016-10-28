@@ -61,7 +61,6 @@ export class MyNetwork extends Component {
     if (this.state.isLoading) {
       return <ActivityIndicator size="large" />;
     }
-    console.log("mapviewParents", this.props);
     return (
       <View>
         {type === 'search' &&
