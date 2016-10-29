@@ -50,9 +50,6 @@ export class Tags extends Component {
         <Text style={styles.tagsLabel}>
           {this.props.tagsLabel}
         </Text>
-        {/* <View style={{
-          flexDirection: 'row', flexWrap: 'wrap', alignSelf: 'center', backgroundColor: 'blue' }}
-        > */}
         {Tags.labels.map((label, idx) => (
           <TagsItem
             label={label}
@@ -61,7 +58,6 @@ export class Tags extends Component {
             ref={(e) => this.tags[label] = e}
           />
         ))}
-        {/* </View> */}
       </View>
     );
   }

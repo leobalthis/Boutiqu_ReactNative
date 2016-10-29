@@ -8,9 +8,8 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Rate, Tags, TagsView, ButtonView, ProfilePhoto } from 'AppComponents';
+import { TagsView, ButtonView, ProfilePhoto } from 'AppComponents';
 import { api } from 'AppServices';
-import { ProfileName } from './ProfileName';
 import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
@@ -63,15 +62,19 @@ const styles = StyleSheet.create({
 export class PlaceCard extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
-    // mapView: PropTypes.bool.isRequired,
+    lastReviewProfiles: PropTypes.bool,
     place: PropTypes.object.isRequired,
-    place_liked: PropTypes.bool.isRequired,
+    place_liked: PropTypes.bool,
   };
+
+  static defaultProps = {
+    lastReviewProfiles: true
+  }
 
   constructor(props) {
     super(props);
     this.state = {
-      isLiked: this.props.place_liked,
+      isLiked: null || this.props.place_liked,
       mapView: this.props.mapView
     };
     this.handleGotoPlaceDetails = this.handleGotoPlaceDetails.bind(this);
@@ -113,13 +116,10 @@ export class PlaceCard extends Component {
   }
 
   render() {
-    const { mapView } = this.state
     const { isLiked } = this.state;
-    console.log("stateMapView", mapView);
-    console.log("propsMapView", this.props.mapView);
     return (
       <View style={styles.wrapper} >
-        {
+        {this.props.lastReviewProfiles &&
           <View style={{ flexDirection: 'row', height: 40 }}>
           <View style={{ position: 'absolute', top: 5, left: 60 }}>
             <ProfilePhoto

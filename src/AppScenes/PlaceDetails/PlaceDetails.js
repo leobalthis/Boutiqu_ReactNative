@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 25,
     left: x - 75,
-    borderRadius: 40,
+    borderRadius: 48,
     borderWidth: 1,
     borderColor: Styles.COLOR_NORMAL_GREY,
     shadowColor: Styles.COLOR_NORMAL_GREY,

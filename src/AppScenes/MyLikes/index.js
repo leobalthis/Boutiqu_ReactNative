@@ -8,8 +8,8 @@ import {
   View,
 } from 'react-native';
 
-import { PlaceReview } from 'AppComponents';
-import { Styles } from 'AppStyles';
+import { PlaceCard, Tags } from 'AppComponents';
+import { Styles, x } from 'AppStyles';
 import { Boutiq } from 'AppServices';
 
 const styles = StyleSheet.create({
@@ -17,6 +17,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFF',
   },
+  wrapperTags: {
+    height: 80,
+    width: x,
+    backgroundColor: '#fff',
+    padding: 20,
+    justifyContent: 'center',
+  }
 });
 
 export class MyLikes extends Component {
@@ -33,7 +40,6 @@ export class MyLikes extends Component {
   }
 
   componentDidMount() {
-    // const { contactType } = this.props;
     Boutiq.getUserProfile()
     .then(user => {
       this.setState({
@@ -46,7 +52,7 @@ export class MyLikes extends Component {
 
   renderListItem(rowData) {
     if (rowData.feed_type === 'review') {
-      return <PlaceReview {...this.props} {...rowData} />;
+      return <PlaceCard {...this.props} {...rowData} lastReviewProfiles={false} />;
     }
     return <View />;
   }
@@ -57,6 +63,9 @@ export class MyLikes extends Component {
     }
     return (
       <ScrollView style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}>
+        <View style={styles.wrapperTags}>
+          <Tags tagsLabel="Tags: " />
+        </View>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderListItem}

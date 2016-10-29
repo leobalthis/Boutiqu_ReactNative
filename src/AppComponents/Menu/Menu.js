@@ -38,8 +38,8 @@ export const Menu = (props) => (
       source={require('../../../assets/discover_icon_green.png')}
     />
     <MenuNav
-      onPress={() => props.changeView('mylikes', { ...this.props })}
-      label="My Likes"
+      onPress={() => props.changeView('wishlist', { ...this.props })}
+      label="Wish List"
       source={require('../../../assets/heart_icon_green.png')}
     />
     <MenuNav

@@ -44,8 +44,8 @@ export class Main extends Component {
           <ReviewCreator
             back={() => this.refs.navigator.pop()}
             onClose={() => {
-            this.setState({ fullPageComponent: null });
-          }}
+              this.setState({ fullPageComponent: null });
+            }}
           />
         ),
       });
@@ -85,7 +85,7 @@ export class Main extends Component {
             {...route.data}
           />
         );
-      case 'mylikes':
+      case 'wishlist':
         return (
           <MyLikes
             {...commonProps}
