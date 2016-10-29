@@ -129,6 +129,7 @@ export class Main extends Component {
           <Home
             {...commonProps}
             {...route.data}
+            user={this.props.user}
           />
         );
     }

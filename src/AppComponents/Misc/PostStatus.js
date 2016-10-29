@@ -1,52 +1,61 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	StyleSheet,
 	View,
+  Image,
+  TouchableOpacity,
 	TextInput,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { ProfilePhoto } from 'AppComponents';
-import { Styles } from 'AppStyles';
+import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapperPostStatus: {
-    flex: 1,
+    marginTop: 10,
+    marginBottom: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: x,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'space-around',
     backgroundColor: Styles.COLOR_WHITE,
     padding: 10,
   },
-  postIcon: {
-    fontSize: 30,
-    padding: 5,
-    color: Styles.COLOR_DARKER_15
-  },
   textInput: {
-    width: Styles.CARD_WIDTH - Styles.CARD_PADDING_X - 50,
+    width: x / 1.4,
     height: 40,
     padding: 8,
-    fontSize: Styles.FONT_SIZE_SMALLER,
-    color: Styles.COLOR_DARKER_15,
-    borderColor: Styles.COLOR_DARKER_15,
-    borderWidth: 1,
+    fontSize: 20,
+    color: Styles.FONT_COLOR,
   }
 });
 
 export class PostStatus extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+    onPress: PropTypes.func.isRequired
+  }
   state = {
     text: ''
   }
   render() {
     return (
       <View style={styles.wrapperPostStatus}>
-        <ProfilePhoto type="circle" size={40} border={false} />
+        <ProfilePhoto source={this.props.user.propic} type="square" size={30} border={false} />
         <TextInput
           style={styles.textInput}
           onChangeText={text => this.setState({ text })}
           placeholder="Post a status"
           value={this.state.text}
+          onSubmitEditing={() => {this.props.onPress();}}
+          returnKeyType="send"
         />
-        <Icon name="pencil-square-o" style={styles.postIcon} />
+        <TouchableOpacity onPress={this.props.onPress}>
+          <Image
+            style={{ width: 26, height: 26 }}
+            source={require('../../../assets/compose@1x.png')}
+          />
+        </TouchableOpacity>
       </View>
     );
   }
