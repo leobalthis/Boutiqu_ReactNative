@@ -19,14 +19,14 @@ export class Home extends Component {
   }
   constructor(props) {
     super(props);
-    this.initialPageIndex = props.index ? props.index : 1;
+    this.initialPageIndex = props.index ? props.index : 0;
   }
   render() {
     return (
       <View style={{ flex: 1, }}>
         <View style={styles.wrapper}>
           <ScrollableTabView
-            initialPage={0}
+            initialPage={this.initialPageIndex}
             tabBarActiveTextColor="#fff"
             tabBarInactiveTextColor="#fff"
             tabBarUnderlineStyle={{ height: 5, backgroundColor: 'rgba(255, 255, 255, 0.8)' }}

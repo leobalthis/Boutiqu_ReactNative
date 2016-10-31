@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Navigator, View, Image } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
@@ -22,6 +22,9 @@ import {
 } from 'AppScenes';
 
 export class Main extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+  }
   constructor(props) {
     super(props);
     this.state = {
