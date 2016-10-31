@@ -32,7 +32,7 @@
     <key>FacebookAppID</key>
     <string>705458106266561</string>
     <key>FacebookDisplayName</key>
-    <string>Boutiq.travel</string>
+    <string>Boutiq</string>
     <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>fbapi</string>
