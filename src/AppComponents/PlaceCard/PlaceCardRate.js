@@ -12,13 +12,13 @@ import { Styles } from 'AppStyles';
 const styles = StyleSheet.create({
   wrapper: {
     flexWrap: 'wrap',
-    flexDirection:'row',
-    justifyContent: 'flex-end',
+    flexDirection: 'row',
+    // justifyContent: 'flex-end',
   },
   icon: {
     fontSize: Styles.FONT_SIZE_SMALL,
     marginLeft: 2,
-    color: Styles.COLOR_ORANGE,
+    color: Styles.COLOR_YELLOW,
   },
 });
 
@@ -36,5 +36,4 @@ export class PlaceCardRate extends Component {
       </View>
     );
   }
-}  
-
+}

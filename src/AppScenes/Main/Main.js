@@ -41,9 +41,11 @@ export class Main extends Component {
     if (routeId === 'reviewcreator') {
       this.setState({
         fullPageComponent: (
-          <ReviewCreator onClose={() => {
-            this.setState({ fullPageComponent: null });
-          }}
+          <ReviewCreator
+            back={() => this.refs.navigator.pop()}
+            onClose={() => {
+              this.setState({ fullPageComponent: null });
+            }}
           />
         ),
       });
@@ -76,10 +78,18 @@ export class Main extends Component {
             {...route.data}
           />
         );
-      case 'mylikes':
+      case 'reviewcreator':
+        return (
+          <ReviewCreator
+            {...commonProps}
+            {...route.data}
+          />
+        );
+      case 'wishlist':
         return (
           <MyLikes
             {...commonProps}
+            {...route.data}
           />
         );
       case 'search':
@@ -119,6 +129,7 @@ export class Main extends Component {
           <Home
             {...commonProps}
             {...route.data}
+            user={this.props.user}
           />
         );
     }

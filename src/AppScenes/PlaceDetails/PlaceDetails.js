@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 25,
     left: x - 75,
-    borderRadius: 40,
+    borderRadius: 48,
     borderWidth: 1,
     borderColor: Styles.COLOR_NORMAL_GREY,
     shadowColor: Styles.COLOR_NORMAL_GREY,
@@ -91,7 +91,6 @@ export class PlaceDetails extends Component {
       handler: () => this.props.navigator.pop(),
     };
     // const { placeDetails } = this.props['route']['passprops']
-    // console.log(placeDetails);
     const { name, locality, administrative_area_level_1, country } = APP_PLACE;
     const { isFavourite } = this.state;
     return (

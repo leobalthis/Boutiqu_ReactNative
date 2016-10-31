@@ -7,7 +7,7 @@
   },
   "current_page": 1,
   "per_page": 20,
-  "total_entries": 1,
+  "total_entries": 2,
   "entries": [ //Each object for each card
     {
       "id": 63,
@@ -60,19 +60,20 @@
       "follow_url": "http://localhost:3000/users/3/followings", //url to follow the public user
       "follow_method": "POST", // METHOD TO Follow them with
       "place": {
-        "id": 20,
-        "name": "La Note Restaurant Provencal",
-        "local": "Berkeley, CA",
-        "name_address": "Shattuck Avenue, Berkeley, CA, United States",
+        "id": 21,
+        "name": "Stinking Bishop",
+        "local": "Newtown, NSW 2042, Australia",
+        "name_address": "5/63-71 Enmore Rd, Newtown, NSW 2042, Australia",
         "tag": [
           "Eat",
-          "Drink"
+          "Drink",
+          "Do"
         ],
-        "photo": "http://www.themenupage.com/images/rid_110_thumb_4.jpg",
+        "photo": "http://heneedsfood.com/wp-content/uploads/2014/04/stinking01.jpg",
         "google_place_id": "ChIJB_-A0oJ-hYARwmbyJJR3sUo"
       },
-      "place_liked": false,
-      "like_url": "/likes/20",
+      "place_liked": true,
+      "like_url": "/likes/21",
       "like_method": "POST",
       "comments": [ //Comments for each Review
         {

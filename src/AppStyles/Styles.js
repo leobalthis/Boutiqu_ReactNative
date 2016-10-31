@@ -36,6 +36,7 @@ export const Styles = {
   CARD_PADDING_X: em(1.875),
   CARD_PADDING_Y: em(1.25),
   COLOR_LIGHTER_0: 'rgb(240, 240, 240)',
+  COLOR_LIGHTER_3: 'rgb(225, 225, 225)',
   COLOR_LIGHTER_5: '#D4D4D4',
   COLOR_DARKER_15: '#a1a1a1',
   COLOR_DARKER_30: '#7b7b7b',
@@ -48,6 +49,7 @@ export const Styles = {
   COLOR_PINK: '#FF3366',
   COLOR_WHITE: '#FFFFFF',
   COLOR_ORANGE: '#FF8C00',
+  COLOR_YELLOW: 'rgb(248, 231, 27)',
   // FONT
   FONT_SIZE: em(1),
   FONT_SIZE_SMALLER_NEW: em(0.625),

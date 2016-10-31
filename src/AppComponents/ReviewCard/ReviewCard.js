@@ -23,10 +23,6 @@ export class ReviewCard extends Component {
     this.props.stopRefresh = this.props.stopRefresh.bind(this);
   }
 
-  // _onRefresh() {
-  //   console.log('hello');
-  // }
-
   render() {
     return (
       <ScrollView
