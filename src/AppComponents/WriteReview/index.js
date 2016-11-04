@@ -18,7 +18,7 @@ export class WriteReview extends Component {
 
     this.launchImageLibrary = this.launchImageLibrary.bind(this);
 
-    this.state = { 
+    this.state = {
       text: '',
       backgroundColor: '#ededed',
       color: 'white'

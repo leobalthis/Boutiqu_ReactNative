@@ -8,8 +8,10 @@ import {
 import { Boutiq } from 'AppServices';
 import {
 	PlaceCard,
+  PlaceReview,
   PlaceTypeFilter,
 } from 'AppComponents';
+import { Styles } from 'AppStyles';
 
 export class Discover extends Component {
   static propTypes = {
@@ -21,6 +23,7 @@ export class Discover extends Component {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
+      // mapView: false,
       isLoading: true,
       data: [],
       dataSource: this.ds.cloneWithRows([])
@@ -29,7 +32,7 @@ export class Discover extends Component {
   }
 
   componentDidMount() {
-    Boutiq.getDiscoverFeed()
+    Boutiq.getMyNetworkFeed()
     .then(data => {
       this.setState({
         isLoading: false,
@@ -39,21 +42,40 @@ export class Discover extends Component {
     });
   }
 
+  // handleMapView() {
+  //   const { mapView } = this.state;
+  //   this.setState({
+  //     mapView: !mapView
+  //   });
+  // }
+
   renderListItem(rowData) {
-    const { navigator } = this.props;
-    return <PlaceCard navigator={navigator} {...rowData} />;
+    const { navigator, type } = this.props;
+    // const { mapView } = this.props;
+    if (rowData.feed_type === 'review') {
+      return type === 'search'
+      ? <PlaceCard navigator={navigator} {...rowData} />
+      : <PlaceReview navigator={navigator} {...rowData} />;
+    } else {
+      return <View />
+    }
   }
 
   render() {
-    // console.log("debug", this.state);
     const { type } = this.props;
     if (this.state.isLoading) {
       return <ActivityIndicator size="large" />;
     }
     return (
       <View>
-        {type === 'search' && <PlaceTypeFilter data={this.state.data} />}
+        {type === 'search' &&
+          <PlaceTypeFilter
+            data={this.state.data}
+            mapView={this.props.mapView}
+            handleStateMapView={this.props.handleStateMapView}
+          />}
         <ListView
+          style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}
           dataSource={this.state.dataSource}
           renderRow={this.renderListItem}
         />

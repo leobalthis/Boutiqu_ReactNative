@@ -27,8 +27,6 @@ export const Search = ({ placeholder, getPlace }) => (
         getPlace(data, details)
       }}
       // onPress={(data, details = null) => {
-      //   console.log('data', data);
-      //   console.log('details', details);
       // }}
       getDefaultValue={() => ''}
       query={{

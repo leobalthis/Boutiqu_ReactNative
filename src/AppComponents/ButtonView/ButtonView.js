@@ -10,7 +10,7 @@ export const ButtonView = ({ styleContainer, iconInfo, imageInfo, callback }) =>
   <View style={[styles.container, styleContainer]} >
     <TouchableOpacity
       onPress={callback}
-      style={{ flex: 1, 
+      style={{ flex: 1,
         justifyContent: 'center', alignItems: 'center', marginTop: 2 }}
     >
     {

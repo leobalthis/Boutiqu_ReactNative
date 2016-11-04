@@ -24,6 +24,7 @@ export const Auth = {
     .then(result => result.json())
     .then(data => {
       const keyValuePairs = helpers.objectToKeyValuesPairs(data, val => val.toString());
+      console.log("keyValuePairs", Object.assign({}, keyValuePairs));
       return AsyncStorage.multiSet(keyValuePairs)
       .then(() => {
         const user = { id: data.user_id };

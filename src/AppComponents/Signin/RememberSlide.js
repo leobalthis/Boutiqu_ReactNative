@@ -8,7 +8,7 @@ import { styles } from './styles';
 export const RememberSlide = () => (
   <Image
     style={styles.wrappingImage}
-    source={require('../../../assets/bg_signup3.jpg')}
+    source={require('../../../assets/bg_signup3.png')}
   >
     <Text style={styles.slidesTitle}>
       Remember

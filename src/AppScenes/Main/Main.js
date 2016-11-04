@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Navigator, View, Image } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
@@ -22,6 +22,9 @@ import {
 } from 'AppScenes';
 
 export class Main extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -38,9 +41,11 @@ export class Main extends Component {
     if (routeId === 'reviewcreator') {
       this.setState({
         fullPageComponent: (
-          <ReviewCreator onClose={() => {
-            this.setState({ fullPageComponent: null });
-          }}
+          <ReviewCreator
+            back={() => this.refs.navigator.pop()}
+            onClose={() => {
+              this.setState({ fullPageComponent: null });
+            }}
           />
         ),
       });
@@ -73,10 +78,18 @@ export class Main extends Component {
             {...route.data}
           />
         );
-      case 'mylikes':
+      case 'reviewcreator':
+        return (
+          <ReviewCreator
+            {...commonProps}
+            {...route.data}
+          />
+        );
+      case 'wishlist':
         return (
           <MyLikes
             {...commonProps}
+            {...route.data}
           />
         );
       case 'search':
@@ -116,6 +129,7 @@ export class Main extends Component {
           <Home
             {...commonProps}
             {...route.data}
+            user={this.props.user}
           />
         );
     }

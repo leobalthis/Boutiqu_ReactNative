@@ -15,6 +15,6 @@ export const styles = StyleSheet.create({
   },
   tabsContent: {
     flexDirection: 'column',
-    backgroundColor: Styles.COLOR_WHITE,
+    backgroundColor: Styles.COLOR_LIGHTER_3,
   },
 });

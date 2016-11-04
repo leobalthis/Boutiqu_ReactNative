@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	StyleSheet,
 	View,
@@ -6,16 +6,15 @@ import {
 	Image,
 	TouchableOpacity,
 } from 'react-native';
-import { Rate, Tags } from 'AppComponents';
+import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { TagsView, ButtonView, ProfilePhoto } from 'AppComponents';
 import { api } from 'AppServices';
-import { ProfileName } from './ProfileName';
-import { PlaceCardComments } from './PlaceCardComments';
-import { Styles } from 'AppStyles';
-
+import { Styles, x } from 'AppStyles';
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginBottom: 30,
+    marginTop: 15,
     backgroundColor: Styles.COLOR_WHITE,
   },
   container: {
@@ -23,66 +22,190 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 200,
   },
-  postReviewText: {
-    fontSize: Styles.FONT_SIZE_SMALLER,
-    color: Styles.FONT_COLOR,
-    padding: 5,
+  wrapperCardInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: x
+  },
+  linearGradient: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    alignSelf: 'center',
+  },
+  viewCardInfo: {
+    backgroundColor: 'transparent',
+    marginLeft: 20,
+    marginTop: 10
+  },
+  labelTextPlace: {
+    fontSize: 18,
+    color: '#fff',
+    fontWeight: '700',
+  },
+  stars: {
+    color: 'yellow',
+    fontSize: 18
+  },
+  buttonFavouriteContainer: {
+    marginLeft: 20
+  },
+  wrapperBottomImageInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 });
 
-const handlePress = (navigator, props, placeId) => {
-	// this.setState({
-	// 	isloading: true
-	// });
-	api.getPlaceDetails(25)
-	.then(res => {
-		// if (res.error) {
-		// 	this.setState({
-		// 		error: 'place not found',
-		// 		isLoading: false
-		// 	})
-		// }
-		// else {
-    console.log('res', res);
-    console.log('props', props);
-			navigator.push({
-				id: 'placedetails',
-				passprops: { placeDetails: res }
-			});
-		// }
-	});
-};
+export class PlaceCard extends Component {
+  static propTypes = {
+    navigator: PropTypes.object.isRequired,
+    lastReviewProfiles: PropTypes.bool,
+    place: PropTypes.object.isRequired,
+    place_liked: PropTypes.bool,
+  };
 
-const goToReviewUserProfile = (navigator, props) => {
-  navigator.push({
-    id: 'memberprofile',
-    data: { data: props }
-  });
-};
+  static defaultProps = {
+    lastReviewProfiles: true
+  }
 
-export const PlaceCard = ({ navigator, ...props }) => (
-	<View style={styles.wrapper} >
-    <TouchableOpacity onPress={() => goToReviewUserProfile(navigator, props)}>
-  		<ProfileName {...props} follow={false} />
-    </TouchableOpacity>
-			<View>
-				<Text style={styles.postReviewText}>
-				{props.text}
-				</Text>
-			</View>
-		<TouchableOpacity onPress={() => handlePress(navigator, props)}>
-			<View>
-				<Image
-					source={{ uri: props.place.photo }}
-					style={styles.container}
-				>
-				</Image>
-			</View>
-		</TouchableOpacity>
-		<PlaceCardComments {...props} />
-	</View>
-);
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLiked: null || this.props.place_liked,
+      mapView: this.props.mapView
+    };
+    this.handleGotoPlaceDetails = this.handleGotoPlaceDetails.bind(this);
+    this.handleLikePress = this.handleLikePress.bind(this);
+  }
 
-PlaceCard.propTypes = {
-  navigator: PropTypes.object.isRequired
-};
+  handleGotoPlaceDetails() {
+    // this.setState({
+    // 	isloading: true
+    // });
+    api.getPlaceDetails(25)
+    .then(res => {
+      // if (res.error) {
+      // 	this.setState({
+      // 		error: 'place not found',
+      // 		isLoading: false
+      // 	})
+      // }
+      // else {
+      this.props.navigator.push({
+        id: 'placedetails',
+        passprops: { placeDetails: res }
+      });
+    // }
+    });
+  }
+
+  addressFormater(address) {
+    const index = address.indexOf(',', address.indexOf(',') + 1);
+    const substring = address.slice(0, index);
+    return substring;
+  }
+
+  handleLikePress() {
+    const { isLiked } = this.state;
+    this.setState({
+      isLiked: !isLiked
+    });
+  }
+
+  render() {
+    const { isLiked } = this.state;
+    return (
+      <View style={styles.wrapper} >
+        {this.props.lastReviewProfiles &&
+          <View style={{ flexDirection: 'row', height: 40 }}>
+          <View style={{ position: 'absolute', top: 5, left: 60 }}>
+            <ProfilePhoto
+              type="circle"
+              size={30}
+              border={true}
+              borderColor='#fff'
+            />
+          </View>
+          <View style={{ position: 'absolute', top: 5, left: 40 }}>
+            <ProfilePhoto
+              type="circle"
+              size={30}
+              border={true}
+              borderColor='#fff'
+            />
+          </View>
+          <View style={{ position: 'absolute', top: 5, left: 20 }}>
+            <ProfilePhoto
+              type="circle"
+              size={30}
+              border={true}
+              borderColor='#fff'
+            />
+          </View>
+        </View>
+        }
+        <TouchableOpacity onPress={() => this.handleGotoPlaceDetails()}>
+          <Image
+            source={{ uri: this.props.place.photo }}
+            style={styles.container}
+          >
+            <LinearGradient
+              locations={[0, 0.4]}
+              colors={[Styles.COLOR_DARKER_60, 'transparent']}
+              style={styles.linearGradient}
+            >
+              <View style={styles.wrapperCardInfo}>
+                <View style={styles.viewCardInfo}>
+                  <Text style={[styles.labelTextPlace,
+                      this.props.place.name_address.length > 30 && { fontSize: 15 }]}
+                  >
+                    {this.props.place.name}
+                  </Text>
+                  <Text style={{ color: '#fff' }}>
+                    {this.props.place.local}
+                  </Text>
+                  {/* <Text style={[{ color: '#fff' },
+                    this.props.place.name_address.length > 30 && { fontSize: 13 }]}
+                  >
+                    {
+                      this.props.place.name_address.length > 40
+                      ? this.addressFormater(this.props.place.name_address)
+                      : this.props.place.name_address
+                    }
+                  </Text> */}
+                </View>
+                <View style={[styles.viewCardInfo, { flexDirection: 'row', marginRight: 20 }]}>
+                  <Icon name="star" style={styles.stars} />
+                  <Icon name="star" style={styles.stars} />
+                  <Icon name="star" style={styles.stars} />
+                  <Icon name="star" style={styles.stars} />
+                  <Icon name="star" style={styles.stars} />
+                  <Text style={{ color: '#fff' }}>
+                    (30)
+                  </Text>
+                </View>
+              </View>
+
+            </LinearGradient>
+          </Image>
+        </TouchableOpacity>
+        <View style={styles.wrapperBottomImageInfo}>
+          <ButtonView
+            styleContainer={styles.buttonFavouriteContainer}
+            iconInfo={{
+              name: isLiked ? 'heart' : 'heart-o',
+              color: isLiked ? Styles.COLOR_GREEN : Styles.FONT_COLOR
+            }}
+            callback={this.handleLikePress}
+          />
+          <View style={{ marginRight: 20 }}>
+            <TagsView tags={this.props.place.tag} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+}

@@ -41,7 +41,7 @@ export class SocialMediaShare extends Component {
 
     this.toggleSelection = this.toggleSelection.bind(this);
 
-    this.state = { 
+    this.state = {
       selected: false,
     };
   }
@@ -61,4 +61,3 @@ export class SocialMediaShare extends Component {
     );
   }
 }
-

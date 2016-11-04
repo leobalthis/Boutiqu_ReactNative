@@ -82,7 +82,10 @@ export class Footer extends Component {
         <TouchableOpacity
           onPress={() => this.props.changeView('home', { index: 1 })}
         >
-					<Icon name="heart-o" size={30} color={Styles.COLOR_DARKER_30} />
+        <Image
+          style={[styles.btn, {width: 34}]}
+          source={require('../../../assets/heart_card_transpa@1x.png')}
+        />
 				</TouchableOpacity>
         <TouchableOpacity
           onPress={() => this.props.changeView('myprofile', { user: this.props.user })}

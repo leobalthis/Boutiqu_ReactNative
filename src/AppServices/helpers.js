@@ -15,6 +15,7 @@ export const helpers = {
       const data = this.keyValuePairsToObject(keyValueArray);
       const FACEBOOK_AUTH = JSON.stringify(data);
       const headers = Object.assign(options.headers || {}, { FACEBOOK_AUTH });
+      console.log('debug:', url, Object.assign(options, { headers }));
       return fetch(url, Object.assign(options, { headers }));
     })
     .then(result => result.json());

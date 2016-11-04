@@ -9,8 +9,8 @@ import { Styles } from 'AppStyles';
 const styles = StyleSheet.create({
   tags: {
     backgroundColor: Styles.COLOR_GREEN,
-    width: 55,
-    height: 15,
+    width: 60,
+    height: 18,
     marginLeft: 5,
     padding: 2,
     justifyContent: 'center',
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   tagText: {
     color: Styles.COLOR_WHITE,
-    fontSize: 12
+    fontSize: 14
   }
 });
 

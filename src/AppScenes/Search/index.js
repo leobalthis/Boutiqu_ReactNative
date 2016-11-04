@@ -14,16 +14,22 @@ import { Styles } from 'AppStyles';
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    alignItems: 'flex-start'
   },
   navigation: {
     backgroundColor: Styles.COLOR_GREEN
+  },
+  ViewButtonAround: {
+    position: 'absolute',
+    top: 100,
+    backgroundColor: '#fff',
   },
   buttonAround: {
     height: 45,
     width: 130,
     alignItems: 'flex-end',
     justifyContent: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderBottomColor: Styles.COLOR_LIGHTER_5
   },
   textAround: {
@@ -33,11 +39,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const leftButtonConfig = {
-  title: '< Back',
-  tintColor: Styles.COLOR_DARKER_30,
-  handler: () => this.props.navigator.pop(),
-};
+// const leftButtonConfig = {
+//   title: '< Back',
+//   tintColor: Styles.COLOR_DARKER_30,
+//   handler: () => this.props.navigator.pop(),
+// };
 
 export class SearchScene extends Component {
   static propTypes = {
@@ -64,22 +70,21 @@ export class SearchScene extends Component {
 
   goToSearchResult() {
     this.props.changeView('searchresult');
-    console.log("debug");
   }
 
   render() {
     return (
       <View style={styles.wrapper}>
-        <NavigationBar
+        {/* <NavigationBar
           style={styles.navigation}
           tintColor={Styles.COLOR_GREEN}
           leftButton={leftButtonConfig}
+        /> */}
+        <Search
+          placeholder="Where are you searching ?"
+          getPlace={this.getPlace}
         />
-      <Search
-        placeholder="Where are you searching ?"
-        getPlace={this.getPlace}
-      />
-        <View style={{ flex: 1, backgroundColor: '#fff' }}>
+        <View style={styles.ViewButtonAround}>
           <TouchableOpacity
             style={styles.buttonAround}
             onPress={() => {

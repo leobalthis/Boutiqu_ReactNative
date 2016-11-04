@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   tabsContent: {
     flexDirection: 'column',
-    backgroundColor: Styles.COLOR_WHITE,
+    backgroundColor: Styles.COLOR_LIGHTER_3,
   },
 });
 
@@ -30,16 +30,24 @@ export class SearchResultScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      mapView: false
     };
+    this.handleStateMapView = this.handleStateMapView.bind(this);
   }
+
+  handleStateMapView() {
+    const { mapView } = this.state;
+    this.setState({
+      mapView: !mapView
+    });
+  }
+
   render() {
     const leftButtonConfig = {
       title: '< Back',
       tintColor: Styles.COLOR_DARKER_30,
       handler: () => this.props.navigator.resetTo('search'),
     };
-    console.log(this.props)
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollableTabView
@@ -50,10 +58,18 @@ export class SearchResultScene extends Component {
           style={styles.tabs}
         >
           <ScrollView tabLabel="My network" style={styles.tabsContent}>
-            <MyNetwork {...this.props} />
+            <MyNetwork
+              handleStateMapView={this.handleStateMapView}
+              mapView={this.state.mapView}
+              type="search" {...this.props}
+            />
           </ScrollView>
           <ScrollView tabLabel="Discover" style={styles.tabsContent}>
-            <Discover type="search" {...this.props} />
+            <Discover
+              handleStateMapView={this.handleStateMapView}
+              mapView={this.state.mapView}
+              type="search" {...this.props}
+            />
           </ScrollView>
         </ScrollableTabView>
       </View>

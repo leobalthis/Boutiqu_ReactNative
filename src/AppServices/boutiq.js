@@ -35,7 +35,8 @@ export const Boutiq = {
   },
   getLikes(params = { page: 1, q: null }) {
     // q: To filter by tag "Eat", "Drink", "Sleep", "Do"
-    return this.getPlaces(params, 'likes');
+    // return this.getPlaces(params, 'likes');
+    return new Promise(res => res(require('./fixtures/userProfile.json')));
   },
   getPlaceReviews(params) {
     const { placeId, page, extra } = params;
