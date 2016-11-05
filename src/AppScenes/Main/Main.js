@@ -164,7 +164,12 @@ export class Main extends Component {
             title={
               <Image
                 source={require('../../../assets/boutiq_logo@0.5x.png')}
-                style={{ width: 180, height: 28, marginRight: x / 5 }}
+                style={{
+                  width: 130,
+                  height: 25,
+                  alignSelf: 'center',
+                  resizeMode: 'contain'
+                }}
               />}
             leftButton={<NavBarSideMenu openMenu={this.openMenu} />}
           />

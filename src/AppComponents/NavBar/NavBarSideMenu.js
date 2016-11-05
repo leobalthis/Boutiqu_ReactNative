@@ -1,5 +1,8 @@
 import React, { PropTypes } from 'react';
-import { TouchableHighlight, StyleSheet } from 'react-native';
+import {
+  TouchableOpacity,
+  StyleSheet
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Styles } from 'AppStyles';
 
@@ -16,12 +19,12 @@ const styles = StyleSheet.create({
 });
 
 export const NavBarSideMenu = ({ openMenu }) => (
-  <TouchableHighlight
+  <TouchableOpacity
     onPress={openMenu}
     style={styles.button}
   >
     <Icon name="bars" style={styles.icon} />
-  </TouchableHighlight>
+  </TouchableOpacity>
 );
 
 NavBarSideMenu.propTypes = {
