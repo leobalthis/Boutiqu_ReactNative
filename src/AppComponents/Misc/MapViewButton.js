@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -24,32 +24,20 @@ const styles = StyleSheet.create({
   },
 });
 
-export class MapViewButton extends Component {
-  static propTypes = {
-    handleMapView: PropTypes.func.isRequired,
-    mapView: PropTypes.bool.isRequired,
-  }
+export const MapViewButton = ({ handleMapView, isMapView }) => (
+  <TouchableOpacity
+    activeOpacity={0.9}
+    style={styles.buttonMapview}
+    onPress={() => {handleMapView();}}
+  >
+    <Text style={styles.text}>
+      {isMapView ? 'List view' : 'Map view'}
+    </Text>
+    <Icon name={isMapView ? 'list' : 'map-o'} size={16} />
+  </TouchableOpacity>
+);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      mapView: false,
-    };
-  }
-
-  render() {
-    const { mapView } = this.props;
-    return (
-      <TouchableOpacity
-        activeOpacity={0.9}
-        style={styles.buttonMapview}
-        onPress={() => {this.props.handleMapView();}}
-      >
-        <Text style={styles.text}>
-          {mapView ? 'List view' : 'Map view'}
-        </Text>
-        <Icon name={mapView ? 'list' : 'map-o'} size={16} />
-      </TouchableOpacity>
-    );
-  }
-}
+MapViewButton.propTypes = {
+  handleMapView: PropTypes.func.isRequired,
+  isMapView: PropTypes.bool.isRequired,
+};

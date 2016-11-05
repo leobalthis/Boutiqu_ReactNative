@@ -13,9 +13,7 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    // backgroundColor: 'blue',
     alignItems: 'center',
-    // justifyContent: 'flex-start'
   },
   tagsLabel: {
     flex: 1,

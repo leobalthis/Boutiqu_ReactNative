@@ -74,7 +74,7 @@ export class PlaceCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLiked: null || this.props.place_liked,
+      isLiked: this.props.place_liked || null,
       mapView: this.props.mapView
     };
     this.handleGotoPlaceDetails = this.handleGotoPlaceDetails.bind(this);
@@ -117,6 +117,7 @@ export class PlaceCard extends Component {
 
   render() {
     const { isLiked } = this.state;
+    console.log("props wish", this.props);
     return (
       <View style={styles.wrapper} >
         {this.props.lastReviewProfiles &&
@@ -188,7 +189,6 @@ export class PlaceCard extends Component {
                   </Text>
                 </View>
               </View>
-
             </LinearGradient>
           </Image>
         </TouchableOpacity>

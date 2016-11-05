@@ -44,7 +44,7 @@ export class Profile extends Component {
             </View>
             <Text style={styles.proRightTextProfileTypeInfo}>
               When your profile is public, your reviews are displayed in the
-              discover feed and otehr users can follow you.
+              discover feed and other users can follow you.
               Be an influencer and spread the world about places you like and want to remember.
             </Text>
           </View>

@@ -87,7 +87,8 @@ export class PlaceDetails extends Component {
 
   render() {
     const leftButtonConfig = {
-      title: 'Back',
+      title: '< Back',
+      tintColor: Styles.COLOR_DARKER_30,
       handler: () => this.props.navigator.pop(),
     };
     // const { placeDetails } = this.props['route']['passprops']

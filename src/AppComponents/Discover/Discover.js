@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import {
   ActivityIndicator,
   ListView,
-  Text,
   View,
 } from 'react-native';
 import { Boutiq } from 'AppServices';
@@ -23,12 +22,13 @@ export class Discover extends Component {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      // mapView: false,
+      isMapView: false,
       isLoading: true,
       data: [],
       dataSource: this.ds.cloneWithRows([])
     };
     this.renderListItem = this.renderListItem.bind(this);
+    this.handleStateMapView = this.handleStateMapView.bind(this);
   }
 
   componentDidMount() {
@@ -42,23 +42,21 @@ export class Discover extends Component {
     });
   }
 
-  // handleMapView() {
-  //   const { mapView } = this.state;
-  //   this.setState({
-  //     mapView: !mapView
-  //   });
-  // }
+  handleStateMapView() {
+    const { isMapView } = this.state;
+    this.setState({
+      isMapView: !isMapView
+    });
+  }
 
   renderListItem(rowData) {
     const { navigator, type } = this.props;
-    // const { mapView } = this.props;
     if (rowData.feed_type === 'review') {
       return type === 'search'
       ? <PlaceCard navigator={navigator} {...rowData} />
       : <PlaceReview navigator={navigator} {...rowData} />;
-    } else {
-      return <View />
     }
+    return <View />;
   }
 
   render() {
@@ -71,8 +69,8 @@ export class Discover extends Component {
         {type === 'search' &&
           <PlaceTypeFilter
             data={this.state.data}
-            mapView={this.props.mapView}
-            handleStateMapView={this.props.handleStateMapView}
+            isMapView={this.state.isMapView}
+            handleStateMapView={this.handleStateMapView}
           />}
         <ListView
           style={{ backgroundColor: Styles.COLOR_LIGHTER_3 }}

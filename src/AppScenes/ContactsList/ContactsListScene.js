@@ -31,6 +31,7 @@ export class ContactsListScene extends Component {
     };
     this.handleTextInput = this.handleTextInput.bind(this);
     this.saveChangeAndPop = this.saveChangeAndPop.bind(this);
+    this.renderListItem = this.renderListItem.bind(this);
   }
 
   componentDidMount() {
@@ -71,7 +72,7 @@ export class ContactsListScene extends Component {
     ? <ActivityIndicator size="large" />
     : <ListView
       dataSource={this.state.dataSource}
-      renderRow={this.renderListItem.bind(this)}
+      renderRow={this.renderListItem}
     />;
   }
 
@@ -113,9 +114,7 @@ export class ContactsListScene extends Component {
             {!isLoading && this.renderNumberContactType(contactType)}
           </Text>
         </View>
-        <View>
-          {this.renderListView()}
-        </View>
+        {this.renderListView()}
       </View>
     );
   }

@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
   },
   tag: {
     backgroundColor: Styles.COLOR_WHITE,
-    // width: 70,
+    borderWidth: 1,
+    marginHorizontal: 1,
+    borderColor: Styles.COLOR_GREEN,
     width: x / 6,
     height: 24,
     justifyContent: 'center',
@@ -47,17 +49,15 @@ export class TagsItem extends Component {
   render() {
     const { selected } = this.state;
     return (
-      <View style={{ borderWidth: 1, borderColor: Styles.COLOR_GREEN, marginHorizontal: 1 }}>
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={this.toggleSelection}
-          style={[styles.tag, selected && styles.tagSelected]}
-        >
-          <Text style={[styles.textTag, selected && { color: '#fff' }]}>
-            {this.props.label}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        activeOpacity={0.9}
+        onPress={this.toggleSelection}
+        style={[styles.tag, selected && styles.tagSelected]}
+      >
+        <Text style={[styles.textTag, selected && { color: '#fff' }]}>
+          {this.props.label}
+        </Text>
+      </TouchableOpacity>
     );
   }
 }

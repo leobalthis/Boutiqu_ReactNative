@@ -3,6 +3,8 @@ import {
 	View,
 	Text,
   MapView,
+  KeyboardAvoidingView,
+  Keyboard,
   TextInput,
   Image,
 	ScrollView,
@@ -113,12 +115,19 @@ export class ReviewCreator extends Component {
                 rateLabel={true}
               />
             </View>
-            <TextInput
-              multiline={true}
-              style={styles.reviewTextInput}
-              placeholder="Write a review"
-              onChangeText={review => {this.setState({ review });}}
-            />
+            <KeyboardAvoidingView
+              contentContainerStyle={{ backgroundColor: '#fff' }}
+              behavior='position'
+            >
+              <TextInput
+                multiline={true}
+                style={styles.reviewTextInput}
+                returnKeyType="done"
+                blurOnSubmit={true}
+                placeholder="Write a review"
+                onChangeText={review => {this.setState({ review });}}
+              />
+            </KeyboardAvoidingView>
             <CameraButton
               containerStyle={{ alignSelf: 'center', marginTop: - 30 }}
               openCameraPicker={this.selectImage}
