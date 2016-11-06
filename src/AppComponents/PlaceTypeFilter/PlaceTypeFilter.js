@@ -43,7 +43,7 @@ export class PlaceTypeFilter extends Component {
     navigator: PropTypes.object,
     data: PropTypes.object.isRequired,
     handleStateMapView: PropTypes.func.isRequired,
-    mapView: PropTypes.bool.isRequired,
+    isMapView: PropTypes.bool.isRequired,
   }
   constructor(props) {
     super(props);
@@ -86,18 +86,18 @@ export class PlaceTypeFilter extends Component {
   }
 
   render() {
-    const { mapView } = this.props;
+    const { isMapView } = this.props;
     let viewStyle = [styles.container, this.state.viewStyle];
     return (
       <Animated.View style={viewStyle}>
         <MapViewButton
           handleMapView={this.handleMapView}
-          mapView={this.props.mapView}
+          isMapView={this.props.isMapView}
         />
-        <View style={[styles.wrapperTagsView, mapView &&
-            { justifyContent: 'flex-start', height: 50 }]}
+      <View style={[styles.wrapperTagsView, isMapView &&
+          { justifyContent: 'flex-start', height: 50 }]}
         >
-          {!mapView &&
+          {!isMapView &&
           <Text style={styles.commonTextStyle}>
             {this.props.data.entries.length} places recommended by public users
           </Text>}
@@ -123,7 +123,7 @@ export class PlaceTypeFilter extends Component {
             />
           </View>
         </View>
-        {mapView && <MapView
+        {isMapView && <MapView
           style={{ height: 250, width: x }}
           region={this.state.region}
         />}

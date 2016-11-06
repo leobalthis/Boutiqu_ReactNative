@@ -20,7 +20,7 @@ export const TrustSlide = () => (
       friends and network
     </Text>
     <Text style={styles.slidesParagraph}>
-      Browse through places recommended by people you can identify
+      Browse through places recommended by people identify with
     </Text>
   </Image>
 );

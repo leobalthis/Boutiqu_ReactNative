@@ -12,16 +12,17 @@ import settings from '../../../settings.json';
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    zIndex: 50,
     backgroundColor: '#FFF',
   },
 });
 
-export const Search = ({ placeholder, getPlace }) => (
-  <View style={styles.wrapper}>
+export const Search = ({ placeholder, getPlace, containerStyle }) => (
+  <View style={[styles.wrapper, containerStyle]}>
     <GooglePlacesAutocomplete
       placeholder={placeholder}
       minLength={2}
-      autoFocus={false}
+      autoFocus={true}
       fetchDetails={true}
       onPress={(data, details = null) => {
         getPlace(data, details)
@@ -46,6 +47,7 @@ export const Search = ({ placeholder, getPlace }) => (
           borderBottomWidth: 0,
         },
         textInput: {
+          borderRadius: 1,
           alignSelf: 'center',
           backgroundColor: Styles.COLOR_WHITE,
           fontSize: 20,
@@ -72,6 +74,7 @@ export const Search = ({ placeholder, getPlace }) => (
 );
 
 Search.propTypes = {
+  containerStyle: PropTypes.object,
   placeholder: PropTypes.string,
   getPlace: PropTypes.func
 };

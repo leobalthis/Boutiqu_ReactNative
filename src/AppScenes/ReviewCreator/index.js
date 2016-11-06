@@ -113,12 +113,14 @@ export class ReviewCreator extends Component {
                 rateLabel={true}
               />
             </View>
-            <TextInput
-              multiline={true}
-              style={styles.reviewTextInput}
-              placeholder="Write a review"
-              onChangeText={review => {this.setState({ review });}}
-            />
+              <TextInput
+                multiline={true}
+                style={styles.reviewTextInput}
+                returnKeyType="done"
+                blurOnSubmit={true}
+                placeholder="Write a review"
+                onChangeText={review => {this.setState({ review });}}
+              />
             <CameraButton
               containerStyle={{ alignSelf: 'center', marginTop: - 30 }}
               openCameraPicker={this.selectImage}

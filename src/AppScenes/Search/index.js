@@ -14,7 +14,7 @@ import { Styles } from 'AppStyles';
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    alignItems: 'flex-start'
+    backgroundColor: '#fff'
   },
   navigation: {
     backgroundColor: Styles.COLOR_GREEN
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
   ViewButtonAround: {
     position: 'absolute',
     top: 100,
-    backgroundColor: '#fff',
   },
   buttonAround: {
     height: 45,
@@ -80,10 +79,6 @@ export class SearchScene extends Component {
           tintColor={Styles.COLOR_GREEN}
           leftButton={leftButtonConfig}
         /> */}
-        <Search
-          placeholder="Where are you searching ?"
-          getPlace={this.getPlace}
-        />
         <View style={styles.ViewButtonAround}>
           <TouchableOpacity
             style={styles.buttonAround}
@@ -96,6 +91,11 @@ export class SearchScene extends Component {
             </Text>
           </TouchableOpacity>
         </View>
+        <Search
+          containerStyle={{ position: 'absolute', top: 0 }}
+          placeholder="Where are you searching ?"
+          getPlace={this.getPlace}
+        />
       </View>
     );
   }

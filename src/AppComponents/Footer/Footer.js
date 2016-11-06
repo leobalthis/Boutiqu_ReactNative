@@ -80,7 +80,7 @@ export class Footer extends Component {
         </TouchableOpacity>
         </View>
         <TouchableOpacity
-          onPress={() => this.props.changeView('home', { index: 1 })}
+          onPress={() => this.props.changeView('wishlist', { index: 1 })}
         >
         <Image
           style={[styles.btn, {width: 34}]}

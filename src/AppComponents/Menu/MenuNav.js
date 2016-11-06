@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignSelf: 'stretch',
-    padding: 10,
     marginBottom: 10
   },
   image: {
@@ -32,6 +31,7 @@ const styles = StyleSheet.create({
 export const MenuNav = ({ onPress, label, source }) => (
   <TouchableOpacity
     onPress={onPress}
+    style={{ height: 40, marginBottom: 10, alignItems: 'center' }}
   >
     <View style={styles.wrapper}>
       <Image

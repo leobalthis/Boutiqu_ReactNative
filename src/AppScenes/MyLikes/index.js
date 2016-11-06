@@ -13,10 +13,6 @@ import { Styles, x } from 'AppStyles';
 import { Boutiq } from 'AppServices';
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: '#FFF',
-  },
   wrapperTags: {
     height: 80,
     width: x,
@@ -35,7 +31,6 @@ export class MyLikes extends Component {
       user: [],
       dataSource: this.ds.cloneWithRows([])
     };
-
     this.renderListItem = this.renderListItem.bind(this);
   }
 
@@ -52,7 +47,11 @@ export class MyLikes extends Component {
 
   renderListItem(rowData) {
     if (rowData.feed_type === 'review') {
-      return <PlaceCard {...this.props} {...rowData} lastReviewProfiles={false} />;
+      return <PlaceCard
+        {...this.props}
+        {...rowData}
+        lastReviewProfiles={false}
+      />;
     }
     return <View />;
   }

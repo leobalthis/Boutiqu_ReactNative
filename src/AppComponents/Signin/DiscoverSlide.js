@@ -20,7 +20,7 @@ export const DiscoverSlide = () => (
       and when you travel
     </Text>
     <Text style={styles.slidesParagraph}>
-      Boutiq helps you find the best spots in town or these hidden gems abroad
+      Boutiq helps you find the best spots in town or those hidden gems abroad
     </Text>
   </Image>
 );

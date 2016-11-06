@@ -9,6 +9,13 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#FFF',
+  },
+});
+
 const NavBarSideMenu = props => (
   <TouchableHighlight
     onPress={props.openMenu}
@@ -16,7 +23,7 @@ const NavBarSideMenu = props => (
       justifyContent: 'center',
       padding: 10,
     }}>
-    <Icon name='bars' size={20} color='#000' />
+    <Icon name="bars" size={20} color='#000' />
   </TouchableHighlight>
 )
 
@@ -27,19 +34,13 @@ NavBarSideMenu.propTypes = {
 export class PostAReview extends Component {
   render() {
     return (
-      <View style={styles.wrapper}>
+      <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <NavigationBar
           title={{title: 'My Likes'}}
-          leftButton={<NavBarSideMenu {...this.props}/>} />
+          leftButton={<NavBarSideMenu {...this.props} />}
+        />
         <Text>Post a review</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: '#FFF',
-  },
-});

@@ -87,7 +87,8 @@ export class PlaceDetails extends Component {
 
   render() {
     const leftButtonConfig = {
-      title: 'Back',
+      title: '< Back',
+      tintColor: Styles.COLOR_DARKER_30,
       handler: () => this.props.navigator.pop(),
     };
     // const { placeDetails } = this.props['route']['passprops']
@@ -140,6 +141,7 @@ export class PlaceDetails extends Component {
           </View>
           <MapView
             style={{ height: 170, marginTop: 30, marginBottom: 10 }}
+            scrollEnabled={false}
             region={{
               latitude: -33.865143,
               longitude: 151.209900,

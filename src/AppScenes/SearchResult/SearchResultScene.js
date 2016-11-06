@@ -30,17 +30,17 @@ export class SearchResultScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mapView: false
+      // mapView: false
     };
-    this.handleStateMapView = this.handleStateMapView.bind(this);
+    // this.handleStateMapView = this.handleStateMapView.bind(this);
   }
 
-  handleStateMapView() {
-    const { mapView } = this.state;
-    this.setState({
-      mapView: !mapView
-    });
-  }
+  // handleStateMapView() {
+  //   const { mapView } = this.state;
+  //   this.setState({
+  //     mapView: !mapView
+  //   });
+  // }
 
   render() {
     const leftButtonConfig = {

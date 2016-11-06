@@ -16,18 +16,18 @@ import { Styles } from 'AppStyles';
 
 export class MyNetwork extends Component {
   static propTypes = {
-    user: PropTypes.object.isRequired
+    user: PropTypes.object
   }
   constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      // mapView: false,
+      isMapView: false,
       isLoading: true,
       data: [],
       dataSource: this.ds.cloneWithRows([])
     };
-    // this.handleMapView = this.handleMapView.bind(this);
+    this.handleStateMapView = this.handleStateMapView.bind(this);
     this.renderListItem = this.renderListItem.bind(this);
     this.onPressStatus = this.onPressStatus.bind(this);
   }
@@ -54,12 +54,14 @@ export class MyNetwork extends Component {
     }
   }
 
-  // handleMapView() {
-  //   const { mapView } = this.state;
-  //   this.setState({
-  //     mapView: !mapView
-  //   });
-  // }
+  handleStateMapView() {
+    const { isMapView } = this.state;
+    console.log("pressed", isMapView);
+    this.setState({
+      isMapView: !isMapView
+    });
+  }
+
   onPressStatus() {
     console.log("will publish status");
   }
@@ -74,8 +76,8 @@ export class MyNetwork extends Component {
         {type === 'search' &&
           <PlaceTypeFilter
             data={this.state.data}
-            mapView={this.props.mapView}
-            handleStateMapView={this.props.handleStateMapView}
+            isMapView={this.state.isMapView}
+            handleStateMapView={this.handleStateMapView}
           />}
         {type === 'home' &&
           <PostStatus onPress={this.onPressStatus} user={this.props.user}
