@@ -141,6 +141,7 @@ export class PlaceDetails extends Component {
           </View>
           <MapView
             style={{ height: 170, marginTop: 30, marginBottom: 10 }}
+            scrollEnabled={false}
             region={{
               latitude: -33.865143,
               longitude: 151.209900,
